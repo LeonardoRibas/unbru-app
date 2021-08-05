@@ -9,28 +9,35 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "expo": "~40.0.0",
+        "@expo-google-fonts/lexend": "^0.2.0",
+        "@react-navigation/native": "^6.0.1",
+        "@react-navigation/native-stack": "^6.0.1",
+        "expo": "~42.0.3",
+        "expo-app-loading": "^1.1.2",
+        "expo-font": "~9.2.1",
         "expo-status-bar": "~1.0.3",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
         "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-        "react-native-web": "~0.13.12"
+        "react-native-safe-area-context": "3.2.0",
+        "react-native-screens": "~3.5.0",
+        "react-native-web": "~0.17.1"
     },
     "devDependencies": {
         "@babel/core": "^7.9.0",
-        "@types/react": "~16.9.35",
-        "@types/react-dom": "~16.9.8",
-        "@types/react-native": "~0.63.2",
+        "@types/react": "~17.0.15",
+        "@types/react-dom": "~17.0.9",
+        "@types/react-native": "~0.64.12",
         "@typescript-eslint/eslint-plugin": "^4.20.0",
         "@typescript-eslint/parser": "^4.20.0",
         "eslint": "^7.23.0",
         "eslint-config-prettier": "^8.1.0",
         "eslint-plugin-prettier": "^3.3.1",
         "eslint-plugin-react": "^7.23.1",
-        "husky": "^6.0.0",
-        "lint-staged": "^10.5.4",
-        "prettier": "2.2.1",
-        "typescript": "~4.0.0"
+        "husky": "^7.0.1",
+        "lint-staged": "^11.1.1",
+        "prettier": "2.3.2",
+        "typescript": "~4.3.5"
     },
     "private": true,
     "lint-staged": {
