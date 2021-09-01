@@ -1,21 +1,44 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import Home from "./src/pages/Home";
+import AppLoading from "expo-app-loading";
+import { StatusBar } from "expo-status-bar";
+import OnBoarding from "./src/pages/OnBoarding";
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+    useFonts,
+    Lexend_500Medium,
+    Lexend_700Bold,
+    Lexend_600SemiBold,
+} from "@expo-google-fonts/lexend";
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App(): React.ReactElement {
+    const [fontsLoaded] = useFonts({
+        Lexend_500Medium,
+        Lexend_700Bold,
+        Lexend_600SemiBold,
+    });
+
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    }
+
     return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <StatusBar style="auto" />
+                <Stack.Navigator>
+                    <Stack.Screen
+                        name="OnBoarding"
+                        component={OnBoarding}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen name="Home" component={Home} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </SafeAreaProvider>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
