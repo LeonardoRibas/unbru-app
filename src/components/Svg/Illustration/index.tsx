@@ -1,9 +1,9 @@
 import * as React from "react";
-import Svg, { Path, G } from "react-native-svg";
+import Svg, { SvgProps, Path, G } from "react-native-svg";
 
-export default function SvgComponent(): React.ReactElement {
+export default function Illustration(props: SvgProps): React.ReactElement {
     return (
-        <Svg width={335} height={298} viewBox="0 0 335 298" fill="none">
+        <Svg width={335} height={298} viewBox="0 0 335 298" fill="none" {...props}>
             <Path
                 d="M313.078 220.184v-32.191h9.67v32.191a2.38 2.38 0 01-1.421 1.971 7.512 7.512 0 01-6.843 0 2.4 2.4 0 01-1.406-1.971z"
                 fill="#37474F"

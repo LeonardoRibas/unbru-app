@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import { Text } from "react-native";
 import Button from "../../components/Button";
-import SvgComponent from "../../components/SvgComponent";
+import Illustration from "../../components/Svg/Illustration";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
@@ -13,7 +13,7 @@ type OnBoardingProps = {
 export default function OnBoarding({ navigation }: OnBoardingProps): React.ReactElement {
     return (
         <SafeAreaView style={styles.container}>
-            <SvgComponent />
+            <Illustration />
             <Text style={styles.title}>
                 Saiba tudo sobre as{"\n"}
                 refeições na UnB
