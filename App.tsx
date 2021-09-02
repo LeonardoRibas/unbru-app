@@ -1,9 +1,10 @@
 import React from "react";
-import Home from "./src/pages/Home";
+import { View, Text, Button } from "react-native";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
 import OnBoarding from "./src/pages/OnBoarding";
 import { NavigationContainer } from "@react-navigation/native";
+import TopTabNavigator from "./src/pages/TopTabNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -13,7 +14,7 @@ import {
     Lexend_600SemiBold,
 } from "@expo-google-fonts/lexend";
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
@@ -36,7 +37,11 @@ export default function App(): React.ReactElement {
                         component={OnBoarding}
                         options={{ headerShown: false }}
                     />
-                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen
+                        name="Home"
+                        component={TopTabNavigator}
+                        options={{ headerShown: false }}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>
