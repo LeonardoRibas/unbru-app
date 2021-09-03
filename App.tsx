@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
 import OnBoarding from "./src/pages/OnBoarding";
