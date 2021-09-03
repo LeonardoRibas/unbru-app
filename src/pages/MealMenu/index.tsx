@@ -2,6 +2,9 @@ import React from "react";
 import DishItem from "../../components/DishItem";
 import SubHeader from "../../components/SubHeader";
 import { View, FlatList } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
+type MealMenuProps = NativeStackScreenProps<RootStackParamList, "MealMenu">;
 
 const data = [
     {
@@ -51,7 +54,7 @@ const data = [
     },
 ];
 
-export default function MealMenu({ route }): React.ReactElement {
+export default function MealMenu({ route }: MealMenuProps): React.ReactElement {
     return (
         <View style={{ flex: 1 }}>
             <FlatList
