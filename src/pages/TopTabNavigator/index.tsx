@@ -15,7 +15,6 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function TopTabNavigator({ route }: TopTabNavigatorProps): React.ReactElement {
     const today = dayjs().format("DD/MM");
-    console.log(today);
     return (
         <Tab.Navigator
             initialRouteName={today}
