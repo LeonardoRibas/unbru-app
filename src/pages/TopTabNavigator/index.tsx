@@ -1,26 +1,35 @@
 import React from "react";
+import dayjs from "dayjs";
 import Header from "../../components/Header";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import {
+    createMaterialTopTabNavigator,
+    MaterialTopTabBarProps,
+} from "@react-navigation/material-top-tabs";
+
+type TopTabNavigatorProps = NativeStackScreenProps<RootStackParamList, "TopTabNavigator">;
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TopTabNavigator({ route }): React.ReactElement {
+export default function TopTabNavigator({ route }: TopTabNavigatorProps): React.ReactElement {
+    const today = dayjs().format("DD/MM");
+    console.log(today);
     return (
         <Tab.Navigator
-            screenOptions={{ swipeEnabled: false }}
-            tabBar={(props) => (
-                <Header {...props} title={getFocusedRouteNameFromRoute(route) ?? "Segunda"} />
+            initialRouteName={today}
+            tabBar={(props: MaterialTopTabBarProps) => (
+                <Header {...props} title={getFocusedRouteNameFromRoute(route) ?? today} />
             )}
         >
-            <Tab.Screen name="Segunda" component={BottomTabNavigator} />
-            <Tab.Screen name="Terça" component={BottomTabNavigator} />
-            <Tab.Screen name="Quarta" component={BottomTabNavigator} />
-            <Tab.Screen name="Quinta" component={BottomTabNavigator} />
-            <Tab.Screen name="Sexta" component={BottomTabNavigator} />
-            <Tab.Screen name="Sábado" component={BottomTabNavigator} />
-            <Tab.Screen name="Domingo" component={BottomTabNavigator} />
+            <Tab.Screen name="30/08" component={BottomTabNavigator} />
+            <Tab.Screen name="31/08" component={BottomTabNavigator} />
+            <Tab.Screen name="01/09" component={BottomTabNavigator} />
+            <Tab.Screen name="02/09" component={BottomTabNavigator} />
+            <Tab.Screen name="03/09" component={BottomTabNavigator} />
+            <Tab.Screen name="04/09" component={BottomTabNavigator} />
+            <Tab.Screen name="05/09" component={BottomTabNavigator} />
         </Tab.Navigator>
     );
 }
