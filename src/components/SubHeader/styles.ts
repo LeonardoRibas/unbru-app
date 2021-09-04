@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
+        flexDirection: "row",
+        alignItems: "center",
         paddingHorizontal: 20,
         marginVertical: 24,
     },
@@ -9,16 +11,17 @@ const styles = StyleSheet.create({
         fontFamily: "Lexend_600SemiBold",
         fontSize: 25,
         color: "#272E28",
-        marginBottom: 8,
+        marginRight: 40,
     },
-    subTitle: {
-        fontFamily: "Lexend_600SemiBold",
+    hourInfoText: {
+        fontFamily: "Lexend_500Medium",
         fontSize: 13,
         color: "#969696",
+        marginLeft: 4,
     },
-    tagWrapper: {
-        position: "absolute",
-        right: 20,
+    hourInfoWrapper: {
+        flexDirection: "row",
+        alignItems: "center",
     },
 });
 
