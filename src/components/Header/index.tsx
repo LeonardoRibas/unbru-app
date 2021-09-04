@@ -12,7 +12,9 @@ type HeaderProps = MaterialTopTabBarProps & {
 };
 
 export default function Header({ state, navigation, title }: HeaderProps): React.ReactElement {
+    const yesterday = dayjs().subtract(1, "day").format("DD/MM");
     const today = dayjs().format("DD/MM");
+    const tomorrow = dayjs().add(1, "day").format("DD/MM");
 
     return (
         <SafeAreaView style={styles.container}>
@@ -27,11 +29,23 @@ export default function Header({ state, navigation, title }: HeaderProps): React
                 >
                     <MaterialIcons name="keyboard-arrow-left" size={24} color="#7E7E7E" />
                     <Text style={styles.buttonTextLeft}>
-                        {title === today ? "Ontem" : state.routeNames[state.index - 1]}
+                        {title === today
+                            ? "Ontem"
+                            : title === tomorrow
+                            ? "Hoje"
+                            : state.routeNames[state.index - 1]}
                     </Text>
                 </RectButton>
             )}
-            <Text style={styles.title}>{title === today ? "Hoje" : title}</Text>
+            <Text style={styles.title}>
+                {title === today
+                    ? "Hoje"
+                    : title === tomorrow
+                    ? "Amanhã"
+                    : title === yesterday
+                    ? "Ontem"
+                    : title}
+            </Text>
             {state.index + 1 <= state.routeNames.length - 1 && (
                 <RectButton
                     style={styles.buttonWrapper}
@@ -46,7 +60,11 @@ export default function Header({ state, navigation, title }: HeaderProps): React
                     }
                 >
                     <Text style={styles.buttonTextRight}>
-                        {title === today ? "Amanhã" : state.routeNames[state.index + 1]}
+                        {title === today
+                            ? "Amanhã"
+                            : title === yesterday
+                            ? "Hoje"
+                            : state.routeNames[state.index + 1]}
                     </Text>
                     <MaterialIcons name="keyboard-arrow-right" size={24} color="#7E7E7E" />
                 </RectButton>
