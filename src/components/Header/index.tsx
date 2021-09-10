@@ -20,7 +20,7 @@ export default function Header({ state, navigation, title }: HeaderProps): React
         <SafeAreaView style={styles.container}>
             {state.index - 1 >= 0 && (
                 <RectButton
-                    style={styles.buttonWrapper}
+                    style={styles.leftButtonWrapper}
                     onPress={() =>
                         navigation.navigate(
                             state.routeNames[state.index - 1 >= 0 ? state.index - 1 : 0]
@@ -48,7 +48,7 @@ export default function Header({ state, navigation, title }: HeaderProps): React
             </Text>
             {state.index + 1 <= state.routeNames.length - 1 && (
                 <RectButton
-                    style={styles.buttonWrapper}
+                    style={styles.rightButtonWrapper}
                     onPress={() =>
                         navigation.navigate(
                             state.routeNames[

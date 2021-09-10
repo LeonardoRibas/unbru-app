@@ -3,14 +3,24 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         width: "100%",
         height: 56 + Constants.statusBarHeight,
-        paddingHorizontal: 16,
+        backgroundColor: "white",
     },
-    buttonWrapper: {
+    leftButtonWrapper: {
+        position: "absolute",
+        left: 16,
+        bottom: 12,
+        flexDirection: "row",
+        alignItems: "center",
+        paddingVertical: 4,
+    },
+    rightButtonWrapper: {
+        position: "absolute",
+        right: 16,
+        bottom: 12,
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: 4,
