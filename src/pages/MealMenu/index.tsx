@@ -56,7 +56,7 @@ const data = [
 
 export default function MealMenu({ route }: MealMenuProps): React.ReactElement {
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: "white" }}>
             <FlatList
                 ListHeaderComponent={() => (
                     <SubHeader mealType={route.name} campus="Darcy Ribeiro" time="6h - 9h" />
