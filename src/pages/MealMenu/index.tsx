@@ -58,6 +58,7 @@ export default function MealMenu({ route }: MealMenuProps): React.ReactElement {
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
             <FlatList
+                showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
                     <SubHeader mealType={route.name} campus="Darcy Ribeiro" time="6h - 9h" />
                 )}
