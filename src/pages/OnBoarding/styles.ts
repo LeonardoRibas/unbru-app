@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "white",
     },
     title: {
         fontFamily: "Lexend_700Bold",
@@ -19,6 +20,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "#969696",
         marginBottom: 80,
+    },
+    highlight: {
+        color: "#4BB762",
     },
 });
 

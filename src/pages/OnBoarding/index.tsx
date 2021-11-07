@@ -16,10 +16,10 @@ export default function OnBoarding({ navigation }: OnBoardingProps): React.React
             <Illustration />
             <Text style={styles.title}>
                 Saiba tudo sobre as{"\n"}
-                refeições na UnB
+                refeições na <Text style={styles.highlight}>UnB</Text>
             </Text>
             <Text style={styles.subTitle}>
-                O cardápio do restaurante{"\n"}
+                O cardápio do Restaurante{"\n"}
                 Universitário da Universidade de{"\n"}
                 Brasília na palma de sua mão!
             </Text>
