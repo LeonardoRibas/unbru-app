@@ -3,5 +3,7 @@ type RootStackParamList = {
     Home: undefined;
     TopTabNavigator: undefined;
     BottomTabNavigator: undefined;
-    MealMenu: undefined;
+    Jantar: undefined;
+    Almoço: undefined;
+    Desjejum: undefined;
 };
