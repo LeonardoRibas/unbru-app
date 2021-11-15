@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import styles from "./styles";
 
 type SubHeaderProps = {
-    mealType: string;
+    mealType: "Desjejum" | "Almoço" | "Jantar";
     time: string;
 };
 
@@ -13,7 +13,7 @@ export default function SubHeader({ mealType, time }: SubHeaderProps): React.Rea
         <View style={styles.container}>
             <Text style={styles.title}>{mealType}</Text>
             <View style={styles.hourInfoWrapper}>
-                <Feather name="clock" size={13} color="#969696" iconStyle={styles.icon} />
+                <Feather name="clock" size={13} color="#969696" />
                 <Text style={styles.hourInfoText}>{time}</Text>
             </View>
         </View>

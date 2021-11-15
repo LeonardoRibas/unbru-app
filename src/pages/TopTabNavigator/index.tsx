@@ -18,6 +18,7 @@ export default function TopTabNavigator({ route }: TopTabNavigatorProps): React.
     return (
         <Tab.Navigator
             initialRouteName={today}
+            screenOptions={{ swipeEnabled: false }}
             tabBar={(props: MaterialTopTabBarProps) => (
                 <Header {...props} title={getFocusedRouteNameFromRoute(route) ?? today} />
             )}

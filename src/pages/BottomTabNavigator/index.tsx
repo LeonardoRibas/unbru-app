@@ -22,19 +22,22 @@ export default function BottomTabNavigator(): React.ReactElement {
         >
             <Tab.Screen
                 name="Desjejum"
-                component={MealMenu}
                 options={{ tabBarIcon: ({ color }) => <BreakfastIcon color={color} /> }}
-            />
+            >
+                {() => <MealMenu mealCategory="Desjejum" />}
+            </Tab.Screen>
             <Tab.Screen
                 name="Almoço"
-                component={MealMenu}
                 options={{ tabBarIcon: ({ color }) => <LunchIcon color={color} /> }}
-            />
+            >
+                {() => <MealMenu mealCategory="Almoço" />}
+            </Tab.Screen>
             <Tab.Screen
                 name="Jantar"
-                component={MealMenu}
                 options={{ tabBarIcon: ({ color }) => <DinnerIcon color={color} /> }}
-            />
+            >
+                {() => <MealMenu mealCategory="Jantar" />}
+            </Tab.Screen>
         </Tab.Navigator>
     );
 }
