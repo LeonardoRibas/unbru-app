@@ -5,6 +5,7 @@ import LunchIcon from "../../components/Svg/LunchIcon";
 import DinnerIcon from "../../components/Svg/DinnerIcon";
 import BreakfastIcon from "../../components/Svg/BreakfastIcon";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { Colors } from "../../styles";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,7 +19,7 @@ export default function BottomTabNavigator(): React.ReactElement {
         <Tab.Navigator
             initialRouteName={nextMeal(dayjs().hour())}
             barStyle={{ backgroundColor: "white" }}
-            activeColor="#3AB449"
+            activeColor={Colors.primary.brand}
         >
             <Tab.Screen
                 name="Desjejum"

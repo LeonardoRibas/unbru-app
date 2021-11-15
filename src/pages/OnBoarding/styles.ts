@@ -1,28 +1,31 @@
 import { StyleSheet } from "react-native";
+import { Colors, Sizing } from "../../styles";
+import { Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "white",
+        backgroundColor: Colors.neutral.white,
     },
     title: {
-        fontFamily: "Lexend_700Bold",
-        fontSize: 25,
+        fontFamily: Typography.fontWeight.bold,
+        fontSize: Typography.fontSize.x40,
         textAlign: "center",
-        marginTop: 32,
-        marginBottom: 16,
+        marginTop: Sizing.layout.x40,
+        marginBottom: Sizing.layout.x20,
     },
     subTitle: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 15,
+        fontFamily: Typography.fontWeight.medium,
+        fontSize: Typography.fontSize.x20,
         textAlign: "center",
-        color: "#969696",
-        marginBottom: 80,
+        color: Colors.neutral.s500,
+        marginBottom: Sizing.layout.x100,
+        lineHeight: 22,
     },
     highlight: {
-        color: "#4BB762",
+        color: Colors.primary.brand,
     },
 });
 

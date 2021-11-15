@@ -1,24 +1,26 @@
 import { StyleSheet } from "react-native";
 
+import { Sizing, Outlines, Colors, Typography } from "../../styles";
+
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 16,
-        paddingBottom: 17,
-        borderBottomWidth: 1,
-        borderBottomColor: "#C4C4C4",
-        marginLeft: 20,
-        marginRight: 48,
+        paddingTop: Sizing.layout.x20,
+        paddingBottom: Sizing.layout.x20 + 1,
+        borderBottomWidth: Outlines.borderWidth.thin,
+        borderBottomColor: Colors.neutral.s250,
+        marginLeft: Sizing.margin.base,
+        marginRight: Sizing.layout.x60,
     },
     label: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 13,
-        color: "#969696",
-        marginBottom: 8,
+        fontFamily: Typography.fontWeight.medium,
+        fontSize: Typography.fontSize.x15,
+        color: Colors.neutral.s500,
+        marginBottom: Sizing.layout.x10,
     },
     dish: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 15,
-        color: "#272E28",
+        fontFamily: Typography.fontWeight.medium,
+        fontSize: Typography.fontSize.x20,
+        color: Colors.neutral.black,
     },
 });
 

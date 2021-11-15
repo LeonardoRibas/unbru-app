@@ -1,18 +1,20 @@
 import { StyleSheet } from "react-native";
 
+import { Sizing, Outlines, Colors, Typography } from "../../styles";
+
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#4BB762",
-        height: 56,
-        width: 225,
-        borderRadius: 16,
+        justifyContent: "center",
+        paddingVertical: Sizing.layout.x20,
+        paddingHorizontal: Sizing.layout.x80,
+        borderRadius: Outlines.borderRadius.base,
+        backgroundColor: Colors.primary.brand,
     },
     text: {
-        color: "white",
-        fontFamily: "Lexend_600SemiBold",
-        fontSize: 15,
+        color: Colors.neutral.white,
+        fontFamily: Typography.fontWeight.semiBold,
+        fontSize: Typography.fontSize.x20,
     },
 });
 
