@@ -1,11 +1,35 @@
 <p align="center">
-  <a href="https://unform.dev">
-    <img src="./assets/logo.svg" height="150" width="175" alt="Unform" />
-  </a>
+    <img src="./assets/logo.svg" height="150" width="175" alt="UnBRU" />
 </p>
 
 <h1 align="center">UnBRU (em construção... 🚧)</h1>
 
-## Descrição do Projeto
 <p align="center">Aplicativo que disponibiliza o cardápio do Restaurante Universitário da Universidade de Brasília</p>
 
+<p align="center">
+ <a href="#objetivo">Objetivo</a> •
+ <a href="#roadmap">Roadmap</a> • 
+ <a href="#tecnologias">Tecnologias</a> • 
+ <a href="#contribuição">Contribuição</a> • 
+ <a href="#licença">Licença</a> • 
+ <a href="#autor">Autor</a>
+</p>
+
+Objetivo
+==========
+O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de Brasília ao cardápio do Restaurante Universitário com a praticidade de um app, visto que atualmente o cardapio pode ser visualizado apenas por um pdf
+
+Roadmap
+=======
+
+Tecnologias
+===========
+
+Contribuição
+============
+
+Licença
+=======
+
+Autor
+=====
