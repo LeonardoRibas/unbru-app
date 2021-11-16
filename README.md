@@ -8,10 +8,9 @@
 
 <p align="center">
  <a href="#objetivo">Objetivo</a> •
- <a href="#roadmap">Roadmap</a> • 
+ <a href="#instalação">Instalação</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
  <a href="#contribuição">Contribuição</a> • 
- <a href="#licença">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
 
@@ -19,17 +18,14 @@ Objetivo
 ==========
 O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de Brasília ao cardápio do Restaurante Universitário com a praticidade de um app, visto que atualmente o cardapio pode ser visualizado apenas por um pdf
 
-Roadmap
-=======
+Instalação
+==========
 
 Tecnologias
 ===========
 
 Contribuição
 ============
-
-Licença
-=======
 
 Autor
 =====
