@@ -6,13 +6,13 @@
 
 <p align="center">Aplicativo que disponibiliza o cardápio do Restaurante Universitário da Universidade de Brasília</p>
 
-<p align="center">
- <a href="#objetivo">Objetivo</a> •
- <a href="#instalação">Instalação</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuição">Contribuição</a> • 
- <a href="#autor">Autor</a>
-</p>
+<div align="center">
+    <img src="https://img.shields.io/github/license/LeonardoRibas/unb-ru-app" />
+    <img src="https://img.shields.io/static/v1?label=Typescript&message=~4.3.5&color=4179C6&logo=typescript"/>
+    <img src="https://img.shields.io/static/v1?label=Expo&message=~42.0.3&color=000020&logo=expo"/>
+    <img src="https://img.shields.io/static/v1?label=ESLint&message=^7.23.0&color=4B32C3&logo=eslint"/>
+    <img src="https://img.shields.io/static/v1?label=Prettier&message=2.2.3&color=F7B93E&logo=prettier"/>
+</div>
 
 Objetivo
 ==========
@@ -20,10 +20,17 @@ O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de
 
 Instalação
 ==========
-
-Tecnologias
-===========
-
+- Requisitos:
+<a href="https://nodejs.org/en/">Nodejs</a>, <a href="https://docs.expo.dev/get-started/installation/">Expo</a>, <a href="https://expo.dev/client">Expo Go</a>
+- Rodando o projeto:
+```bash
+# Instala as dependências do projeto
+npm install
+```
+```bash
+# Inicia o projeto
+expo start
+```
 Contribuição
 ============
 
