@@ -2,7 +2,7 @@
     <img src="./assets/logo.svg" height="150" width="175" alt="UnBRU" />
 </p>
 
-<h1 align="center">UnBRU (em construção... 🚧)</h1>
+<h1 align="center">UnBRU</h1>
 
 <p align="center">Aplicativo que disponibiliza o cardápio do Restaurante Universitário da Universidade de Brasília</p>
 
@@ -31,6 +31,11 @@ npm install
 # Inicia o projeto
 expo start
 ```
+
+Demo
+====
+<img src="./assets/demo.svg" />
+
 Contribuição
 ============
 
