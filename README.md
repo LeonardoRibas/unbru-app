@@ -39,3 +39,5 @@ expo start
 ```
 
 ## Contribuição
+
+Interessado em contriubuir como o projeto? Leia o [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/develop/CONTRIBUTING.md)
