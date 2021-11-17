@@ -1,13 +1,14 @@
 import React from "react";
 import dayjs from "dayjs";
 import MealMenu from "../MealMenu";
+import BottomTab from "../../components/BottomTab";
 import LunchIcon from "../../components/Svg/LunchIcon";
 import DinnerIcon from "../../components/Svg/DinnerIcon";
 import BreakfastIcon from "../../components/Svg/BreakfastIcon";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Colors } from "../../styles";
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 export default function BottomTabNavigator(): React.ReactElement {
     const nextMeal = (time: number) => {
@@ -16,11 +17,7 @@ export default function BottomTabNavigator(): React.ReactElement {
         else if (time >= 14 || time < 19) return "Jantar";
     };
     return (
-        <Tab.Navigator
-            initialRouteName={nextMeal(dayjs().hour())}
-            barStyle={{ backgroundColor: "white" }}
-            activeColor={Colors.primary.brand}
-        >
+        <Tab.Navigator tabBar={BottomTab} tabBarPosition="bottom">
             <Tab.Screen
                 name="Desjejum"
                 options={{ tabBarIcon: ({ color }) => <BreakfastIcon color={color} /> }}
