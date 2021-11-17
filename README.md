@@ -18,6 +18,10 @@
 
 O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de Brasília ao cardápio do Restaurante Universitário com a praticidade de um app, visto que atualmente o cardapio pode ser visualizado apenas por um pdf
 
+## Telas do MVP
+
+<img src="./assets/demo.svg" />
+
 ## Instalação
 
 - Pré-requisitos:
@@ -33,9 +37,5 @@ npm install
 ```bash
 expo start
 ```
-
-## Telas do MVP
-
-<img src="./assets/demo.svg" />
 
 ## Contribuição
