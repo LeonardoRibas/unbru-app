@@ -20,15 +20,17 @@ O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de
 
 ## Instalação
 
-- Requisitos:
+- Pré-requisitos:
 <a href="https://nodejs.org/en/">Nodejs</a>, <a href="https://docs.expo.dev/get-started/installation/">Expo</a>, <a href="https://expo.dev/client">Expo Go</a>
-- Rodando o projeto:
+
+1. Instale as dependêcias do projeto
+
 ```bash
-# Instala as dependências do projeto
 npm install
 ```
+2. Incie o projeto
+
 ```bash
-# Inicia o projeto
 expo start
 ```
 
