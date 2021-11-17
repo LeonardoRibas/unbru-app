@@ -2,7 +2,7 @@
 
 Primeiramente, obrigado pelo seu interesse em contribuir! Precisamos de desenvolvedores como você para ajudar a decolar esse projeto 🚀.
 
-Este documento é um conjunto de boas práticas para sua contribuição. Não encare as seguintes diretrizes como regras e use seu bom senso para que sua contribuição seja o mais clara possível.
+Este documento é um conjunto de boas práticas para sua contribuição. Não encare as seguintes diretrizes como regras, use seu bom senso para que sua contribuição seja o mais clara possível e sinta-se livre para sugerir alterações nesse documento por meio de um Pull Request.
 
 ## Nomeação de Branchs
 
