@@ -14,12 +14,12 @@
     <img src="https://img.shields.io/static/v1?label=Prettier&message=2.2.3&color=F7B93E&logo=prettier"/>
 </div>
 
-Objetivo
-==========
+## Objetivo
+
 O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de Brasília ao cardápio do Restaurante Universitário com a praticidade de um app, visto que atualmente o cardapio pode ser visualizado apenas por um pdf
 
-Instalação
-==========
+## Instalação
+
 - Requisitos:
 <a href="https://nodejs.org/en/">Nodejs</a>, <a href="https://docs.expo.dev/get-started/installation/">Expo</a>, <a href="https://expo.dev/client">Expo Go</a>
 - Rodando o projeto:
@@ -32,12 +32,8 @@ npm install
 expo start
 ```
 
-Demo
-====
+## Demo
+
 <img src="./assets/demo.svg" />
 
-Contribuição
-============
-
-Autor
-=====
+## Contribuição
