@@ -34,7 +34,7 @@ npm install
 expo start
 ```
 
-## Demo
+## Telas do MVP
 
 <img src="./assets/demo.svg" />
 
