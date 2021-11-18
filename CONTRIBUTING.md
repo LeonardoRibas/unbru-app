@@ -19,6 +19,7 @@ Emoji | Código | Tipo de Commit
 :lipstick: | `:lipstick:` | adiciona ou atualiza estilização
 :adhesive_bandage: | `:adhesive_bandage:` | conserto simples
 :fire: | `:fire:` | remove código ou arquivo
+:wrench: | `:wrench:` | adiciona ou atualiza arquivo de configuração
 :art: | `:art:` | melhora a estrutura/formato do código
 :bug: | `:bug:` | corrige um bug
 :heavy_plus_sign: | `:heavy_plus_sign:` | adiciona dependência
