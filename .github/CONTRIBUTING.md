@@ -6,9 +6,15 @@ Este documento é um conjunto de boas práticas para sua contribuição. Não en
 
 ## Nomeação de Branchs
 
-## Mensagens de Commit
+## Commits
 
-- Usar modo imperativo ("Adiciona feature" não "Adicionando feature" ou "Adicionada feature")
+- Cada commit deve representar apenas uma mudança
+  > Não faça várias mudanças em um mesmo commit. Por exemplo, se suas mudanças resolvem um bug e introduzem uma feature, divida-as em dois commits separados.
+  >
+  > **Dica:** Utilize a flag -p no commit para interativamente selecionar porções específicas das mudanças
+- Prefira escrever os commits utilizando um editor ao invés do terminal
+  > **Por que?** Commitar pelo terminal encoraja commits que se limitam à apenas 72 characteres (apenas título), podendo ocasionar commits ambiguos/não-informativos
+- Usar modo imperativo nas mensagens de commit ("Adiciona feature" não "Adicionando feature" ou "Adicionada feature")
 - Primeira linha deve ter no máximo 72 caracteres
 - Considere descrever as mudanças com detalhes no corpo do commit
 - Considere usar um emoji no início da mensagem de commit que descreva seu tipo:
