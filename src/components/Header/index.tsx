@@ -11,7 +11,8 @@ type HeaderProps = MaterialTopTabBarProps & {
 };
 
 export default function Header({ navigation, title }: HeaderProps): React.ReactElement {
-    const date = dayjs().locale('pt-br').format('dddd DD/MM');
+    const today = dayjs().format('DD/MM');
+    const tomorrow = dayjs().add(1, 'day').format('dddd DD/MM');
 
     return (
         <>
@@ -20,7 +21,12 @@ export default function Header({ navigation, title }: HeaderProps): React.ReactE
           <View style={styles.container}>
               <Feather name="settings" color="white" size={22}/>
               <Text style={styles.title}>
-                { date }
+                { title === today
+                  ? 'Hoje'
+                  : title === tomorrow
+                  ? 'Amanhã'
+                  : dayjs(title).locale('pt-br').format('dddd DD/MM')
+                }
               </Text>
               <Feather name="calendar" color="white" size={22}/>
           </View>
