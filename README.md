@@ -16,7 +16,7 @@
 
 ## Objetivo
 
-O projeto tem como objetivo facilitar o acesso aos estudantes da Universidade de Brasília ao cardápio do Restaurante Universitário com a praticidade de um app, visto que atualmente o cardapio pode ser visualizado apenas por um pdf
+O app visa facilitar o acesso dos estudantes da Universidade de Brasília ao cardápio semanal do Restaurante Universitário.
 
 ## Telas do MVP
 
