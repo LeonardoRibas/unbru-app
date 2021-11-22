@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Typography, Sizing, Colors, Outlines } from "../../styles";
+import { Sizing, Colors } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
@@ -15,15 +15,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
         elevation: 6,
-    },
-    option: {
-        alignItems: "center",
-    },
-    lable: {
-        fontSize: Typography.fontSize.x10,
-        fontFamily: Typography.fontWeight.medium,
-        marginTop: Sizing.layout.x05,
-        color: Colors.neutral.s500,
     },
 });
 
