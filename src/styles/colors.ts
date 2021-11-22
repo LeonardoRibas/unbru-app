@@ -1,6 +1,6 @@
 export const neutral = {
     white: "#ffffff",
-    s250: "#C4C4C4",
+    s250: "#B8B8B8",
     s500: "#7E7E7E",
     black: "#000000",
 };
