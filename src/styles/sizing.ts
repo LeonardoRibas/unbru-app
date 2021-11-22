@@ -7,6 +7,7 @@ export const screen = {
 };
 
 export const layout = {
+    x05: 4,
     x10: 8,
     x15: 12,
     x20: 16,
