@@ -12,11 +12,19 @@ export default function BottomTab({
         <View style={styles.container}>
             <Icon
                 type="breakfast"
-                index={state.index}
+                selected={state.index === 0}
                 onPress={() => navigation.navigate("Desjejum")}
             />
-            <Icon onPress={() => navigation.navigate("Almoço")} type="lunch" index={state.index} />
-            <Icon onPress={() => navigation.navigate("Jantar")} type="dinner" index={state.index} />
+            <Icon
+                onPress={() => navigation.navigate("Almoço")}
+                type="lunch"
+                selected={state.index === 1}
+            />
+            <Icon
+                onPress={() => navigation.navigate("Jantar")}
+                type="dinner"
+                selected={state.index === 2}
+            />
         </View>
     );
 }
