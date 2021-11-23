@@ -1,45 +1,22 @@
-import Constants from "expo-constants";
 import { StyleSheet } from "react-native";
+import { Sizing, Typography, Colors } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: 56 + Constants.statusBarHeight,
-        backgroundColor: "white",
-    },
-    leftButtonWrapper: {
-        position: "absolute",
-        left: 16,
-        bottom: 12,
         flexDirection: "row",
+        justifyContent: "space-between",
         alignItems: "center",
-        paddingVertical: 4,
-    },
-    rightButtonWrapper: {
-        position: "absolute",
-        right: 16,
-        bottom: 12,
-        flexDirection: "row",
-        alignItems: "center",
-        paddingVertical: 4,
-    },
-    buttonTextLeft: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 13,
-        color: "#7E7E7E",
-        marginRight: 10,
-    },
-    buttonTextRight: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 13,
-        color: "#7E7E7E",
-        marginLeft: 10,
+        backgroundColor: Colors.primary.brand,
+        paddingHorizontal: Sizing.margin.base,
+        paddingVertical: Sizing.layout.x20,
     },
     title: {
-        fontFamily: "Lexend_500Medium",
-        fontSize: 20,
+        fontFamily: Typography.fontWeight.bold,
+        fontSize: Typography.fontSize.x30,
+        color: Colors.neutral.white,
+    },
+    icon: {
+        padding: 4,
     },
 });
 

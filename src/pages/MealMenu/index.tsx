@@ -2,6 +2,7 @@ import React from "react";
 import DishItem from "../../components/DishItem";
 import SubHeader from "../../components/SubHeader";
 import { View, FlatList } from "react-native";
+import * as colors from "../../styles/colors";
 
 type MealMenuProps = {
     mealCategory: "Desjejum" | "Almoço" | "Jantar";
@@ -180,6 +181,7 @@ export default function MealMenu({ mealCategory }: MealMenuProps): React.ReactEl
                 data={data[mealCategory]}
                 renderItem={({ item }) => <DishItem label={item.label} dish={item.dish} />}
                 keyExtractor={(item) => item.id.toString()}
+                contentContainerStyle={{ backgroundColor: colors.primary.brand }}
             />
         </View>
     );
