@@ -1,5 +1,4 @@
 import React from "react";
-import dayjs from "dayjs";
 import Header from "../../components/Header";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -14,13 +13,11 @@ type TopTabNavigatorProps = NativeStackScreenProps<RootStackParamList, "TopTabNa
 const Tab = createMaterialTopTabNavigator();
 
 export default function TopTabNavigator({ route }: TopTabNavigatorProps): React.ReactElement {
-    const today = dayjs().format("DD/MM");
     return (
         <Tab.Navigator
-            initialRouteName={today}
             screenOptions={{ swipeEnabled: false }}
             tabBar={(props: MaterialTopTabBarProps) => (
-                <Header {...props} title={getFocusedRouteNameFromRoute(route) ?? today} />
+                <Header {...props} title={getFocusedRouteNameFromRoute(route) ?? "Segunda 28/09"} />
             )}
         >
             <Tab.Screen name="30/08" component={BottomTabNavigator} />
