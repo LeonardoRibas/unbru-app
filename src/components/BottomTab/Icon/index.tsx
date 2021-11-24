@@ -1,6 +1,6 @@
-import BreakfastIcon from "../../../components/Svg/BreakfastIcon";
-import LunchIcon from "../../../components/Svg/LunchIcon";
-import DinnerIcon from "../../../components/Svg/DinnerIcon";
+import BreakfastIcon from "../../../../assets/icons/breakfast.svg";
+import LunchIcon from "../../../../assets/icons/lunch.svg";
+import DinnerIcon from "../../../../assets/icons/dinner.svg";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { Colors } from "../../../styles";
@@ -22,7 +22,7 @@ export default function Icon({ selected, type, onPress }: IconProps): React.Reac
             return (
                 <Pressable onPress={onPress}>
                     <View style={styles.option}>
-                        <BreakfastIcon color={handleSelectionColor()} />
+                        <BreakfastIcon fill={handleSelectionColor()} />
                         <Text style={[styles.label, { color: handleSelectionColor() }]}>
                             Desjejum
                         </Text>
@@ -33,7 +33,7 @@ export default function Icon({ selected, type, onPress }: IconProps): React.Reac
             return (
                 <Pressable onPress={onPress}>
                     <View style={styles.option}>
-                        <LunchIcon color={handleSelectionColor()} />
+                        <LunchIcon fill={handleSelectionColor()} />
                         <Text style={[styles.label, { color: handleSelectionColor() }]}>
                             Almoço
                         </Text>
@@ -44,7 +44,7 @@ export default function Icon({ selected, type, onPress }: IconProps): React.Reac
             return (
                 <Pressable onPress={onPress}>
                     <View style={styles.option}>
-                        <DinnerIcon color={handleSelectionColor()} />
+                        <DinnerIcon fill={handleSelectionColor()} />
                         <Text style={[styles.label, { color: handleSelectionColor() }]}>
                             Jantar
                         </Text>
