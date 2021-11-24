@@ -4,8 +4,6 @@ Primeiramente, obrigado pelo seu interesse em contribuir! Precisamos de desenvol
 
 Este documento é um conjunto de boas práticas para sua contribuição. Não encare as seguintes diretrizes como regras, use seu bom senso para que sua contribuição seja o mais clara possível e sinta-se livre para sugerir alterações nesse documento por meio de um Pull Request.
 
-## Nomeação de Branchs
-
 ## Commits
 
 - Cada commit deve representar apenas uma mudança
