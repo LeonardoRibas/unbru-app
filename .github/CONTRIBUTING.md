@@ -25,6 +25,7 @@ Emoji | Código | Tipo de Commit
 :fire: | `:fire:` | remove código ou arquivo
 :wrench: | `:wrench:` | adiciona ou atualiza arquivo de configuração
 :art: | `:art:` | melhora a estrutura/formato do código
+:bento: | `:bento:` | adiciona ou atualiza assets
 :bug: | `:bug:` | corrige um bug
 :heavy_plus_sign: | `:heavy_plus_sign:` | adiciona dependência
 :recycle: | `:recycle:` | refatora código
