@@ -1,9 +1,9 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React from "react";
 import BottomTab from "../../components/BottomTab";
-import BreakfastIcon from "../../components/Svg/BreakfastIcon";
-import DinnerIcon from "../../components/Svg/DinnerIcon";
-import LunchIcon from "../../components/Svg/LunchIcon";
+import BreakfastIcon from "../../../assets/icons/breakfast.svg";
+import DinnerIcon from "../../../assets/icons/lunch.svg";
+import LunchIcon from "../../../assets/icons/dinner.svg";
 import MealMenu from "../MealMenu";
 
 const Tab = createMaterialTopTabNavigator();

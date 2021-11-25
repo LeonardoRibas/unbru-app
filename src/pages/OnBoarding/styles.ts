@@ -6,14 +6,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-around",
         backgroundColor: Colors.neutral.white,
+    },
+    content: {
+        alignItems: "center",
     },
     title: {
         fontFamily: Typography.fontWeight.bold,
         fontSize: Typography.fontSize.x40,
         textAlign: "center",
-        marginTop: Sizing.layout.x40,
+        marginTop: Sizing.layout.x20,
         marginBottom: Sizing.layout.x20,
     },
     subTitle: {
@@ -21,7 +24,6 @@ const styles = StyleSheet.create({
         fontSize: Typography.fontSize.x20,
         textAlign: "center",
         color: Colors.neutral.s500,
-        marginBottom: Sizing.layout.x100,
         lineHeight: 22,
     },
     highlight: {
