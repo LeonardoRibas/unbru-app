@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import OnBoarding from "./src/pages/OnBoarding";
 import { NavigationContainer } from "@react-navigation/native";
 import TopTabNavigator from "./src/pages/TopTabNavigator";
+import Settings from "./src/pages/Settings";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -41,6 +42,7 @@ export default function App(): React.ReactElement {
                         component={TopTabNavigator}
                         options={{ headerShown: false }}
                     />
+                    <Stack.Screen name="Settings" component={Settings} />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>

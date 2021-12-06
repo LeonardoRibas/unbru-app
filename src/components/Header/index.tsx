@@ -6,16 +6,18 @@ import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
+import { useNavigation } from "@react-navigation/core";
 
 type HeaderProps = MaterialTopTabBarProps & {
     title: string;
 };
 
-export default function Header({ title }: HeaderProps): React.ReactElement {
+export default function Header({ title, navigation }: HeaderProps): React.ReactElement {
+    navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />
-            <BorderlessButton style={styles.icon}>
+            <BorderlessButton style={styles.icon} onPress={() => navigation.navigate("Settings")}>
                 <Feather name="settings" color="white" size={22} />
             </BorderlessButton>
             <Text style={styles.title}>{title}</Text>
