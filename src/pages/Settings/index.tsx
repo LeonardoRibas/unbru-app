@@ -1,8 +1,13 @@
-import { Entypo, FontAwesome, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Switch, Text, View } from "react-native";
 import { BaseButton, BaseButtonProps } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import BellIcon from "../../../assets/icons/bell.svg";
+import InfoIcon from "../../../assets/icons/info.svg";
+import MoonIcon from "../../../assets/icons/moon.svg";
+import PlantIcon from "../../../assets/icons/plant.svg";
+import SchoolIcon from "../../../assets/icons/school.svg";
 import { Colors } from "../../styles";
 import styles from "./styles";
 
@@ -58,30 +63,31 @@ function SettingsButton({ title, text, onPress, children, type, ...props }: Sett
 }
 
 export default function Settings(): React.ReactElement {
+    const color = Colors.neutral.black;
     return (
         <SafeAreaView style={styles.container}>
             <SettingsButton type="chevron" title="Campus: Darcy Ribeiro" text="Troque o campus">
-                <FontAwesome name="graduation-cap" size={24} color="black" />
+                <SchoolIcon stroke={color} />
             </SettingsButton>
             <SettingsButton
                 type="switch"
                 title="Modo escuro"
                 text="Alterne entre modo claro e escuro"
             >
-                <FontAwesome name="moon-o" size={24} color="black" />
+                <MoonIcon stroke={color} />
             </SettingsButton>
             <SettingsButton
                 type="switch"
                 title="Modo vegetariano"
                 text="Dê prioridade a pratos vegetarianos"
             >
-                <Ionicons name="ios-bug-outline" size={24} color="black" />
+                <PlantIcon stroke={color} />
             </SettingsButton>
             <SettingsButton type="switch" title="Notificações" text="Receba notificações do app">
-                <FontAwesome name="bell-o" size={24} color="black" />
+                <BellIcon stroke={color} />
             </SettingsButton>
             <SettingsButton type="chevron" title="Sobre" text="Saiba mais sobre o app">
-                <MaterialCommunityIcons name="information-outline" size={24} color="black" />
+                <InfoIcon stroke={color} />
             </SettingsButton>
         </SafeAreaView>
     );
