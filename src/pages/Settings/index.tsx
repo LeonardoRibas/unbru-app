@@ -21,40 +21,36 @@ function SettingsButton({ title, text, onPress, children, type, ...props }: Sett
         case "chevron":
             return (
                 <BaseButton {...props} onPress={onPress} style={styles.baseButton}>
-                    <View style={styles.buttonView}>
-                        <View style={styles.iconView}>{children}</View>
-                        <View>
-                            <Text style={styles.tittle}>{title}</Text>
-                            <Text style={styles.text}>{text}</Text>
-                        </View>
-                        <Entypo
-                            style={{ marginLeft: "auto" }}
-                            name="chevron-small-right"
-                            size={32}
-                            color={Colors.primary.brand}
-                        />
+                    <View style={styles.iconView}>{children}</View>
+                    <View>
+                        <Text style={styles.tittle}>{title}</Text>
+                        <Text style={styles.text}>{text}</Text>
                     </View>
+                    <Entypo
+                        style={{ marginLeft: "auto" }}
+                        name="chevron-small-right"
+                        size={32}
+                        color={Colors.primary.brand}
+                    />
                 </BaseButton>
             );
         case "switch":
             return (
-                <View style={styles.baseButton}>
-                    <View style={styles.buttonView}>
-                        <View style={styles.iconView}>{children}</View>
-                        <View>
-                            <Text style={styles.tittle}>{title}</Text>
-                            <Text style={styles.text}>{text}</Text>
-                        </View>
-                        <Switch
-                            trackColor={{ false: "#767577", true: "#d4eeda" }}
-                            thumbColor={isEnabled ? Colors.primary.brand : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch}
-                            value={isEnabled}
-                            style={{ flex: 1, justifyContent: "flex-end" }}
-                        />
+                <BaseButton style={styles.baseButton} onPress={toggleSwitch}>
+                    <View style={styles.iconView}>{children}</View>
+                    <View>
+                        <Text style={styles.tittle}>{title}</Text>
+                        <Text style={styles.text}>{text}</Text>
                     </View>
-                </View>
+                    <Switch
+                        trackColor={{ false: "#767577", true: "#d4eeda" }}
+                        thumbColor={isEnabled ? Colors.primary.brand : "#f4f3f4"}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch}
+                        value={isEnabled}
+                        style={{ flex: 1, justifyContent: "flex-end" }}
+                    />
+                </BaseButton>
             );
         default:
             return null;
