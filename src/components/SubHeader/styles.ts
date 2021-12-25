@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         paddingHorizontal: 20,
         backgroundColor: "white",
-        borderTopLeftRadius: mealType == "Desjejum" ? 20 : 0,
-        borderTopRightRadius: mealType == "Jantar" ? 20 : 0,
+        borderTopLeftRadius: mealType == "Desjejum" ? 24 : 0,
+        borderTopRightRadius: mealType == "Jantar" ? 24 : 0,
     }),
     title: {
         fontFamily: "Lexend_500Medium",

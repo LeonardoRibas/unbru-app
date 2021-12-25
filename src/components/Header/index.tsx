@@ -3,15 +3,14 @@ import styles from "./styles";
 import { Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
+import { getHeaderTitle } from "@react-navigation/elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { BorderlessButton } from "react-native-gesture-handler";
-import { MaterialTopTabBarProps } from "@react-navigation/material-top-tabs";
+import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
-type HeaderProps = MaterialTopTabBarProps & {
-    title: string;
-};
+export default function Header({ route, options }: NativeStackHeaderProps): React.ReactElement {
+    const title = getHeaderTitle(options, route.name);
 
-export default function Header({ title }: HeaderProps): React.ReactElement {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />

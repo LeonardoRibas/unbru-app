@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import styles from "./styles";
 
 type SubHeaderProps = {
-    mealType: "Desjejum" | "Almoço" | "Jantar";
+    mealType: string;
     time: string;
 };
 
