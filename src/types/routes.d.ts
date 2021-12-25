@@ -1,9 +1,10 @@
 type RootStackParamList = {
     OnBoarding: undefined;
     Home: undefined;
-    TopTabNavigator: undefined;
-    BottomTabNavigator: undefined;
-    Jantar: undefined;
-    Almoço: undefined;
+};
+
+type BottomTabParamList = {
     Desjejum: undefined;
+    Almoço: undefined;
+    Jantar: undefined;
 };
