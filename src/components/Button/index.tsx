@@ -1,16 +1,15 @@
 import React from "react";
-import { Text } from "react-native";
-import { BaseButton, BaseButtonProps } from "react-native-gesture-handler";
+import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import styles from "./styles";
 
-type ButtonProps = BaseButtonProps & {
+type ButtonProps = TouchableOpacityProps & {
     text: string;
 };
 
 export default function Button({ text, onPress }: ButtonProps): React.ReactElement {
     return (
-        <BaseButton style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Text style={styles.text}>{text}</Text>
-        </BaseButton>
+        </TouchableOpacity>
     );
 }

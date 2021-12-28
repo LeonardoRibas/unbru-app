@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "./styles";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { BorderlessButton } from "react-native-gesture-handler";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
 export default function Header({ route, options }: NativeStackHeaderProps): React.ReactElement {
@@ -14,13 +13,13 @@ export default function Header({ route, options }: NativeStackHeaderProps): Reac
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />
-            <BorderlessButton style={styles.icon}>
+            <TouchableOpacity style={styles.icon}>
                 <Feather name="settings" color="white" size={22} />
-            </BorderlessButton>
+            </TouchableOpacity>
             <Text style={styles.title}>{title}</Text>
-            <BorderlessButton style={styles.icon}>
+            <TouchableOpacity style={styles.icon}>
                 <Feather name="calendar" color="white" size={22} />
-            </BorderlessButton>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
