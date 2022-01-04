@@ -1,7 +1,6 @@
 import { Entypo } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { Switch, Text, View } from "react-native";
-import { BaseButton, BaseButtonProps } from "react-native-gesture-handler";
+import { Pressable, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BellIcon from "../../../assets/icons/bell.svg";
 import InfoIcon from "../../../assets/icons/info.svg";
@@ -11,84 +10,82 @@ import SchoolIcon from "../../../assets/icons/school.svg";
 import { Colors } from "../../styles";
 import styles from "./styles";
 
-type SettingsButtonProps = BaseButtonProps & {
+type SettingsSectionProps = {
     title: string;
     text: string;
     children: React.ReactChild;
-    type?: "chevron" | "switch";
+    onPress?: () => void;
 };
 
-function SettingsButton({ title, text, onPress, children, type, ...props }: SettingsButtonProps) {
+function ChevronSection({ title, text, onPress, children, ...props }: SettingsSectionProps) {
+    return (
+        <Pressable
+            android_ripple={{ color: Colors.neutral.s250, radius: 300 }}
+            {...props}
+            onPress={onPress}
+            style={styles.baseButton}
+        >
+            <View style={styles.iconView}>{children}</View>
+            <View>
+                <Text style={styles.tittle}>{title}</Text>
+                <Text style={styles.text}>{text}</Text>
+            </View>
+            <Entypo
+                style={{ marginLeft: "auto" }}
+                name="chevron-small-right"
+                size={32}
+                color={Colors.primary.brand}
+            />
+        </Pressable>
+    );
+}
+
+function SwitchSection({ title, text, children }: SettingsSectionProps) {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
-    switch (type) {
-        case "chevron":
-            return (
-                <BaseButton {...props} onPress={onPress} style={styles.baseButton}>
-                    <View style={styles.iconView}>{children}</View>
-                    <View>
-                        <Text style={styles.tittle}>{title}</Text>
-                        <Text style={styles.text}>{text}</Text>
-                    </View>
-                    <Entypo
-                        style={{ marginLeft: "auto" }}
-                        name="chevron-small-right"
-                        size={32}
-                        color={Colors.primary.brand}
-                    />
-                </BaseButton>
-            );
-        case "switch":
-            return (
-                <BaseButton style={styles.baseButton} onPress={toggleSwitch}>
-                    <View style={styles.iconView}>{children}</View>
-                    <View>
-                        <Text style={styles.tittle}>{title}</Text>
-                        <Text style={styles.text}>{text}</Text>
-                    </View>
-                    <Switch
-                        trackColor={{ false: "#767577", true: "#d4eeda" }}
-                        thumbColor={isEnabled ? Colors.primary.brand : "#f4f3f4"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
-                        style={{ flex: 1, justifyContent: "flex-end" }}
-                    />
-                </BaseButton>
-            );
-        default:
-            return null;
-    }
+    return (
+        <Pressable
+            android_ripple={{ color: Colors.neutral.s250, radius: 300 }}
+            style={styles.baseButton}
+            onPress={toggleSwitch}
+        >
+            <View style={styles.iconView}>{children}</View>
+            <View>
+                <Text style={styles.tittle}>{title}</Text>
+                <Text style={styles.text}>{text}</Text>
+            </View>
+            <Switch
+                trackColor={{ false: "#767577", true: "#d4eeda" }}
+                thumbColor={isEnabled ? Colors.primary.brand : "#f4f3f4"}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+                style={{ flex: 1, justifyContent: "flex-end" }}
+            />
+        </Pressable>
+    );
 }
 
 export default function Settings(): React.ReactElement {
     const color = Colors.neutral.black;
     return (
         <SafeAreaView style={styles.container}>
-            <SettingsButton type="chevron" title="Campus: Darcy Ribeiro" text="Troque o campus">
+            <ChevronSection title="Campus: Darcy Ribeiro" text="Troque o campus">
                 <SchoolIcon stroke={color} />
-            </SettingsButton>
-            <SettingsButton
-                type="switch"
-                title="Modo escuro"
-                text="Alterne entre modo claro e escuro"
-            >
+            </ChevronSection>
+            <SwitchSection title="Modo escuro" text="Alterne entre modo claro e escuro">
                 <MoonIcon stroke={color} />
-            </SettingsButton>
-            <SettingsButton
-                type="switch"
-                title="Modo vegetariano"
-                text="Dê prioridade a pratos vegetarianos"
-            >
+            </SwitchSection>
+            <SwitchSection title="Modo vegetariano" text="Dê prioridade a pratos vegetarianos">
                 <PlantIcon stroke={color} />
-            </SettingsButton>
-            <SettingsButton type="switch" title="Notificações" text="Receba notificações do app">
+            </SwitchSection>
+            <SwitchSection title="Notificações" text="Receba notificações do app">
                 <BellIcon stroke={color} />
-            </SettingsButton>
-            <SettingsButton type="chevron" title="Sobre" text="Saiba mais sobre o app">
+            </SwitchSection>
+            <ChevronSection title="Sobre" text="Saiba mais sobre o app">
                 <InfoIcon stroke={color} />
-            </SettingsButton>
+            </ChevronSection>
         </SafeAreaView>
     );
 }
