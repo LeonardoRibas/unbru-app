@@ -2,6 +2,7 @@ import React from "react";
 import OnBoarding from "../../pages/OnBoarding";
 import HomeStackNavigator from "../HomeStackNavigator";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Settings from "../../pages/Settings";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,13 @@ export default function RootStackNavigator(): React.ReactElement {
                 name="Home"
                 component={HomeStackNavigator}
                 options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    title: "Configurações",
+                }}
             />
         </Stack.Navigator>
     );
