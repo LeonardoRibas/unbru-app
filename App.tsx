@@ -5,17 +5,11 @@ import {
     useFonts,
 } from "@expo-google-fonts/lexend";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StackHeader from "./src/components/StackHeader";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import OnBoarding from "./src/pages/OnBoarding";
-import Settings from "./src/pages/Settings";
-import TopTabNavigator from "./src/pages/TopTabNavigator";
-
-const Stack = createNativeStackNavigator();
+import RootStackNavigator from "./src/navigators/RootStackNavigator";
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
@@ -32,25 +26,7 @@ export default function App(): React.ReactElement {
         <SafeAreaProvider>
             <NavigationContainer>
                 <StatusBar style="auto" />
-                <Stack.Navigator>
-                    <Stack.Screen
-                        name="OnBoarding"
-                        component={OnBoarding}
-                        options={{ headerShown: false }}
-                    />
-                    <Stack.Screen
-                        name="Home"
-                        component={TopTabNavigator}
-                        options={{ headerShown: false }}
-                    />
-                    <Stack.Screen
-                        name="Settings"
-                        component={Settings}
-                        options={{
-                            header: (props) => <StackHeader {...props} title="Configurações" />,
-                        }}
-                    />
-                </Stack.Navigator>
+                <RootStackNavigator />
             </NavigationContainer>
         </SafeAreaProvider>
     );

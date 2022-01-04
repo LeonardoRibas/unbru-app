@@ -1,14 +1,21 @@
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import React from "react";
+import {
+    createMaterialTopTabNavigator,
+    MaterialTopTabNavigationProp,
+} from "@react-navigation/material-top-tabs";
+import React, { memo } from "react";
 import BreakfastIcon from "../../../assets/icons/breakfast.svg";
 import DinnerIcon from "../../../assets/icons/dinner.svg";
 import LunchIcon from "../../../assets/icons/lunch.svg";
-import MealMenu from "../MealMenu";
+import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function BottomTabNavigator(): React.ReactElement {
+type BottomTabNavigatorProps = MaterialTopTabNavigationProp<BottomTabParamList> & {
+    dayMenu: any;
+};
+
+function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
     return (
         <Tab.Navigator
             tabBarPosition="bottom"
@@ -39,20 +46,24 @@ export default function BottomTabNavigator(): React.ReactElement {
                     title: "Desjejum",
                 }}
             >
-                {() => <MealMenu mealCategory="Desjejum" />}
+                {(props) => (
+                    <DishList {...props} mealType="Desjejum" mealMenu={dayMenu["breakfast"]} />
+                )}
             </Tab.Screen>
             <Tab.Screen
                 name="Almoço"
                 options={{ tabBarIcon: ({ color }) => <LunchIcon fill={color} /> }}
             >
-                {() => <MealMenu mealCategory="Almoço" />}
+                {(props) => <DishList {...props} mealType="Almoço" mealMenu={dayMenu["lunch"]} />}
             </Tab.Screen>
             <Tab.Screen
                 name="Jantar"
                 options={{ tabBarIcon: ({ color }) => <DinnerIcon fill={color} /> }}
             >
-                {() => <MealMenu mealCategory="Jantar" />}
+                {(props) => <DishList {...props} mealType="Jantar" mealMenu={dayMenu["dinner"]} />}
             </Tab.Screen>
         </Tab.Navigator>
     );
 }
+
+export default memo(BottomTabNavigator);
