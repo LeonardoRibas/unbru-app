@@ -1,15 +1,15 @@
-import React from "react";
+import {
+    Lexend_500Medium,
+    Lexend_600SemiBold,
+    Lexend_700Bold,
+    useFonts,
+} from "@expo-google-fonts/lexend";
+import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer } from "@react-navigation/native";
-import RootStackNavigator from "./src/navigators/RootStackNavigator";
+import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {
-    useFonts,
-    Lexend_500Medium,
-    Lexend_700Bold,
-    Lexend_600SemiBold,
-} from "@expo-google-fonts/lexend";
+import RootStackNavigator from "./src/navigators/RootStackNavigator";
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
