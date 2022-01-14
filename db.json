@@ -1,8 +1,7 @@
 {
     "week_menu": [
         {
-            "id": "29-11-21",
-            "week_day": "Segunda",
+            "date": "2022-01-03T01:00:00.000Z",
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -42,8 +41,8 @@
             }
         },
         {
-            "id": "30-11-21",
-            "week_day": "Terça",
+            "date": "2022-01-04",
+
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -83,8 +82,8 @@
             }
         },
         {
-            "id": "01-12-21",
-            "week_day": "Quarta",
+            "date": "2022-01-05",
+
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -124,8 +123,7 @@
             }
         },
         {
-            "id": "02-12-21",
-            "week_day": "Quinta",
+            "date": "2022-01-06",
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -165,8 +163,7 @@
             }
         },
         {
-            "id": "03-12-21",
-            "week_day": "Sexta",
+            "date": "2022-01-07",
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -206,8 +203,7 @@
             }
         },
         {
-            "id": "04-12-21",
-            "week_day": "Sábado",
+            "date": "2022-01-08",
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
@@ -247,8 +243,7 @@
             }
         },
         {
-            "id": "05-12-21",
-            "week_day": "Domingo",
+            "date": "2022-01-09",
             "breakfast": {
                 "Leite": "Leite de vaca integral",
                 "Composto vegetal": "Soja",
