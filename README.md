@@ -32,7 +32,13 @@ O app visa facilitar o acesso dos estudantes da Universidade de Brasília ao car
 ```bash
 npm install
 ```
-2. Incie o projeto
+2. Inicie o mock da API
+
+```bash
+json-server --watch db.json
+```
+
+3. Incie o projeto
 
 ```bash
 expo start
