@@ -20,6 +20,8 @@ O app visa facilitar o acesso dos estudantes da Universidade de Brasília ao car
 
 ## Telas do MVP
 
+Projeto no Figma: https://www.figma.com/file/QkCUoGgvilRIOWC9C5ckyd/UnB-RU?node-id=121%3A1060
+
 <img src="./assets/demo.svg" />
 
 ## Instalação
