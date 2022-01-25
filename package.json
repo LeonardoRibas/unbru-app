@@ -6,7 +6,8 @@
         "ios": "expo start --ios",
         "web": "expo start --web",
         "eject": "expo eject",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "json-server": "json-server --watch db.json"
     },
     "dependencies": {
         "@expo-google-fonts/lexend": "^0.2.0",
