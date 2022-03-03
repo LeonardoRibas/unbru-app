@@ -17,17 +17,14 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "prettier"
-    ],
+    "plugins": ["react", "@typescript-eslint", "prettier"],
     "settings": {
         "react": {
             "version": "detect"
         }
     },
     "rules": {
-        "prettier/prettier": "warn"
+        "prettier/prettier": "warn",
+        "react/display-name": "off"
     }
 }
