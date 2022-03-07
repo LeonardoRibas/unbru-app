@@ -1,29 +1,22 @@
 import styles from "./styles";
-import { format, getDate, getMonth, isSameDay } from "date-fns";
+import { isSameDay, parseISO } from "date-fns";
 import React, { useEffect, useState } from "react";
 
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import api from "../../services/api";
-import { formatRFC7231 } from "date-fns/esm";
+import getDayOfWeek from "../../utils/date";
 
 type WeekCalendarStripProps = {
     date: Date;
 };
 
 export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): React.ReactElement {
-    const [week, setWeek] = useState([]);
+    const [weekMenu, setWeekMenu] = useState([]);
+
     useEffect(() => {
-        const weekDays = [];
-        api.get("/week_menu").then((res) => {
-            res.data.map((day, index) => {
-                weekDays.push({
-                    id: index,
-                    date: new Date(day.date),
-                    monthDay: new Date(day.date).getUTCDate(),
-                    weekDay: new Date(day.date).getUTCDay(),
-                });
-            });
-            setWeek(weekDays);
+        api.get("/menu").then((res) => {
+            setWeekMenu(res.data);
+            console.log(res.data);
         });
     }, []);
 
@@ -36,19 +29,18 @@ export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): Rea
                 showsVerticalScrollIndicator={false}
                 fadingEdgeLength={10}
             >
-                {console.log(week)}
-                {week.map((weekDay) => (
-                    <View key={weekDay.id} style={styles.dayWrapper}>
-                        <Text style={styles.weekDayTitle}>{weekDay.weekDay}</Text>
+                {weekMenu.map((day: TDayMenu) => (
+                    <View key={day.date} style={styles.dayWrapper}>
+                        <Text style={styles.weekDayTitle}>{getDayOfWeek(day.date)}</Text>
                         <TouchableOpacity style={styles.dayButtonContainer}>
                             <Text
                                 style={
-                                    isSameDay(weekDay.date, date)
+                                    isSameDay(parseISO(day.date), date)
                                         ? styles.selectedDayButtonText
                                         : styles.dayButtonText
                                 }
                             >
-                                {weekDay.monthDay}
+                                {new Date(day.date).getDate()}
                             </Text>
                         </TouchableOpacity>
                     </View>
