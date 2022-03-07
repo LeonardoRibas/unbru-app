@@ -14,7 +14,7 @@ export default function HomeStackNavigator({ route }: TopTabNavigatorProps): Rea
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        api.get("/week_menu")
+        api.get("/menu")
             .then((res) => {
                 setWeekMenu(res.data);
                 setLoading(false);
