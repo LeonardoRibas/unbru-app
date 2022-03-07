@@ -1,10 +1,8 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { View, FlatList, Button } from "react-native";
+import { View, FlatList } from "react-native";
 import * as colors from "../../styles/colors";
-import WeekCalendarStrip from "../../components/WeekCalendarStrip";
-import ModalBottomSheet from "../../components/ModalBottomSheet";
 
 type MealMenuProps = {
     mealType: string;
@@ -18,12 +16,8 @@ const mealTypeTime = {
 };
 
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
-    const date = new Date();
-    const [showModal, setShowModal] = useState(false);
-
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
-            <Button title="Abrir Modal" onPress={() => setShowModal(true)} />
             <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
@@ -34,15 +28,6 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
                 keyExtractor={(item, index) => index.toString()}
                 contentContainerStyle={{ backgroundColor: colors.primary.brand }}
             />
-            <ModalBottomSheet
-                statusBarTranslucent
-                animationType="fade"
-                transparent={true}
-                visible={showModal}
-                onRequestClose={() => setShowModal(!showModal)}
-            >
-                <WeekCalendarStrip date={date} />
-            </ModalBottomSheet>
         </View>
     );
 }
