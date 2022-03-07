@@ -58,7 +58,6 @@ module.exports = () => {
             },
             {
                 date: tuesday,
-
                 breakfast: {
                     Leite: "Leite de vaca integral",
                     "Composto vegetal": "Soja",
@@ -99,7 +98,6 @@ module.exports = () => {
             },
             {
                 date: wednesday,
-
                 breakfast: {
                     Leite: "Leite de vaca integral",
                     "Composto vegetal": "Soja",
