@@ -4,6 +4,7 @@ import BottomTabNavigator from "../BottomTabNavigator";
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 import api from "../../services/api";
 import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
+import { getFormatedDate } from "../../utils/date";
 
 type TopTabNavigatorProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -31,13 +32,13 @@ export default function HomeStackNavigator({ route }: TopTabNavigatorProps): Rea
                 header: (props) => <Header {...props} />,
             }}
         >
-            <Stack.Screen name={weekMenu[0].date}>
+            <Stack.Screen name={getFormatedDate(weekMenu[0].date)}>
                 {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[0]} />}
             </Stack.Screen>
-            <Stack.Screen name={weekMenu[1].date}>
+            <Stack.Screen name={getFormatedDate(weekMenu[1].date)}>
                 {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[1]} />}
             </Stack.Screen>
-            <Stack.Screen name={weekMenu[2].date}>
+            <Stack.Screen name={getFormatedDate(weekMenu[2].date)}>
                 {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[2]} />}
             </Stack.Screen>
             <Stack.Screen name={weekMenu[3].date}>
