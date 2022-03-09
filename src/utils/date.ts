@@ -1,14 +1,6 @@
-const weekDays = {
-    0: "Domingo",
-    1: "Segunda",
-    2: "Terça",
-    3: "Quarta",
-    4: "Quinta",
-    5: "Sexta",
-    6: "Sábado",
-};
+const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
-const getDayOfWeek = (date: string): string => {
+export const getDayOfWeek = (date: string): string => {
     const dayNumber = new Date(date).getDay();
     return weekDays[dayNumber];
 };
