@@ -5,4 +5,9 @@ export const getDayOfWeek = (date: string): string => {
     return weekDays[dayNumber];
 };
 
-export default getDayOfWeek;
+export const getFormatedDate = (date: string): string => {
+    const newDate = new Date(date);
+    const day = newDate.getDate();
+    const month = newDate.getMonth();
+    return `${getDayOfWeek(date)} ${("0" + day).slice(-2)}/${("0" + (month + 1)).slice(-2)}`;
+};
