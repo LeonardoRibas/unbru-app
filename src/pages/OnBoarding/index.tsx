@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import { Text, View } from "react-native";
 import Button from "../../components/Button";
-import OnboardingIllustration from "../../components/OnboardingIllustration";
+import { OnboardingIllustration } from "../../../assets/illustrations";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 

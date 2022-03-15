@@ -3,9 +3,9 @@ import {
     MaterialTopTabNavigationProp,
 } from "@react-navigation/material-top-tabs";
 import React, { memo } from "react";
-import BreakfastIcon from "../../../assets/icons/breakfast.svg";
-import DinnerIcon from "../../../assets/icons/dinner.svg";
-import LunchIcon from "../../../assets/icons/lunch.svg";
+import { BreakfastIcon } from "../../../assets/icons";
+import { DinnerIcon } from "../../../assets/icons";
+import { LunchIcon } from "../../../assets/icons";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
 
