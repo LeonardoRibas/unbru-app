@@ -10,11 +10,11 @@ type SubHeaderProps = {
 
 export default function SubHeader({ mealType, time }: SubHeaderProps): React.ReactElement {
     return (
-        <View style={styles.container(mealType)}>
-            <Text style={styles.title}>{mealType}</Text>
-            <View style={styles.hourInfoWrapper}>
+        <View style={styles(mealType).container}>
+            <Text style={styles().title}>{mealType}</Text>
+            <View style={styles().hourInfoWrapper}>
                 <Feather name="clock" size={13} color="#969696" />
-                <Text style={styles.hourInfoText}>{time}</Text>
+                <Text style={styles().hourInfoText}>{time}</Text>
             </View>
         </View>
     );
