@@ -30,9 +30,9 @@ export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): Rea
                 fadingEdgeLength={10}
             >
                 {weekMenu.map((day: TDayMenu) => (
-                    <View key={day.date} style={styles.dayWrapper}>
+                    <TouchableOpacity key={day.date} style={styles.dayWrapper}>
                         <Text style={styles.weekDayTitle}>{getDayOfWeek(day.date)}</Text>
-                        <TouchableOpacity style={styles.dayButtonContainer}>
+                        <View style={styles.dayButtonContainer}>
                             <Text
                                 style={
                                     isSameDay(parseISO(day.date), date)
@@ -42,8 +42,8 @@ export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): Rea
                             >
                                 {new Date(day.date).getDate()}
                             </Text>
-                        </TouchableOpacity>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                 ))}
             </ScrollView>
         </View>
