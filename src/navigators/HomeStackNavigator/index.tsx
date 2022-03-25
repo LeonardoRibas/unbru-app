@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -9,10 +9,12 @@ import { getFormatedDate } from "../../utils/date";
 type TopTabNavigatorProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const Stack = createNativeStackNavigator();
+export const DayIndexContext = createContext(0);
 
 export default function HomeStackNavigator({ route }: TopTabNavigatorProps): React.ReactElement {
     const [weekMenu, setWeekMenu] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [dayIndex, setDayIndex] = useState(0);
 
     useEffect(() => {
         api.get("/menu")
@@ -27,33 +29,17 @@ export default function HomeStackNavigator({ route }: TopTabNavigatorProps): Rea
     }, []);
 
     return !loading ? (
-        <Stack.Navigator
-            screenOptions={{
-                header: (props) => <Header {...props} />,
-            }}
-        >
-            <Stack.Screen name={getFormatedDate(weekMenu[0].date)}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[0]} />}
-            </Stack.Screen>
-            <Stack.Screen name={getFormatedDate(weekMenu[1].date)}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[1]} />}
-            </Stack.Screen>
-            <Stack.Screen name={getFormatedDate(weekMenu[2].date)}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[2]} />}
-            </Stack.Screen>
-            <Stack.Screen name={weekMenu[3].date}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[3]} />}
-            </Stack.Screen>
-            <Stack.Screen name={weekMenu[4].date}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[4]} />}
-            </Stack.Screen>
-            <Stack.Screen name={weekMenu[5].date}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[5]} />}
-            </Stack.Screen>
-            <Stack.Screen name={weekMenu[6].date}>
-                {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[6]} />}
-            </Stack.Screen>
-        </Stack.Navigator>
+        <DayIndexContext.Provider value={{ dayIndex, setDayIndex }}>
+            <Stack.Navigator
+                screenOptions={{
+                    header: (props) => <Header {...props} />,
+                }}
+            >
+                <Stack.Screen name={getFormatedDate(weekMenu[dayIndex].date)}>
+                    {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[dayIndex]} />}
+                </Stack.Screen>
+            </Stack.Navigator>
+        </DayIndexContext.Provider>
     ) : (
         <ActivityIndicatorBox />
     );
