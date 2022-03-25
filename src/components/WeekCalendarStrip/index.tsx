@@ -39,7 +39,13 @@ export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): Rea
                                 onPress={() => setDayIndex(index)}
                             >
                                 <Text style={styles.weekDayTitle}>{getDayOfWeek(day.date)}</Text>
-                                <View style={styles.dayButtonContainer}>
+                                <View
+                                    style={
+                                        dayIndex === index
+                                            ? styles.selectedDayButtonContainer
+                                            : styles.dayButtonContainer
+                                    }
+                                >
                                     <Text
                                         style={
                                             dayIndex === index

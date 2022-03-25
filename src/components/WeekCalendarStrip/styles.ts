@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.neutral.white,
         padding: Sizing.layout.x10,
     },
+    selectedDayButtonContainer: {
+        padding: Sizing.layout.x10,
+        borderRadius: Sizing.layout.x15,
+        backgroundColor: Colors.primary.brand,
+    },
     dayButtonText: {
         fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x20,
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
     selectedDayButtonText: {
         fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x20,
-        color: Colors.primary.brand,
+        color: Colors.neutral.white,
     },
 });
 
