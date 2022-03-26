@@ -13,6 +13,7 @@ import RootStackNavigator from "./src/navigators/RootStackNavigator";
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
+        IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
         Lexend_500Medium,
         Lexend_700Bold,
         Lexend_600SemiBold,
