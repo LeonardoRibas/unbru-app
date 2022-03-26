@@ -16,7 +16,6 @@ export default function WeekCalendarStrip({ date }: WeekCalendarStripProps): Rea
     useEffect(() => {
         api.get("/menu").then((res) => {
             setWeekMenu(res.data);
-            console.log(res.data);
         });
     }, []);
 
