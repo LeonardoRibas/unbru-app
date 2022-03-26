@@ -8,6 +8,13 @@ import { DinnerIcon } from "../../../assets/icons";
 import { LunchIcon } from "../../../assets/icons";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
+import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+
+export const Icon = createIconSetFromIcoMoon(
+    require("../../../assets/icomoon/selection.json"),
+    "IcoMoon",
+    "icomoon.ttf"
+);
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -42,7 +49,7 @@ function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactEl
             <Tab.Screen
                 name="Desjejum"
                 options={{
-                    tabBarIcon: ({ color }) => <BreakfastIcon fill={color} />,
+                    tabBarIcon: ({ color }) => <Icon name="breakfast" size={24} color={color} />,
                     title: "Desjejum",
                 }}
             >
@@ -52,13 +59,17 @@ function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactEl
             </Tab.Screen>
             <Tab.Screen
                 name="Almoço"
-                options={{ tabBarIcon: ({ color }) => <LunchIcon fill={color} /> }}
+                options={{
+                    tabBarIcon: ({ color }) => <Icon name="lunch" size={24} color={color} />,
+                }}
             >
                 {(props) => <DishList {...props} mealType="Almoço" mealMenu={dayMenu["lunch"]} />}
             </Tab.Screen>
             <Tab.Screen
                 name="Jantar"
-                options={{ tabBarIcon: ({ color }) => <DinnerIcon fill={color} /> }}
+                options={{
+                    tabBarIcon: ({ color }) => <Icon name="dinner" size={24} color={color} />,
+                }}
             >
                 {(props) => <DishList {...props} mealType="Jantar" mealMenu={dayMenu["dinner"]} />}
             </Tab.Screen>
