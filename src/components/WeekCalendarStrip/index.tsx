@@ -1,5 +1,4 @@
 import styles from "./styles";
-import { isSameDay, parseISO } from "date-fns";
 import React, { useEffect, useState } from "react";
 
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
