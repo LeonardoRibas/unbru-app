@@ -1,15 +1,15 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 import api from "../../services/api";
 import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
 import { getFormatedDate } from "../../utils/date";
+import DayIndexContextProvider from "../../context/DayIndexContext";
 
 type TopTabNavigatorProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const Stack = createNativeStackNavigator();
-export const DayIndexContext = createContext(0);
 
 export default function HomeStackNavigator({ route }: TopTabNavigatorProps): React.ReactElement {
     const [weekMenu, setWeekMenu] = useState([]);
@@ -29,7 +29,7 @@ export default function HomeStackNavigator({ route }: TopTabNavigatorProps): Rea
     }, []);
 
     return !loading ? (
-        <DayIndexContext.Provider value={{ dayIndex, setDayIndex }}>
+        <DayIndexContextProvider value={{ dayIndex, setDayIndex }}>
             <Stack.Navigator
                 screenOptions={{
                     header: (props) => <Header {...props} />,
@@ -39,7 +39,7 @@ export default function HomeStackNavigator({ route }: TopTabNavigatorProps): Rea
                     {(props) => <BottomTabNavigator {...props} dayMenu={weekMenu[dayIndex]} />}
                 </Stack.Screen>
             </Stack.Navigator>
-        </DayIndexContext.Provider>
+        </DayIndexContextProvider>
     ) : (
         <ActivityIndicatorBox />
     );
