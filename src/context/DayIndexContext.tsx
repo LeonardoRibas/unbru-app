@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 
 interface IDayIndexContext {
     dayIndex: number;
-    setDayIndex: React.Dispatch<React.SetStateAction<number>> | undefined;
+    setDayIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 type DayIndexContextProps = {
@@ -12,7 +12,7 @@ type DayIndexContextProps = {
 
 export const DayIndexContext = createContext<IDayIndexContext>({
     dayIndex: 0,
-    setDayIndex: undefined,
+    setDayIndex: () => null,
 });
 
 export default function DayIndexContextProvider({
