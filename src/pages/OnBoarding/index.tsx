@@ -4,11 +4,9 @@ import { Text, View } from "react-native";
 import Button from "../../components/Button";
 import { OnboardingIllustration } from "../../../assets/illustrations";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-type OnBoardingProps = {
-    navigation: NativeStackNavigationProp<RootStackParamList, "OnBoarding">;
-};
+type OnBoardingProps = NativeStackScreenProps<RootStackParamList, "OnBoarding">;
 
 export default function OnBoarding({ navigation }: OnBoardingProps): React.ReactElement {
     return (
