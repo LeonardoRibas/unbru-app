@@ -3,20 +3,17 @@ import styles from "./styles";
 import { Text, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
-import { getHeaderTitle } from "@react-navigation/elements";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import ModalBottomSheet from "../../components/ModalBottomSheet";
 import WeekCalendarStrip from "../../components/WeekCalendarStrip";
 
-export default function Header({
-    route,
-    options,
-    navigation,
-}: NativeStackHeaderProps): React.ReactElement {
-    const title = getHeaderTitle(options, route.name);
+type HeaderProps = NativeStackHeaderProps & {
+    day: string;
+};
+
+export default function Header({ day, navigation }: HeaderProps): React.ReactElement {
     const [showModal, setShowModal] = useState(false);
-    const date = new Date();
 
     return (
         <SafeAreaView style={styles.container}>
@@ -29,7 +26,7 @@ export default function Header({
                     onPress={() => navigation.navigate("Settings")}
                 />
             </TouchableOpacity>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{day}</Text>
             <TouchableOpacity style={styles.icon}>
                 <Feather
                     name="calendar"
@@ -45,7 +42,7 @@ export default function Header({
                 visible={showModal}
                 onRequestClose={() => setShowModal(!showModal)}
             >
-                <WeekCalendarStrip date={date} />
+                <WeekCalendarStrip />
             </ModalBottomSheet>
         </SafeAreaView>
     );
