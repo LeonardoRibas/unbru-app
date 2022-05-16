@@ -3,9 +3,12 @@ import React, { memo } from "react";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
-import * as selection from "../../../assets/icomoon/selection.json";
 
-export const Icon = createIconSetFromIcoMoon(selection, "IcoMoon", "icomoon.ttf");
+export const Icon = createIconSetFromIcoMoon(
+    require("../../../assets/icomoon/selection.json"),
+    "IcoMoon",
+    "icomoon.ttf"
+);
 
 const Tab = createMaterialTopTabNavigator();
 
