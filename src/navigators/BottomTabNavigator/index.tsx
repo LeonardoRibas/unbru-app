@@ -1,7 +1,4 @@
-import {
-    createMaterialTopTabNavigator,
-    MaterialTopTabNavigationProp,
-} from "@react-navigation/material-top-tabs";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import React, { memo } from "react";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
@@ -12,7 +9,7 @@ export const Icon = createIconSetFromIcoMoon(selection, "IcoMoon", "icomoon.ttf"
 
 const Tab = createMaterialTopTabNavigator();
 
-type BottomTabNavigatorProps = MaterialTopTabNavigationProp<BottomTabParamList> & {
+type BottomTabNavigatorProps = {
     dayMenu: DayMenu;
 };
 
