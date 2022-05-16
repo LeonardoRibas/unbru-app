@@ -23,7 +23,7 @@ export default function OnBoarding({ navigation }: OnBoardingProps): React.React
                     Brasília na palma de sua mão!
                 </Text>
             </View>
-            <Button text="Ver Cardápio" onPress={() => navigation.navigate("Home")} />
+            <Button text="Ver Cardápio" onPress={() => navigation.navigate("Menu")} />
         </SafeAreaView>
     );
 }
