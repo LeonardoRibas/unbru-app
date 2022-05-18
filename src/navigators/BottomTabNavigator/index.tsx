@@ -3,6 +3,7 @@ import React, { memo } from "react";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+import { View } from "react-native";
 
 export const Icon = createIconSetFromIcoMoon(
     require("../../../assets/icomoon/selection.json"),
@@ -16,7 +17,7 @@ type BottomTabNavigatorProps = {
     dayMenu: DayMenu;
 };
 
-function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
+function BottomTabNavigatorMobile({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
     return (
         <Tab.Navigator
             tabBarPosition="bottom"
@@ -70,4 +71,19 @@ function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactEl
     );
 }
 
-export default memo(BottomTabNavigator);
+function BottomTabNavigatorWeb({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
+    return (
+        <View
+            style={{
+                flex: 1,
+                flexDirection: "row",
+            }}
+        >
+            <DishList mealType="Desjejum" mealMenu={dayMenu["breakfast"]} />
+            <DishList mealType="Almoço" mealMenu={dayMenu["lunch"]} />
+            <DishList mealType="Jantar" mealMenu={dayMenu["dinner"]} />
+        </View>
+    );
+}
+
+export default memo(Sizing.screen.width >= 768 ? BottomTabNavigatorWeb : BottomTabNavigatorMobile);
