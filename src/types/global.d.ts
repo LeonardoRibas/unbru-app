@@ -1,7 +1,7 @@
 type WeekMenu = Daymenu[];
 
 type DayMenu = {
-    date: Date;
+    date: string;
     breakfast: DishMenuBreakfast;
     lunch: DishMenuLunch;
     dinner: DishMenuDinner;
