@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
         marginBottom: Sizing.layout.x30,
     },
     dayWrapper: {
+        padding: Sizing.layout.x05,
         alignItems: "center",
-        marginRight: Sizing.layout.x30,
     },
     weekDayTitle: {
         fontFamily: Typography.fontWeight.medium,
