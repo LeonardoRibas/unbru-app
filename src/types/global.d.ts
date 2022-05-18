@@ -2,12 +2,12 @@ type WeekMenu = Daymenu[];
 
 type DayMenu = {
     date: string;
-    breakfast: DishMenuBreakfast;
-    lunch: DishMenuLunch;
-    dinner: DishMenuDinner;
+    breakfast: BreakfastMeal;
+    lunch: LunchMeal;
+    dinner: DinnerMeal;
 };
 
-type DishMenuBreakfast = {
+type BreakfastMeal = {
     "Complemento ovolactovegetariano": string;
     "Complemento parão": string;
     "Complemento vegetariano estrito": string;
@@ -20,7 +20,7 @@ type DishMenuBreakfast = {
     "Pão vegetariano estrito": string;
 };
 
-type DishMenuLunch = {
+type LunchMeal = {
     Acompanhamentos: string;
     Guarnição: string;
     Molho: string;
@@ -33,7 +33,7 @@ type DishMenuLunch = {
     Sobremesa: string;
 };
 
-type DishMenuDinner = {
+type DinnerMeal = {
     Acompanhamentos: string;
     Molho: string;
     "Prato principal ovolactovegetariano": string;
