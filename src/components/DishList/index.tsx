@@ -5,8 +5,8 @@ import { View, FlatList } from "react-native";
 import * as colors from "../../styles/colors";
 
 type MealMenuProps = {
-    mealType: string;
-    mealMenu: any;
+    mealType: "Desjejum" | "Almoço" | "Jantar";
+    mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
 };
 
 const mealTypeTime = {
