@@ -5,6 +5,8 @@ export const getDayOfWeek = (date: string): string => {
     return weekDays[dayNumber];
 };
 
+export const getShortDayOfWeek = (date: string): string => getDayOfWeek(date).slice(0, 3);
+
 export const getFormatedDate = (date: string): string => {
     const newDate = new Date(date);
     const day = newDate.getDate();
