@@ -44,7 +44,6 @@ function BottomTabNavigator({ dayMenu }: BottomTabNavigatorProps): React.ReactEl
                 name="Desjejum"
                 options={{
                     tabBarIcon: ({ color }) => <Icon name="breakfast" size={24} color={color} />,
-                    title: "Desjejum",
                 }}
             >
                 {(props) => (
