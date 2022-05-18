@@ -17,6 +17,7 @@
         "@react-navigation/material-top-tabs": "^6.0.2",
         "@react-navigation/native": "^6.0.1",
         "@react-navigation/native-stack": "^6.0.1",
+        "@supabase/supabase-js": "^1.35.3",
         "axios": "^0.24.0",
         "date-fns": "^2.28.0",
         "dayjs": "^1.10.6",
