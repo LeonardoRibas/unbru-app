@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootStackNavigator from "./src/navigators/RootStackNavigator";
+import "react-native-url-polyfill/auto";
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
