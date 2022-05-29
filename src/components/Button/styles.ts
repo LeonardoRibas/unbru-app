@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         paddingVertical: Sizing.layout.x20,
         paddingHorizontal: Sizing.layout.x80,
         borderRadius: Outlines.borderRadius.base,
-        backgroundColor: Colors.primary.brand,
+        backgroundColor: Colors.primary.base,
     },
     text: {
         color: Colors.neutral.white,

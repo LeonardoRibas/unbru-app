@@ -6,7 +6,7 @@ import { Colors } from "../../styles";
 export default function ActivityIndicatorBox(): React.ReactElement {
     return (
         <View style={styles.container}>
-            <ActivityIndicator size="large" color={Colors.primary.brand} />
+            <ActivityIndicator size="large" color={Colors.primary.base} />
         </View>
     );
 }

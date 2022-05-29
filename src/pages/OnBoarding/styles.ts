@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         lineHeight: 22,
     },
     highlight: {
-        color: Colors.primary.brand,
+        color: Colors.primary.base,
     },
 });
 

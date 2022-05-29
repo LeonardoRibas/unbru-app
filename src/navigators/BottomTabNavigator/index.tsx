@@ -1,34 +1,32 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
-import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 import { View } from "react-native";
-
-export const Icon = createIconSetFromIcoMoon(
-    require("../../../assets/icomoon/selection.json"),
-    "IcoMoon",
-    "icomoon.ttf"
-);
+import { DayIndexContext } from "../../context/DayIndexContext";
+import CustomIcon from "../../components/CustomIcon";
 
 const Tab = createMaterialTopTabNavigator();
 
-type BottomTabNavigatorProps = {
-    dayMenu: DayMenu;
-};
-
-function BottomTabNavigatorMobile({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
+function BottomTabNavigatorMobile() {
+    const { menu, dayIndex } = useContext(DayIndexContext);
+    const dayMenu = menu[dayIndex];
     return (
         <Tab.Navigator
             tabBarPosition="bottom"
             screenOptions={{
-                tabBarActiveTintColor: Colors.primary.brand,
-                tabBarInactiveTintColor: Colors.neutral.s250,
+                tabBarActiveTintColor: Colors.primary.base,
+                tabBarInactiveTintColor: Colors.neutral.s400,
                 tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android
                 tabBarItemStyle: {
                     paddingVertical: 4,
+                    paddingHorizontal: 0,
+                },
+                tabBarIconStyle: {
+                    margin: 2,
                 },
                 tabBarLabelStyle: {
+                    margin: 0,
                     fontFamily: Typography.fontWeight.semiBold,
                     fontSize: Typography.fontSize.x15,
                     textTransform: "none", // Disables default uppercase letters
@@ -37,41 +35,46 @@ function BottomTabNavigatorMobile({ dayMenu }: BottomTabNavigatorProps): React.R
                     top: 0,
                     left: Sizing.margin.base, // Compensates and centrilizes the indicator, because of the double margin taken away below
                     width: Sizing.screen.width / 3 - Sizing.margin.base * 2,
-                    backgroundColor: Colors.primary.brand,
+                    backgroundColor: Colors.primary.base,
                 },
             }}
         >
             <Tab.Screen
                 name="Desjejum"
                 options={{
-                    tabBarIcon: ({ color }) => <Icon name="breakfast" size={24} color={color} />,
+                    tabBarIcon: ({ color }) => (
+                        <CustomIcon name="breakfast" size={26} color={color} />
+                    ),
                 }}
             >
                 {(props) => (
-                    <DishList {...props} mealType="Desjejum" mealMenu={dayMenu["breakfast"]} />
+                    <DishList {...props} mealType="Desjejum" mealMenu={dayMenu["desjejum"]} />
                 )}
             </Tab.Screen>
             <Tab.Screen
                 name="Almoço"
                 options={{
-                    tabBarIcon: ({ color }) => <Icon name="lunch" size={24} color={color} />,
+                    tabBarIcon: ({ color }) => <CustomIcon name="lunch" size={26} color={color} />,
                 }}
             >
-                {(props) => <DishList {...props} mealType="Almoço" mealMenu={dayMenu["lunch"]} />}
+                {(props) => <DishList {...props} mealType="Almoço" mealMenu={dayMenu["almoco"]} />}
             </Tab.Screen>
             <Tab.Screen
                 name="Jantar"
                 options={{
-                    tabBarIcon: ({ color }) => <Icon name="dinner" size={24} color={color} />,
+                    tabBarIcon: ({ color }) => <CustomIcon name="dinner" size={26} color={color} />,
                 }}
             >
-                {(props) => <DishList {...props} mealType="Jantar" mealMenu={dayMenu["dinner"]} />}
+                {(props) => <DishList {...props} mealType="Jantar" mealMenu={dayMenu["jantar"]} />}
             </Tab.Screen>
         </Tab.Navigator>
     );
 }
 
-function BottomTabNavigatorWeb({ dayMenu }: BottomTabNavigatorProps): React.ReactElement {
+function BottomTabNavigatorWeb() {
+    const { menu, dayIndex } = useContext(DayIndexContext);
+    const dayMenu = menu[dayIndex];
+
     return (
         <View
             style={{
@@ -79,9 +82,9 @@ function BottomTabNavigatorWeb({ dayMenu }: BottomTabNavigatorProps): React.Reac
                 flexDirection: "row",
             }}
         >
-            <DishList mealType="Desjejum" mealMenu={dayMenu["breakfast"]} />
-            <DishList mealType="Almoço" mealMenu={dayMenu["lunch"]} />
-            <DishList mealType="Jantar" mealMenu={dayMenu["dinner"]} />
+            <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} />
+            <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} />
+            <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} />
         </View>
     );
 }
