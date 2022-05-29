@@ -1,8 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, useContext, useEffect, useState } from "react";
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { View, FlatList } from "react-native";
+import { View, FlatList, RefreshControl } from "react-native";
 import * as colors from "../../styles/colors";
+import useFetchMenu from "../../hooks/useFetchMenu";
+import { DayIndexContext } from "../../context/DayIndexContext";
+import { Colors } from "../../styles";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -16,6 +19,18 @@ const mealTypeTime = {
 };
 
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
+    const [refreshing, setRefreshing] = useState(false);
+    const fetchMenu = useFetchMenu();
+    const { setMenu, setDayIndex } = useContext(DayIndexContext);
+
+    const onRefresh = async () => {
+        setRefreshing(true);
+        const data = await fetchMenu();
+        setDayIndex(0);
+        setMenu(data);
+        setRefreshing(false);
+    };
+
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
             <FlatList
@@ -26,7 +41,14 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
                 data={Object.entries(mealMenu)}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(item, index) => index.toString()}
-                contentContainerStyle={{ backgroundColor: colors.primary.brand }}
+                contentContainerStyle={{ backgroundColor: colors.primary.base }}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
+                        colors={[Colors.primary.base]}
+                    />
+                }
             />
         </View>
     );
