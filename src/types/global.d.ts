@@ -1,10 +1,11 @@
-type WeekMenu = Daymenu[];
+type WeekMenu = DayMenu[];
 
 type DayMenu = {
+    id: number;
     date: string;
-    breakfast: BreakfastMeal;
-    lunch: LunchMeal;
-    dinner: DinnerMeal;
+    desjejum: BreakfastMeal;
+    almoco: LunchMeal;
+    jantar: DinnerMeal;
 };
 
 type BreakfastMeal = {
@@ -46,3 +47,8 @@ type DinnerMeal = {
     Sopa: string;
     Torrada: string;
 };
+
+declare module "react-native-dotenv" {
+    export const REACT_APP_SUPABASE_URL: string;
+    export const REACT_APP_SUPABASE_ANON_KEY: string;
+}
