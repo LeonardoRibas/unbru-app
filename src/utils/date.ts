@@ -1,15 +1,42 @@
 const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+const yearMonths = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+];
 
-export const getDayOfWeek = (date: string): string => {
-    const dayNumber = new Date(date).getDay();
-    return weekDays[dayNumber];
+/** Returns the week day of a date, eg "Segunda", "Terca"... */
+export const getWeekDay = (date: string): string => {
+    const dayNumber = new Date(
+        parseInt(date.slice(0, 4)),
+        parseInt(date.slice(5, 7)) - 1,
+        parseInt(date.slice(8))
+    );
+    const result = dayNumber.getDay();
+    return weekDays[result];
 };
 
-export const getShortDayOfWeek = (date: string): string => getDayOfWeek(date).slice(0, 3);
-
 export const getFormatedDate = (date: string): string => {
-    const newDate = new Date(date);
-    const day = newDate.getDate();
-    const month = newDate.getMonth();
-    return `${getDayOfWeek(date)} ${("0" + day).slice(-2)}/${("0" + (month + 1)).slice(-2)}`;
+    return `${getWeekDay(date)} ${date.slice(8)}/${date.slice(5, 7)}`;
+};
+
+/**Returns the month(s) of a week separated by "/"*/
+export const getMonthsFromWeek = (menu: WeekMenu): string => {
+    const months: string[] = [];
+    menu.map((day: DayMenu) => {
+        const newItem = day.date.slice(5, 7);
+        months.indexOf(yearMonths[parseInt(newItem) - 1]) === -1
+            ? months.push(yearMonths[parseInt(newItem) - 1])
+            : null;
+    });
+    return months.join(" / ");
 };
