@@ -8,7 +8,7 @@
         "splash": {
             "image": "./assets/splash.png",
             "resizeMode": "contain",
-            "backgroundColor": "#4BB762"
+            "backgroundColor": "#48B755"
         },
         "updates": {
             "fallbackToCacheTimeout": 0
@@ -28,7 +28,7 @@
         },
         "androidStatusBar": {
             "barStyle": "light-content",
-            "backgroundColor": "#4BB762"
+            "backgroundColor": "#48B755"
         }
     }
 }
