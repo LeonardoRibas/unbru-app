@@ -1,57 +1,52 @@
 import styles from "./styles";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import api from "../../services/api";
-import { getShortDayOfWeek } from "../../utils/date";
+import { getWeekDay, getMonthsFromWeek } from "../../utils/date";
 import { DayIndexContext } from "../../context/DayIndexContext";
 
 export default function WeekCalendarStrip(): React.ReactElement {
-    const [weekMenu, setWeekMenu] = useState([]);
-    const { dayIndex, setDayIndex } = useContext(DayIndexContext);
-
-    useEffect(() => {
-        api.get("/menu").then((res) => {
-            setWeekMenu(res.data);
-        });
-    }, []);
+    const { menu, dayIndex, setDayIndex } = useContext(DayIndexContext);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Maio</Text>
-            <View
-                style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                }}
+            <Text style={styles.title}>{getMonthsFromWeek(menu)}</Text>
+            <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                fadingEdgeLength={10}
             >
-                {weekMenu.map((day: DayMenu, index) => (
-                    <TouchableOpacity
-                        key={day.date}
-                        style={styles.dayWrapper}
-                        onPress={() => setDayIndex(index)}
-                    >
-                        <Text style={styles.weekDayTitle}>{getShortDayOfWeek(day.date)}</Text>
-                        <View
-                            style={
-                                dayIndex === index
-                                    ? styles.selectedDayButtonContainer
-                                    : styles.dayButtonContainer
-                            }
+                {menu &&
+                    menu.map((day: DayMenu, index: number) => (
+                        <TouchableOpacity
+                            key={day.id}
+                            style={styles.dayWrapper}
+                            onPress={() => setDayIndex(index)}
                         >
-                            <Text
+                            <Text style={styles.weekDayTitle}>
+                                {getWeekDay(day.date).slice(0, 3)}
+                            </Text>
+                            <View
                                 style={
                                     dayIndex === index
-                                        ? styles.selectedDayButtonText
-                                        : styles.dayButtonText
+                                        ? styles.selectedDayButtonContainer
+                                        : styles.dayButtonContainer
                                 }
                             >
-                                {new Date(day.date).getDate()}
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                ))}
-            </View>
+                                <Text
+                                    style={
+                                        dayIndex === index
+                                            ? styles.selectedDayButtonText
+                                            : styles.dayButtonText
+                                    }
+                                >
+                                    {day.date.slice(8)}
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    ))}
+            </ScrollView>
         </View>
     );
 }

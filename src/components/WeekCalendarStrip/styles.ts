@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         marginBottom: Sizing.layout.x30,
     },
     dayWrapper: {
-        padding: Sizing.layout.x05,
+        marginRight: Sizing.layout.x30,
         alignItems: "center",
     },
     weekDayTitle: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     selectedDayButtonContainer: {
         padding: Sizing.layout.x10,
         borderRadius: Sizing.layout.x15,
-        backgroundColor: Colors.primary.brand,
+        backgroundColor: Colors.primary.base,
     },
     dayButtonText: {
         fontFamily: Typography.fontWeight.semiBold,

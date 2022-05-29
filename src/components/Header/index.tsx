@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./styles";
 import { Text, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
@@ -7,12 +7,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 import ModalBottomSheet from "../../components/ModalBottomSheet";
 import WeekCalendarStrip from "../../components/WeekCalendarStrip";
+import { getFormatedDate } from "../../utils/date";
+import { DayIndexContext } from "../../context/DayIndexContext";
 
-type HeaderProps = NativeStackHeaderProps & {
-    day: string;
-};
-
-export default function Header({ day, navigation }: HeaderProps): React.ReactElement {
+export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
+    const { menu, dayIndex } = useContext(DayIndexContext);
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -26,7 +25,7 @@ export default function Header({ day, navigation }: HeaderProps): React.ReactEle
                     onPress={() => navigation.navigate("Settings")}
                 />
             </TouchableOpacity>
-            <Text style={styles.title}>{day}</Text>
+            {menu && <Text style={styles.title}>{getFormatedDate(menu[dayIndex].date)}</Text>}
             <TouchableOpacity style={styles.icon}>
                 <Feather
                     name="calendar"
