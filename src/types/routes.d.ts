@@ -1,6 +1,6 @@
 type RootStackParamList = {
     OnBoarding: undefined;
-    Home: undefined;
+    Menu: undefined;
     Settings: undefined;
 };
 
