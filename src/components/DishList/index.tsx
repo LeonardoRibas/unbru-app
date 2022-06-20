@@ -14,7 +14,7 @@ type MealMenuProps = {
 
 const mealTypeTime = {
     Desjejum: "6h - 9h",
-    Almoço: "12h - 14h",
+    Almoço: "12h - 14:30h",
     Jantar: "17h - 19h",
 };
 
