@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         paddingVertical: Sizing.layout.x20,
         flexDirection: "row",
         justifyContent: "center",
+        alignItems: "center",
     },
     icon: {
         position: "absolute",
