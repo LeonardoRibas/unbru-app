@@ -9,6 +9,7 @@ import ModalBottomSheet from "../../components/ModalBottomSheet";
 import WeekCalendarStrip from "../../components/WeekCalendarStrip";
 import { getFormatedDate } from "../../utils/date";
 import { DayIndexContext } from "../../context/DayIndexContext";
+import { IconButton, Icon } from "native-base";
 
 export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const { menu, dayIndex } = useContext(DayIndexContext);
@@ -17,23 +18,17 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="light" />
-            <TouchableOpacity style={styles.icon}>
-                <Feather
-                    name="settings"
-                    color="white"
-                    size={22}
-                    onPress={() => navigation.navigate("Settings")}
-                />
-            </TouchableOpacity>
+            <IconButton
+                borderRadius="full"
+                onPress={() => navigation.navigate("Settings")}
+                icon={<Icon as={Feather} name="settings" size={6} color="white" />}
+            />
             {menu && <Text style={styles.title}>{getFormatedDate(menu[dayIndex].date)}</Text>}
-            <TouchableOpacity style={styles.icon}>
-                <Feather
-                    name="calendar"
-                    color="white"
-                    size={22}
-                    onPress={() => setShowModal(true)}
-                />
-            </TouchableOpacity>
+            <IconButton
+                borderRadius="full"
+                onPress={() => setShowModal(true)}
+                icon={<Icon as={Feather} name="calendar" size={6} color="white" />}
+            />
             <ModalBottomSheet
                 statusBarTranslucent
                 animationType="fade"
