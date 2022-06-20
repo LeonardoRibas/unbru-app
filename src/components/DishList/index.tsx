@@ -41,7 +41,6 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
                 data={Object.entries(mealMenu)}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(item, index) => index.toString()}
-                contentContainerStyle={{ backgroundColor: colors.primary.base }}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
