@@ -11,6 +11,7 @@ import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootStackNavigator from "./src/navigators/RootStackNavigator";
 import "react-native-url-polyfill/auto";
+import { NativeBaseProvider } from "native-base";
 
 export default function App(): React.ReactElement {
     const [fontsLoaded] = useFonts({
@@ -26,10 +27,12 @@ export default function App(): React.ReactElement {
 
     return (
         <SafeAreaProvider>
-            <NavigationContainer>
-                <StatusBar style="auto" />
-                <RootStackNavigator />
-            </NavigationContainer>
+            <NativeBaseProvider>
+                <NavigationContainer>
+                    <StatusBar style="auto" />
+                    <RootStackNavigator />
+                </NavigationContainer>
+            </NativeBaseProvider>
         </SafeAreaProvider>
     );
 }
