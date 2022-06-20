@@ -4,10 +4,11 @@ import useFetchMenu from "../../hooks/useFetchMenu";
 import Header from "../../components/Header";
 import DayIndexContextProvider from "../../context/DayIndexContext";
 import OnBoarding from "../../pages/OnBoarding";
-import Settings from "../../pages/Settings";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { checkIfFirstLaunch } from "../../utils/storage";
 import AppLoading from "expo-app-loading";
+import SettingsStackNavigator from "../SettingsStackNavigator";
+import StackHeader from "../../components/StackHeader";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,12 +55,11 @@ export default function RootStackNavigator(): React.ReactElement {
                     >
                         {() => <BottomTabNavigator />}
                     </Stack.Screen>
-
                     <Stack.Screen
                         name="Settings"
-                        component={Settings}
+                        component={SettingsStackNavigator}
                         options={{
-                            title: "Configurações",
+                            headerShown: false,
                         }}
                     />
                 </Stack.Navigator>
