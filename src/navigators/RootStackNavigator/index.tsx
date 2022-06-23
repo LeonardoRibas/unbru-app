@@ -8,7 +8,6 @@ import BottomTabNavigator from "../BottomTabNavigator";
 import { checkIfFirstLaunch } from "../../utils/storage";
 import AppLoading from "expo-app-loading";
 import SettingsStackNavigator from "../SettingsStackNavigator";
-import StackHeader from "../../components/StackHeader";
 
 const Stack = createNativeStackNavigator();
 
