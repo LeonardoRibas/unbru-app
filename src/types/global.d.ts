@@ -1,7 +1,6 @@
 type WeekMenu = DayMenu[];
 
 type DayMenu = {
-    id: number;
     date: string;
     desjejum: BreakfastMeal;
     almoco: LunchMeal;
