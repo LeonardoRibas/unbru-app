@@ -13,21 +13,37 @@ const Stack = createNativeStackNavigator();
 
 export default function RootStackNavigator(): React.ReactElement {
     const [menu, setMenu] = useState<WeekMenu>([]);
-    const [dayIndex, setDayIndex] = useState(0);
+    const [dayIndex, setDayIndex] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [isFirstLaunch, setIsFirstLaunch] = useState<boolean>();
     const fetchMenu = useFetchMenu();
+    const [mealTime, setMealTime] = useState("");
 
-    async function setAndFetchMenu() {
-        const data = await fetchMenu();
-        setMenu(data);
-    }
+    const getMealByTime = () => {
+        const currentTime = new Date().getTime();
+        const endBreakfast = new Date().setHours(9, 0, 0);
+        const endLunch = new Date().setHours(14, 30, 0);
+        const endDinner = new Date().setHours(19, 0, 0);
+
+        if (currentTime < endBreakfast || currentTime > endDinner) {
+            setMealTime("Desjejum");
+        }
+        if (endLunch > currentTime && currentTime > endBreakfast) {
+            setMealTime("Almoço");
+        }
+        if (endDinner > currentTime && currentTime > endLunch) {
+            setMealTime("Jantar");
+        }
+    };
 
     useEffect(() => {
         async function setUp() {
             const res = await checkIfFirstLaunch();
             setIsFirstLaunch(res);
-            await setAndFetchMenu();
+            const data = await fetchMenu();
+            setMenu(data);
+            setDayIndex(new Date().toISOString().slice(0, 10));
+            getMealByTime();
             setIsLoading(false);
         }
         setUp();
@@ -39,20 +55,20 @@ export default function RootStackNavigator(): React.ReactElement {
                 <AppLoading />
             ) : (
                 <Stack.Navigator>
-                    {isFirstLaunch ? (
+                    {isFirstLaunch && (
                         <Stack.Screen
                             name="OnBoarding"
                             component={OnBoarding}
                             options={{ headerShown: false }}
                         />
-                    ) : null}
+                    )}
                     <Stack.Screen
                         name="Menu"
                         options={{
                             header: (props) => <Header {...props} />,
                         }}
                     >
-                        {() => <BottomTabNavigator />}
+                        {() => <BottomTabNavigator mealTime={mealTime} />}
                     </Stack.Screen>
                     <Stack.Screen
                         name="Settings"

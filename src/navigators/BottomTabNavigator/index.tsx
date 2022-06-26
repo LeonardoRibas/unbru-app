@@ -8,11 +8,17 @@ import CustomIcon from "../../components/CustomIcon";
 
 const Tab = createMaterialTopTabNavigator();
 
-function BottomTabNavigatorMobile() {
+type BottomTabNavigatorMobileProps = {
+    mealTime: "Desjejum" | "Almoço" | "Jantar";
+};
+
+function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
     const { menu, dayIndex } = useContext(DayIndexContext);
     const dayMenu = menu[dayIndex];
+
     return (
         <Tab.Navigator
+            initialRouteName={mealTime}
             tabBarPosition="bottom"
             screenOptions={{
                 tabBarActiveTintColor: Colors.primary.base,
