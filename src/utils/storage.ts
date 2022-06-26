@@ -10,7 +10,6 @@ async function checkIfFirstLaunch() {
     try {
         const hasLaunched = await AsyncStorage.getItem(HAS_LAUNCHED);
         if (hasLaunched === null) {
-            console.log("entrou");
             setAppLaunched();
             return true;
         }
