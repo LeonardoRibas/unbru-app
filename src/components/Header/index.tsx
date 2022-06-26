@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "./styles";
-import { Text, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,7 +23,7 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
                 onPress={() => navigation.navigate("Settings")}
                 icon={<Icon as={Feather} name="settings" size={6} color="white" />}
             />
-            {menu && <Text style={styles.title}>{getFormatedDate(menu[dayIndex].date)}</Text>}
+            {menu && <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>}
             <IconButton
                 borderRadius="full"
                 onPress={() => setShowModal(true)}
