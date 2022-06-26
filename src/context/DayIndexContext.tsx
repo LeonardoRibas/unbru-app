@@ -3,8 +3,8 @@ import React, { createContext } from "react";
 interface IDayIndexContext {
     menu: WeekMenu;
     setMenu: React.Dispatch<React.SetStateAction<WeekMenu>>;
-    dayIndex: number;
-    setDayIndex: React.Dispatch<React.SetStateAction<number>>;
+    dayIndex: string;
+    setDayIndex: React.Dispatch<React.SetStateAction<string>>;
 }
 
 type DayIndexContextProps = {
@@ -15,7 +15,7 @@ type DayIndexContextProps = {
 export const DayIndexContext = createContext<IDayIndexContext>({
     menu: [],
     setMenu: () => null,
-    dayIndex: 0,
+    dayIndex: "",
     setDayIndex: () => null,
 });
 

@@ -18,30 +18,28 @@ export default function WeekCalendarStrip(): React.ReactElement {
                 fadingEdgeLength={10}
             >
                 {menu &&
-                    menu.map((day: DayMenu, index: number) => (
+                    Object.keys(menu).map((date: string) => (
                         <TouchableOpacity
-                            key={day.id}
+                            key={date}
                             style={styles.dayWrapper}
-                            onPress={() => setDayIndex(index)}
+                            onPress={() => setDayIndex(date)}
                         >
-                            <Text style={styles.weekDayTitle}>
-                                {getWeekDay(day.date).slice(0, 3)}
-                            </Text>
+                            <Text style={styles.weekDayTitle}>{getWeekDay(date).slice(0, 3)}</Text>
                             <View
                                 style={
-                                    dayIndex === index
+                                    dayIndex === date
                                         ? styles.selectedDayButtonContainer
                                         : styles.dayButtonContainer
                                 }
                             >
                                 <Text
                                     style={
-                                        dayIndex === index
+                                        dayIndex === date
                                             ? styles.selectedDayButtonText
                                             : styles.dayButtonText
                                     }
                                 >
-                                    {day.date.slice(8)}
+                                    {date.slice(8)}
                                 </Text>
                             </View>
                         </TouchableOpacity>

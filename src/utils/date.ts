@@ -32,8 +32,8 @@ export const getFormatedDate = (date: string): string => {
 /**Returns the month(s) of a week separated by "/"*/
 export const getMonthsFromWeek = (menu: WeekMenu): string => {
     const months: string[] = [];
-    menu.map((day: DayMenu) => {
-        const newItem = day.date.slice(5, 7);
+    Object.keys(menu).map((date: string) => {
+        const newItem = date.slice(5, 7);
         months.indexOf(yearMonths[parseInt(newItem) - 1]) === -1
             ? months.push(yearMonths[parseInt(newItem) - 1])
             : null;
