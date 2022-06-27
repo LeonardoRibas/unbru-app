@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "unbru-front",
-    "slug": "unbru-front",
+    "name": "UnBRU",
+    "slug": "UnBRU",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
