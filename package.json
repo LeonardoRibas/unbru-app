@@ -50,6 +50,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",
+        "@expo/webpack-config": "^0.16.26",
         "@testing-library/jest-native": "^4.0.4",
         "@testing-library/react-native": "^9.1.0",
         "@types/jest": "^27.5.1",
@@ -68,7 +69,20 @@
         "prettier": "2.3.2",
         "react-native-svg-transformer": "^0.14.3",
         "react-test-renderer": "17",
-        "typescript": "~4.3.5"
+        "typescript": "~4.3.5",
+        "workbox-background-sync": "^6.5.3",
+        "workbox-broadcast-update": "^6.5.3",
+        "workbox-cacheable-response": "^6.5.3",
+        "workbox-core": "^6.5.3",
+        "workbox-expiration": "^6.5.3",
+        "workbox-google-analytics": "^6.5.3",
+        "workbox-navigation-preload": "^6.5.3",
+        "workbox-precaching": "^6.5.3",
+        "workbox-range-requests": "^6.5.3",
+        "workbox-routing": "^6.5.3",
+        "workbox-strategies": "^6.5.3",
+        "workbox-streams": "^6.5.3",
+        "workbox-webpack-plugin": "^6.5.3"
     },
     "private": true,
     "lint-staged": {
