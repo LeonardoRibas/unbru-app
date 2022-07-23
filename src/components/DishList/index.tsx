@@ -1,11 +1,10 @@
-import React, { memo, useContext, useEffect, useState } from "react";
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { View, FlatList, RefreshControl } from "react-native";
-import * as colors from "../../styles/colors";
-import useFetchMenu from "../../hooks/useFetchMenu";
-import { GeneralContext } from "../../context/GeneralContext";
 import { Colors } from "../../styles";
+import useFetchMenu from "../../hooks/useFetchMenu";
+import React, { memo, useContext, useState } from "react";
+import { View, FlatList, RefreshControl } from "react-native";
+import { GeneralContext } from "../../context/GeneralContext";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
