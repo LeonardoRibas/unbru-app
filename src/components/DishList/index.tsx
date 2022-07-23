@@ -1,11 +1,10 @@
-import React, { memo, useContext, useEffect, useState } from "react";
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { View, FlatList, RefreshControl } from "react-native";
-import * as colors from "../../styles/colors";
-import useFetchMenu from "../../hooks/useFetchMenu";
-import { DayIndexContext } from "../../context/DayIndexContext";
 import { Colors } from "../../styles";
+import useFetchMenu from "../../hooks/useFetchMenu";
+import React, { memo, useContext, useState } from "react";
+import { View, FlatList, RefreshControl } from "react-native";
+import { GeneralContext } from "../../context/GeneralContext";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -21,12 +20,11 @@ const mealTypeTime = {
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const fetchMenu = useFetchMenu();
-    const { setMenu, setDayIndex } = useContext(DayIndexContext);
+    const { setMenu } = useContext(GeneralContext);
 
     const onRefresh = async () => {
         setRefreshing(true);
         const data = await fetchMenu();
-        setDayIndex(0);
         setMenu(data);
         setRefreshing(false);
     };

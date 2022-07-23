@@ -3,7 +3,7 @@ import React, { memo, useContext } from "react";
 import DishList from "../../components/DishList";
 import { Colors, Typography, Sizing } from "../../styles";
 import { View } from "react-native";
-import { DayIndexContext } from "../../context/DayIndexContext";
+import { GeneralContext } from "../../context/GeneralContext";
 import CustomIcon from "../../components/CustomIcon";
 
 const Tab = createMaterialTopTabNavigator();
@@ -13,7 +13,7 @@ type BottomTabNavigatorMobileProps = {
 };
 
 function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
-    const { menu, dayIndex } = useContext(DayIndexContext);
+    const { menu, dayIndex } = useContext(GeneralContext);
     const dayMenu = menu[dayIndex];
 
     return (
@@ -78,7 +78,7 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
 }
 
 function BottomTabNavigatorWeb() {
-    const { menu, dayIndex } = useContext(DayIndexContext);
+    const { menu, dayIndex } = useContext(GeneralContext);
     const dayMenu = menu[dayIndex];
 
     return (
