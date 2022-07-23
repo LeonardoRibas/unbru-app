@@ -1,15 +1,15 @@
 import styles from "./styles";
 import React, { useContext } from "react";
-
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import { getWeekDay, getMonthsFromWeek } from "../../utils/date";
 import { DayIndexContext } from "../../context/DayIndexContext";
+import { getWeekDay, getMonthsFromWeek } from "../../utils/date";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 
-export default function WeekCalendarStrip(): React.ReactElement {
+export default function CalendarPicker(): React.ReactElement {
     const { menu, dayIndex, setDayIndex } = useContext(DayIndexContext);
 
     return (
         <View style={styles.container}>
+            <View style={styles.handle} />
             <Text style={styles.title}>{getMonthsFromWeek(menu)}</Text>
             <ScrollView
                 horizontal
