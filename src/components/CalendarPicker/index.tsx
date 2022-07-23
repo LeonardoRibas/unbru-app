@@ -1,11 +1,11 @@
 import styles from "./styles";
 import React, { useContext } from "react";
-import { DayIndexContext } from "../../context/DayIndexContext";
+import { GeneralContext } from "../../context/GeneralContext";
 import { getWeekDay, getMonthsFromWeek } from "../../utils/date";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 
 export default function CalendarPicker(): React.ReactElement {
-    const { menu, dayIndex, setDayIndex } = useContext(DayIndexContext);
+    const { menu, dayIndex, setDayIndex, setIsCalendarModalOpen } = useContext(GeneralContext);
 
     return (
         <View style={styles.container}>
@@ -22,7 +22,10 @@ export default function CalendarPicker(): React.ReactElement {
                         <TouchableOpacity
                             key={date}
                             style={styles.dayWrapper}
-                            onPress={() => setDayIndex(date)}
+                            onPress={() => {
+                                setDayIndex(date);
+                                setIsCalendarModalOpen(false);
+                            }}
                         >
                             <Text style={styles.weekDayTitle}>{getWeekDay(date).slice(0, 3)}</Text>
                             <View

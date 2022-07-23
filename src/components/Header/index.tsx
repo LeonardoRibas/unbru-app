@@ -6,14 +6,14 @@ import { Feather } from "@expo/vector-icons";
 import { IconButton, Icon } from "native-base";
 import CalendarPicker from "../CalendarPicker";
 import { getFormatedDate } from "../../utils/date";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { DayIndexContext } from "../../context/DayIndexContext";
+import { GeneralContext } from "../../context/GeneralContext";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
 export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
-    const { menu, dayIndex } = useContext(DayIndexContext);
-    const [showModal, setShowModal] = useState(false);
+    const { menu, dayIndex, isCalendarModalOpen, setIsCalendarModalOpen } =
+        useContext(GeneralContext);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -26,19 +26,20 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
             {menu && <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>}
             <IconButton
                 borderRadius="full"
-                onPress={() => setShowModal(true)}
+                onPress={() => setIsCalendarModalOpen(true)}
                 icon={<Icon as={Feather} name="calendar" size={6} color="white" />}
             />
             <Modal
-                isVisible={showModal}
-                onBackdropPress={() => setShowModal(false)}
-                onSwipeComplete={() => setShowModal(false)}
+                isVisible={isCalendarModalOpen}
+                onBackdropPress={() => setIsCalendarModalOpen(false)}
+                onSwipeComplete={() => setIsCalendarModalOpen(false)}
                 swipeDirection="down"
                 hideModalContentWhileAnimating
                 useNativeDriverForBackdrop
                 statusBarTranslucent
                 scrollHorizontal
                 propagateSwipe
+                backdropOpacity={0.5}
                 style={{ justifyContent: "flex-end", margin: 0 }}
             >
                 <CalendarPicker />

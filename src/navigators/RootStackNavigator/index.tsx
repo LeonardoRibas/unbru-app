@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import Header from "../../components/Header";
-import DayIndexContextProvider from "../../context/DayIndexContext";
+import GeneralContextProvider from "../../context/GeneralContext";
 import OnBoarding from "../../pages/OnBoarding";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { checkIfFirstLaunch } from "../../utils/storage";
@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function RootStackNavigator(): React.ReactElement {
     const [menu, setMenu] = useState<WeekMenu>([]);
     const [dayIndex, setDayIndex] = useState("");
+    const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isFirstLaunch, setIsFirstLaunch] = useState<boolean>();
     const fetchMenu = useFetchMenu();
@@ -50,7 +51,16 @@ export default function RootStackNavigator(): React.ReactElement {
     }, []);
 
     return (
-        <DayIndexContextProvider value={{ menu, setMenu, dayIndex, setDayIndex }}>
+        <GeneralContextProvider
+            value={{
+                menu,
+                setMenu,
+                dayIndex,
+                setDayIndex,
+                isCalendarModalOpen,
+                setIsCalendarModalOpen,
+            }}
+        >
             {isLoading ? (
                 <AppLoading />
             ) : (
@@ -79,6 +89,6 @@ export default function RootStackNavigator(): React.ReactElement {
                     />
                 </Stack.Navigator>
             )}
-        </DayIndexContextProvider>
+        </GeneralContextProvider>
     );
 }
