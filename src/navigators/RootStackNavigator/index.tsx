@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import useFetchMenu from "../../hooks/useFetchMenu";
 import Header from "../../components/Header";
-import GeneralContextProvider from "../../context/GeneralContext";
 import OnBoarding from "../../pages/OnBoarding";
 import BottomTabNavigator from "../BottomTabNavigator";
-import { checkIfFirstLaunch } from "../../utils/storage";
-import AppLoading from "expo-app-loading";
 import SettingsStackNavigator from "../SettingsStackNavigator";
+import { GeneralContext } from "../../context/GeneralContext";
 
 const Stack = createNativeStackNavigator();
 
 export default function RootStackNavigator(): React.ReactElement {
-    const [menu, setMenu] = useState<WeekMenu>([]);
-    const [dayIndex, setDayIndex] = useState("");
-    const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isFirstLaunch, setIsFirstLaunch] = useState<boolean>();
-    const fetchMenu = useFetchMenu();
     const [mealTime, setMealTime] = useState("");
+    const { isFirstLaunch } = useContext(GeneralContext);
 
     const getMealByTime = () => {
         const currentTime = new Date().getTime();
@@ -38,57 +30,34 @@ export default function RootStackNavigator(): React.ReactElement {
     };
 
     useEffect(() => {
-        async function setUp() {
-            const res = await checkIfFirstLaunch();
-            setIsFirstLaunch(res);
-            const data = await fetchMenu();
-            setMenu(data);
-            setDayIndex(new Date().toISOString().slice(0, 10));
-            getMealByTime();
-            setIsLoading(false);
-        }
-        setUp();
+        getMealByTime();
     }, []);
 
     return (
-        <GeneralContextProvider
-            value={{
-                menu,
-                setMenu,
-                dayIndex,
-                setDayIndex,
-                isCalendarModalOpen,
-                setIsCalendarModalOpen,
-            }}
-        >
-            {isLoading ? (
-                <AppLoading />
-            ) : (
-                <Stack.Navigator>
-                    {isFirstLaunch && (
-                        <Stack.Screen
-                            name="OnBoarding"
-                            component={OnBoarding}
-                            options={{ headerShown: false }}
-                        />
-                    )}
-                    <Stack.Screen
-                        name="Menu"
-                        options={{
-                            header: (props) => <Header {...props} />,
-                        }}
-                    >
-                        {() => <BottomTabNavigator mealTime={mealTime} />}
-                    </Stack.Screen>
-                    <Stack.Screen
-                        name="Settings"
-                        component={SettingsStackNavigator}
-                        options={{
-                            headerShown: false,
-                        }}
-                    />
-                </Stack.Navigator>
+        <Stack.Navigator>
+            {isFirstLaunch && (
+                <Stack.Screen
+                    name="OnBoarding"
+                    component={OnBoarding}
+                    options={{ headerShown: false }}
+                />
             )}
-        </GeneralContextProvider>
+            <Stack.Screen
+                name="Menu"
+                options={{
+                    title: "Cardápio",
+                    header: (props) => <Header {...props} />,
+                }}
+            >
+                {() => <BottomTabNavigator mealTime={mealTime} />}
+            </Stack.Screen>
+            <Stack.Screen
+                name="Settings"
+                component={SettingsStackNavigator}
+                options={{
+                    headerShown: false,
+                }}
+            />
+        </Stack.Navigator>
     );
 }
