@@ -30,12 +30,15 @@ export default function SettingsStackNavigator(): React.ReactElement {
             <Stack.Screen
                 name="Configurações"
                 component={SettingsMenu}
-                options={{ header: () => <StackHeader title="Configurações" /> }}
+                options={{
+                    title: "Configurações",
+                    header: () => <StackHeader title="Configurações" />,
+                }}
             />
             <Stack.Screen
                 name="About"
                 component={About}
-                options={{ header: () => <StackHeader title="Sobre" /> }}
+                options={{ title: "Sobre", header: () => <StackHeader title="Sobre" /> }}
             />
         </Stack.Navigator>
     );

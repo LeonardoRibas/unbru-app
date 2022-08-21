@@ -7,6 +7,7 @@ interface IGeneralContext {
     setDayIndex: React.Dispatch<React.SetStateAction<string>>;
     isCalendarModalOpen: boolean;
     setIsCalendarModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isFirstLaunch: boolean;
 }
 
 type GeneralContextProps = {
@@ -21,6 +22,7 @@ export const GeneralContext = createContext<IGeneralContext>({
     setDayIndex: () => null,
     isCalendarModalOpen: false,
     setIsCalendarModalOpen: () => null,
+    isFirstLaunch: false,
 });
 
 export default function GeneralContextProvider({
