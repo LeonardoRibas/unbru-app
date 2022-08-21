@@ -1,6 +1,7 @@
-const createExpoWebpackConfigAsync = require("@expo/webpack-config");
 const path = require("path");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const createExpoWebpackConfigAsync = require("@expo/webpack-config");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = async function (env, argv) {
     // Set by expo-cli during `expo build:web`
@@ -10,6 +11,11 @@ module.exports = async function (env, argv) {
     const config = await createExpoWebpackConfigAsync(env, argv);
 
     if (isEnvProduction) {
+        config.plugins.push(
+            new BundleAnalyzerPlugin({
+                path: "web-report",
+            })
+        );
         config.plugins.push(
             // Generate a service worker script that will precache, and keep up to date,
             // the HTML & assets that are part of the webpack build.

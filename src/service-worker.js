@@ -11,7 +11,7 @@ import { clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
-import { StaleWhileRevalidate } from "workbox-strategies";
+import { StaleWhileRevalidate, NetworkFirst } from "workbox-strategies";
 
 clientsClaim();
 
@@ -70,3 +70,10 @@ self.addEventListener("message", (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+registerRoute(
+    ({ url }) => url.pathname.includes("menu"),
+    new NetworkFirst({
+        cacheName: "api-calls",
+    })
+);
