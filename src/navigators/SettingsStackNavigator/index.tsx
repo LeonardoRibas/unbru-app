@@ -7,6 +7,7 @@ import Feather from "@expo/vector-icons/build/Feather";
 import styles from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import StackHeader from "../../components/StackHeader";
+import A2HSTutorial from "../../pages/A2HSTutorial";
 
 type SettingsMenuProps = NativeStackScreenProps<SettingsStackParamList, "About">;
 
@@ -20,6 +21,13 @@ const SettingsMenu = ({ navigation }: SettingsMenuProps) => (
             subTitle="Saiba mais sobre o app"
             actionIcon={<Feather name="chevron-right" size={24} />}
             onPress={() => navigation.navigate("About")}
+        />
+        <Option
+            titleIcon={<Feather name="smartphone" size={24} />}
+            title="Tela inicial"
+            subTitle="Adicione o app à sua tela inicial"
+            actionIcon={<Feather name="chevron-right" size={24} />}
+            onPress={() => navigation.navigate("A2HSTutorial")}
         />
     </View>
 );
@@ -39,6 +47,14 @@ export default function SettingsStackNavigator(): React.ReactElement {
                 name="About"
                 component={About}
                 options={{ title: "Sobre", header: () => <StackHeader title="Sobre" /> }}
+            />
+            <Stack.Screen
+                name="A2HSTutorial"
+                component={A2HSTutorial}
+                options={{
+                    title: "Adicionar à tela inicial",
+                    header: () => <StackHeader title="Adicionar à tela inicial" />,
+                }}
             />
         </Stack.Navigator>
     );
