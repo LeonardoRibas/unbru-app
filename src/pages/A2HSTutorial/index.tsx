@@ -2,38 +2,72 @@ import React from "react";
 import { Image, VStack, Text, View } from "native-base";
 import styles from "./styles";
 import { Sizing } from "../../styles";
+import { Platform } from "react-native";
 
 const A2HSTutorial = () => {
-    const { width, height } = Sizing.screen;
+    const { width } = Sizing.screen;
 
     return (
         <VStack space={10} style={styles.container}>
-            <View>
-                <Text>1 - Pressione o ícone indicado na figura:</Text>
+            <View style={styles.step}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Text style={{ fontSize: 20 }}>1</Text>
+                    <Text> - Pressione o ícone indicado na figura:</Text>
+                </View>
                 <Image
                     source={require("../../../assets/A2HSTutorial/A2HS1.png")}
                     alt="Imagem mostrando o icone"
-                    style={{ marginTop: 16, width: 332, height: 72, borderRadius: 16 }}
+                    style={{
+                        marginTop: 16,
+                        width: "100%",
+                        ...Platform.select({
+                            web: { maxWidth: 500 },
+                        }),
+                        height: 80,
+                        borderRadius: 16,
+                    }}
                 />
             </View>
-            <View>
-                <Text>
-                    2 - Selecione a opção “Adicionar à tela principal” e em seguida em “Adicionar”
-                </Text>
-                <View style={{ flex: 1, flexDirection: "row", marginTop: 16 }}>
+            <View style={styles.step}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Text style={{ fontSize: 20 }}>2</Text>
+                    <Text> - Selecione a opção “Adicionar à tela principal”</Text>
+                </View>
+                <View style={{ borderRadius: 16 }}>
                     <Image
                         source={require("../../../assets/A2HSTutorial/A2HS2.png")}
                         alt="asdf"
-                        style={{ width: (width - 40) / 2, height: ((width - 40) / 2) * (16 / 9) }}
-                        resizeMode="contain"
-                    />
-                    <Image
-                        source={require("../../../assets/A2HSTutorial/A2HS3.png")}
-                        alt="asdf"
-                        style={{ width: (width - 40) / 2, height: ((width - 40) / 2) * (16 / 9) }}
-                        resizeMode="contain"
+                        style={{
+                            marginTop: 16,
+                            width: "100%",
+                            ...Platform.select({
+                                web: { maxWidth: 500, maxHeight: 500 * (16 / 9) },
+                            }),
+                            height: width * (16 / 9),
+                            borderRadius: 16,
+                        }}
                     />
                 </View>
+            </View>
+            <View style={styles.step}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Text style={{ fontSize: 20 }}>3</Text>
+                    <Text> - Em seguida em “Adicionar”</Text>
+                </View>
+
+                <Image
+                    source={require("../../../assets/A2HSTutorial/A2HS3.png")}
+                    alt="asdf"
+                    style={{
+                        marginTop: 16,
+                        width: "100%",
+                        ...Platform.select({
+                            web: { maxWidth: 500, maxHeight: 500 * (16 / 9) },
+                        }),
+                        height: width * (16 / 9),
+                        borderRadius: 16,
+                    }}
+                />
             </View>
         </VStack>
     );

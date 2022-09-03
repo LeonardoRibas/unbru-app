@@ -8,8 +8,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: Sizing.margin.base,
         paddingTop: Sizing.layout.x30,
     },
+    step: {
+        width: "100%",
+    },
     text: {
-        fontSize: Typography.fontSize.x20,
+        fontSize: Typography.fontSize.x30,
         fontFamily: Typography.fontWeight.medium,
     },
 });
