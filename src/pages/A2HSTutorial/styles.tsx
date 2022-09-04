@@ -5,10 +5,11 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.neutral.white,
         flex: 1,
-        paddingHorizontal: Sizing.margin.base,
+        padding: Sizing.margin.base,
         paddingTop: Sizing.layout.x30,
     },
     step: {
+        marginBottom: Sizing.layout.x30,
         width: "100%",
     },
     text: {

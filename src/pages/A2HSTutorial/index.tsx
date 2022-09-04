@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, VStack, Text, View } from "native-base";
+import { Image, Text, View, ScrollView } from "native-base";
 import styles from "./styles";
 import { Sizing } from "../../styles";
 import { Platform } from "react-native";
@@ -8,7 +8,7 @@ const A2HSTutorial = () => {
     const { width } = Sizing.screen;
 
     return (
-        <VStack space={10} style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.step}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text style={{ fontSize: 20 }}>1</Text>
@@ -69,7 +69,7 @@ const A2HSTutorial = () => {
                     }}
                 />
             </View>
-        </VStack>
+        </ScrollView>
     );
 };
 
