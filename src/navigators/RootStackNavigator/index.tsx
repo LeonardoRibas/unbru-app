@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "../../components/Header";
 import OnBoarding from "../../pages/OnBoarding";
@@ -9,29 +9,7 @@ import { GeneralContext } from "../../context/GeneralContext";
 const Stack = createNativeStackNavigator();
 
 export default function RootStackNavigator(): React.ReactElement {
-    const [mealTime, setMealTime] = useState("");
-    const { isFirstLaunch } = useContext(GeneralContext);
-
-    const getMealByTime = () => {
-        const currentTime = new Date().getTime();
-        const endBreakfast = new Date().setHours(9, 0, 0);
-        const endLunch = new Date().setHours(14, 30, 0);
-        const endDinner = new Date().setHours(19, 0, 0);
-
-        if (currentTime < endBreakfast || currentTime > endDinner) {
-            setMealTime("Desjejum");
-        }
-        if (endLunch > currentTime && currentTime > endBreakfast) {
-            setMealTime("Almoço");
-        }
-        if (endDinner > currentTime && currentTime > endLunch) {
-            setMealTime("Jantar");
-        }
-    };
-
-    useEffect(() => {
-        getMealByTime();
-    }, []);
+    const { isFirstLaunch, meal } = useContext(GeneralContext);
 
     return (
         <Stack.Navigator>
@@ -49,7 +27,7 @@ export default function RootStackNavigator(): React.ReactElement {
                     header: (props) => <Header {...props} />,
                 }}
             >
-                {() => <BottomTabNavigator mealTime={mealTime} />}
+                {() => (meal ? <BottomTabNavigator mealTime={meal} /> : null)}
             </Stack.Screen>
             <Stack.Screen
                 name="Settings"

@@ -13,19 +13,22 @@ import GeneralContextProvider from "./src/context/GeneralContext";
 import RootStackNavigator from "./src/navigators/RootStackNavigator";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
 import { Lexend_500Medium, Lexend_600SemiBold, Lexend_700Bold } from "@expo-google-fonts/lexend";
+import { getApropriateDate, getMealByTime } from "./src/utils/date";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App(): React.ReactElement | null {
     const [menu, setMenu] = useState<WeekMenu>([]);
     const [dayIndex, setDayIndex] = useState("");
+    const [meal, setMeal] = useState<"Desjejum" | "Almoço" | "Jantar" | undefined>();
     const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false);
     const [appIsReady, setAppIsReady] = useState(false);
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
     const fetchMenu = useFetchMenu();
 
     useEffect(() => {
-        setDayIndex(new Date().toISOString().slice(0, 10));
+        setDayIndex(getApropriateDate());
+        setMeal(getMealByTime());
         Promise.all([
             Font.loadAsync({
                 IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
@@ -64,6 +67,7 @@ export default function App(): React.ReactElement | null {
                                 menu,
                                 setMenu,
                                 dayIndex,
+                                meal,
                                 setDayIndex,
                                 isCalendarModalOpen,
                                 setIsCalendarModalOpen,
