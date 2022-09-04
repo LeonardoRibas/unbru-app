@@ -10,7 +10,7 @@ const About = () => {
                 <BrandLogo />
                 <VStack space={2} alignItems="center">
                     <Text style={styles.logoType}>UnBRU</Text>
-                    <Text style={styles.version}>V 0.0.1</Text>
+                    <Text style={styles.version}>V 1.0.0</Text>
                 </VStack>
             </VStack>
         </Center>
