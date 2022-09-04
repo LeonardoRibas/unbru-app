@@ -40,3 +40,32 @@ export const getMonthsFromWeek = (menu: WeekMenu): string => {
     });
     return months.join(" / ");
 };
+
+/**Returns the apropriate date to show the user */
+export const getApropriateDate = () => {
+    const today = new Date();
+    const currentTime = new Date().getTime();
+    const endDinner = new Date().setHours(19, 0, 0);
+
+    // If the dinner ended returns tomorrow date
+    if (currentTime > endDinner) today.setDate(today.getDate() + 1);
+    return today.toISOString().slice(0, 10);
+};
+
+/**Returns the apropriate meal based on current time */
+export const getMealByTime = () => {
+    const currentTime = new Date().getTime();
+    const endBreakfast = new Date().setHours(9, 0, 0);
+    const endLunch = new Date().setHours(14, 30, 0);
+    const endDinner = new Date().setHours(19, 0, 0);
+
+    if (currentTime < endBreakfast || currentTime > endDinner) {
+        return "Desjejum";
+    }
+    if (endLunch > currentTime && currentTime > endBreakfast) {
+        return "Almoço";
+    }
+    if (endDinner > currentTime && currentTime > endLunch) {
+        return "Jantar";
+    }
+};

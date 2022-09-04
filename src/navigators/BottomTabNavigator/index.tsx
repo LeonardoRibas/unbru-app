@@ -9,7 +9,7 @@ import CustomIcon from "../../components/CustomIcon";
 const Tab = createMaterialTopTabNavigator();
 
 type BottomTabNavigatorMobileProps = {
-    mealTime: "Desjejum" | "Almoço" | "Jantar";
+    mealTime: "" | "Desjejum" | "Almoço" | "Jantar" | undefined;
 };
 
 function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
