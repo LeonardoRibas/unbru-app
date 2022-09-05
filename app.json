@@ -32,7 +32,7 @@
                 "backgroundColor": "#48B755"
             },
             "package": "com.leonardoribas.unbrufront",
-            "versionCode": 3,
+            "versionCode": 4,
             "config": {
                 "googleMobileAdsAppId": "ca-app-pub-7231147932250814~5244744085"
             }
