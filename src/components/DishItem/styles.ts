@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
         color: Colors.neutral.s500,
         marginBottom: Sizing.layout.x10,
     },
+    emoji: {
+        fontSize: Typography.fontSize.x30,
+    },
     dish: {
         fontFamily: Typography.fontWeight.medium,
         fontSize: Typography.fontSize.x20,
