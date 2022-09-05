@@ -2,9 +2,10 @@ import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
 import { Colors } from "../../styles";
 import useFetchMenu from "../../hooks/useFetchMenu";
-import React, { memo, useContext, useState } from "react";
-import { View, FlatList, RefreshControl } from "react-native";
+import React, { memo, useContext, useMemo, useState } from "react";
+import { View, FlatList, RefreshControl, Dimensions } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
+import MainDish from "../MainDish";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -17,10 +18,28 @@ const mealTypeTime = {
     Jantar: "17h - 19h",
 };
 
+function partition<T>(arr: T[], predicate: (item: T) => boolean): [T[], T[]] {
+    return arr.reduce(
+        ([pass, fail], item) => {
+            return predicate(item) ? [[...pass, item], fail] : [pass, [...fail, item]];
+        },
+        [[], []] as [T[], T[]]
+    );
+}
+
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const fetchMenu = useFetchMenu();
     const { setMenu } = useContext(GeneralContext);
+
+    const [main, extras] = useMemo(
+        () =>
+            partition(
+                Object.entries(mealMenu).filter(([, value]) => value !== ""),
+                ([key, value]) => key.includes("principal") || key.includes("Complemento")
+            ),
+        [mealMenu]
+    );
 
     const onRefresh = async () => {
         setRefreshing(true);
@@ -34,9 +53,21 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
-                    <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
+                    <>
+                        <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
+                        <FlatList
+                            data={main}
+                            keyExtractor={(item) => item[0]}
+                            renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} />}
+                            horizontal
+                            snapToAlignment="center"
+                            snapToInterval={Dimensions.get("window").width - 20}
+                            showsHorizontalScrollIndicator={false}
+                            decelerationRate="fast"
+                        />
+                    </>
                 )}
-                data={Object.entries(mealMenu)}
+                data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(item, index) => index.toString()}
                 refreshControl={
