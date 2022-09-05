@@ -49,5 +49,5 @@ expo start
 ## Contribuição
 
 Interessado em contriubuir com o projeto? Leia nosso
-- [Código de Conduta do Contribuidor](https://github.com/LeonardoRibas/unb-ru-app/blob/develop/.github/CODE_OF_CONDUCT.md)
-- [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/develop/.github/CONTRIBUTING.md)
+- [Código de Conduta do Contribuidor](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CODE_OF_CONDUCT.md)
+- [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CONTRIBUTING.md)
