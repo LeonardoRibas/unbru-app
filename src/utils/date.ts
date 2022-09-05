@@ -42,30 +42,34 @@ export const getMonthsFromWeek = (menu: WeekMenu): string => {
 };
 
 /**Returns the apropriate date to show the user */
-export const getApropriateDate = () => {
-    const today = new Date();
-    const currentTime = new Date().getTime();
-    const endDinner = new Date().setHours(19, 0, 0);
+export const getApropriateDate = (date = new Date()) => {
+    const today = date;
+    const currentHour = today.getHours();
+    const endDinner = 19;
 
     // If the dinner ended returns tomorrow date
-    if (currentTime > endDinner) today.setDate(today.getDate() + 1);
+    if (currentHour >= endDinner) {
+        console.log("entrou");
+        today.setDate(today.getDate() + 1);
+    }
     return today.toISOString().slice(0, 10);
 };
 
 /**Returns the apropriate meal based on current time */
-export const getMealByTime = () => {
-    const currentTime = new Date().getTime();
-    const endBreakfast = new Date().setHours(9, 0, 0);
-    const endLunch = new Date().setHours(14, 30, 0);
-    const endDinner = new Date().setHours(19, 0, 0);
+export const getMealByTime = (date = new Date()) => {
+    const currentHour = date.getHours();
+    const currentMinute = date.getMinutes();
+    const endBreakfast = 9;
+    const endLunch = 14;
+    const endDinner = 19;
 
-    if (currentTime < endBreakfast || currentTime > endDinner) {
+    if (currentHour <= endBreakfast || currentHour > endDinner) {
         return "Desjejum";
     }
-    if (endLunch > currentTime && currentTime > endBreakfast) {
+    if (endLunch >= currentHour && currentHour >= endBreakfast) {
         return "Almoço";
     }
-    if (endDinner > currentTime && currentTime > endLunch) {
+    if (endDinner >= currentHour && currentHour >= endLunch) {
         return "Jantar";
     }
 };
