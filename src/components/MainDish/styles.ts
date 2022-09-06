@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         margin: Sizing.layout.x20,
         borderRadius: Sizing.layout.x20,
-        width: Dimensions.get("window").width - 60,
+        flex: 1,
     },
     emojiContainer: {
         width: Sizing.layout.x60,

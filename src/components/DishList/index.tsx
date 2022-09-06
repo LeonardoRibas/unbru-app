@@ -6,6 +6,7 @@ import React, { memo, useContext, useMemo, useState } from "react";
 import { View, FlatList, RefreshControl, Dimensions } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
 import MainDish from "../MainDish";
+import Carousel from "react-native-reanimated-carousel";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -36,7 +37,7 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
         () =>
             partition(
                 Object.entries(mealMenu).filter(([, value]) => value !== ""),
-                ([key, value]) => key.includes("principal") || key.includes("Complemento")
+                ([key]) => key.includes("principal") || key.includes("Complemento")
             ),
         [mealMenu]
     );
@@ -50,26 +51,27 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
 
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
+            <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
+
             <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
-                    <>
-                        <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
-                        <FlatList
-                            data={main}
-                            keyExtractor={(item) => item[0]}
-                            renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} />}
-                            horizontal
-                            snapToAlignment="center"
-                            snapToInterval={Dimensions.get("window").width - 20}
-                            showsHorizontalScrollIndicator={false}
-                            decelerationRate="fast"
-                        />
-                    </>
+                    <Carousel
+                        loop
+                        data={main}
+                        width={Dimensions.get("window").width}
+                        height={180}
+                        renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} />}
+                        pagingEnabled
+                        panGestureHandlerProps={{
+                            // allow to scroll the list
+                            activeOffsetX: [-10, 10],
+                        }}
+                    />
                 )}
                 data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={(_, index) => index.toString()}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
