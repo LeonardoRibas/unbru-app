@@ -7,6 +7,7 @@ import { View, FlatList, RefreshControl, Dimensions } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
 import MainDish from "../MainDish";
 import Carousel from "react-native-reanimated-carousel";
+import PagerView from "react-native-pager-view";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -56,18 +57,16 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
-                    <Carousel
-                        loop
-                        data={main}
-                        width={Dimensions.get("window").width}
-                        height={180}
-                        renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} />}
-                        pagingEnabled
-                        panGestureHandlerProps={{
-                            // allow to scroll the list
-                            activeOffsetX: [-10, 10],
-                        }}
-                    />
+                    <PagerView
+                        style={{ flex: 1, height: 180, width: Dimensions.get("window").width }}
+                        initialPage={0}
+                        overScrollMode="auto"
+                        overdrag
+                    >
+                        {main.map((item) => (
+                            <MainDish label={item[0]} dish={item[1]} key={item[0]} />
+                        ))}
+                    </PagerView>
                 )}
                 data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
