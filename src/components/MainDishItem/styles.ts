@@ -3,10 +3,13 @@ import { Dimensions, StyleSheet } from "react-native";
 import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
+    wrapper: {
+        width: Dimensions.get("window").width,
+        padding: Sizing.layout.x20,
+    },
     container: {
         padding: Sizing.layout.x20,
         flexDirection: "row",
-        margin: Sizing.layout.x20,
         borderRadius: Sizing.layout.x20,
         flex: 1,
     },
@@ -22,22 +25,22 @@ const styles = StyleSheet.create({
         fontSize: Typography.fontSize.x50,
     },
     content: {
-    flex: 1,
+        flex: 1,
         paddingLeft: Sizing.layout.x20,
-    paddingRight: Sizing.layout.x30,
+        paddingRight: Sizing.layout.x30,
     },
     label: {
         fontFamily: Typography.fontWeight.medium,
         fontSize: Typography.fontSize.x15,
         color: Colors.neutral.s800,
-    opacity: 0.7,
+        opacity: 0.7,
     },
     dish: {
         fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x30,
         color: Colors.neutral.black,
         marginBottom: Sizing.layout.x05,
-    opacity: 0.8,
+        opacity: 0.8,
     },
 });
 

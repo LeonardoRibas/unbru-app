@@ -3,11 +3,9 @@ import SubHeader from "../SubHeader";
 import { Colors } from "../../styles";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import React, { memo, useContext, useMemo, useState } from "react";
-import { View, FlatList, RefreshControl, Dimensions } from "react-native";
+import { View, FlatList, RefreshControl } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
-import MainDish from "../MainDish";
-import Carousel from "react-native-reanimated-carousel";
-import PagerView from "react-native-pager-view";
+import MainDishCarousel from "../MainDishCarousel";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -56,18 +54,7 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
 
             <FlatList
                 showsVerticalScrollIndicator={false}
-                ListHeaderComponent={() => (
-                    <PagerView
-                        style={{ flex: 1, height: 180, width: Dimensions.get("window").width }}
-                        initialPage={0}
-                        overScrollMode="auto"
-                        overdrag
-                    >
-                        {main.map((item) => (
-                            <MainDish label={item[0]} dish={item[1]} key={item[0]} />
-                        ))}
-                    </PagerView>
-                )}
+                ListHeaderComponent={() => <MainDishCarousel items={main} />}
                 data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(_, index) => index.toString()}
