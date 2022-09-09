@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet, Platform } from "react-native";
 
 import { Sizing, Colors, Typography } from "../../styles";
 
@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     wrapper: {
         width: Dimensions.get("window").width,
         padding: Sizing.layout.x20,
+        height: Platform.OS === "web" ? "auto" : 180,
     },
     container: {
         padding: Sizing.layout.x20,
