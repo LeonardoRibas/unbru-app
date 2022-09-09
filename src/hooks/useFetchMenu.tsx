@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY } from "react-native-dotenv"
+import { REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY } from "react-native-dotenv";
 
 const supabase = createClient(REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY);
 
