@@ -89,7 +89,7 @@ const metadata = {
     },
 };
 
-export function getMeta(label: string): Meta {
+export function getMetadata(label: string): Meta {
     const normalizedLabel = label.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     const key = closest(normalizedLabel, Object.keys(metadata)) as keyof typeof metadata;
     return metadata[key];

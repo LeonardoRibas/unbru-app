@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 import { View, Text } from "react-native";
-import { getMeta } from "../../utils/emojis";
+import { getMetadata } from "../../utils/metadata";
 
 type MainDishItemProps = {
     label: string;
@@ -9,7 +9,8 @@ type MainDishItemProps = {
 };
 
 export default function MainDishItem({ label, dish }: MainDishItemProps): JSX.Element {
-    const { color, emoji } = getMeta(label);
+    const { color, emoji } = getMetadata(label);
+
     return (
         <View style={styles.wrapper}>
             <View

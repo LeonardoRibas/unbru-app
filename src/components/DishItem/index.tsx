@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 import { View, Text } from "react-native";
-import { getMeta } from "../../utils/emojis";
+import { getMetadata } from "../../utils/metadata";
 
 type DishItemProps = {
     label: string;
@@ -9,7 +9,7 @@ type DishItemProps = {
 };
 
 export default function DishItem({ label, dish }: DishItemProps): React.ReactElement {
-    const { emoji, color } = getMeta(label);
+    const { emoji, color } = getMetadata(label);
     return (
         <View style={styles.container}>
             <View
