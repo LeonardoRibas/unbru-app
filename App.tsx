@@ -1,7 +1,5 @@
 import * as Font from "expo-font";
-import { View } from "react-native";
 import "react-native-url-polyfill/auto";
-import { StatusBar } from "expo-status-bar";
 import { NativeBaseProvider } from "native-base";
 import * as SplashScreen from "expo-splash-screen";
 import useFetchMenu from "./src/hooks/useFetchMenu";
@@ -10,10 +8,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import React, { useState, useEffect, useCallback } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import GeneralContextProvider from "./src/context/GeneralContext";
+import { getApropriateDate, getMealByTime } from "./src/utils/date";
 import RootStackNavigator from "./src/navigators/RootStackNavigator";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
 import { Lexend_500Medium, Lexend_600SemiBold, Lexend_700Bold } from "@expo-google-fonts/lexend";
-import { getApropriateDate, getMealByTime } from "./src/utils/date";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -57,11 +55,9 @@ export default function App(): React.ReactElement | null {
     }
 
     return (
-        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-            <SafeAreaProvider>
+        <SafeAreaProvider onLayout={onLayoutRootView}>
                 <NativeBaseProvider>
                     <NavigationContainer>
-                        <StatusBar style="auto" />
                         <GeneralContextProvider
                             value={{
                                 menu,
@@ -78,8 +74,7 @@ export default function App(): React.ReactElement | null {
                         </GeneralContextProvider>
                     </NavigationContainer>
                 </NativeBaseProvider>
-            </SafeAreaProvider>
-        </View>
+        </SafeAreaProvider>
     );
 }
 

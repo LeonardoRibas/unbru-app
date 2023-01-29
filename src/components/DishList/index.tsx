@@ -6,7 +6,7 @@ import React, { memo, useContext, useMemo, useState } from "react";
 import { View, FlatList, RefreshControl } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
 import MainDishCarousel from "../MainDishCarousel";
-import { partition } from "utils/partition";
+import { partition } from "../../utils/partition";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";

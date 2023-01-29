@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./styles";
 import { Text, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import Button from "../../components/Button";
-import { OnboardingIllustration } from "../../../assets/illustrations";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { OnboardingIllustration } from "../../../assets/illustrations";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type OnBoardingProps = NativeStackScreenProps<RootStackParamList, "OnBoarding">;
@@ -11,6 +12,7 @@ type OnBoardingProps = NativeStackScreenProps<RootStackParamList, "OnBoarding">;
 export default function OnBoarding({ navigation }: OnBoardingProps): React.ReactElement {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar style='dark'/>
             <View style={styles.content}>
                 <OnboardingIllustration />
                 <Text style={styles.title}>

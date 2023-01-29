@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         borderRadius: 2,
         backgroundColor: Colors.neutral.s500,
         alignSelf: "center",
+        marginBottom: Sizing.layout.x20
     },
     title: {
         fontFamily: Typography.fontWeight.medium,
