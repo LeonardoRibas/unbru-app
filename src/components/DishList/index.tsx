@@ -42,11 +42,14 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
 
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
-            <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
-
             <FlatList
                 showsVerticalScrollIndicator={false}
-                ListHeaderComponent={() => <MainDishCarousel items={main} />}
+                ListHeaderComponent={() => 
+                    <View>
+                        <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
+                        <MainDishCarousel items={main} />
+                    </View>
+                }
                 data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(_, index) => index.toString()}
