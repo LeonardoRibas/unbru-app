@@ -1,46 +1,51 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
-    wrapper: {
-        width: Dimensions.get("window").width,
-        padding: Sizing.layout.x20,
-        height: Platform.OS === "web" ? "auto" : 180,
-    },
     container: {
-        padding: Sizing.layout.x20,
+        width: Dimensions.get("window").width * 0.8,
+        marginHorizontal: Sizing.layout.x10,
         flexDirection: "row",
+        alignItems: "center",
+        padding: Sizing.margin.base,
+        marginVertical: Sizing.layout.x20,
         borderRadius: Sizing.layout.x20,
-        flex: 1,
+        backgroundColor: Colors.neutral.white,
+        shadowColor: "#000000",
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+        elevation: 10,
     },
     emojiContainer: {
-        width: Sizing.layout.x60,
-        height: Sizing.layout.x60,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: Sizing.layout.x60,
-        backgroundColor: "rgba(255, 255, 255, 0.3)",
+        padding: Sizing.layout.x10,
+        borderRadius: Sizing.layout.x15,
+        marginRight: Sizing.layout.x20,
     },
     emoji: {
-        fontSize: Typography.fontSize.x50,
+        height: 32,
+        width: 32,
     },
-    content: {
-        flex: 1,
-        paddingLeft: Sizing.layout.x20,
-        paddingRight: Sizing.layout.x30,
-    },
+    content: { flex: 1 },
     label: {
+        width: "100%",
+        flexDirection: "row",
+        flexWrap: "wrap",
         fontFamily: Typography.fontWeight.medium,
         fontSize: Typography.fontSize.x15,
         color: Colors.neutral.s800,
+        marginBottom: Sizing.layout.x10,
         opacity: 0.7,
     },
     dish: {
+        flexDirection: "row",
+        flexWrap: "wrap",
         fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x30,
         color: Colors.neutral.black,
-        marginBottom: Sizing.layout.x05,
         opacity: 0.8,
     },
 });
