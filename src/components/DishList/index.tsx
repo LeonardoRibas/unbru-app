@@ -1,12 +1,12 @@
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
 import { Colors } from "../../styles";
-import useFetchMenu from "../../hooks/useFetchMenu";
-import React, { memo, useContext, useMemo, useState } from "react";
-import { View, FlatList, RefreshControl } from "react-native";
-import { GeneralContext } from "../../context/GeneralContext";
-import MainDishCarousel from "../MainDishCarousel";
 import { partition } from "../../utils/partition";
+import MainDishCarousel from "../MainDishCarousel";
+import useFetchMenu from "../../hooks/useFetchMenu";
+import { GeneralContext } from "../../context/GeneralContext";
+import { View, FlatList, RefreshControl } from "react-native";
+import React, { memo, useContext, useMemo, useState } from "react";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -44,12 +44,12 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
         <View style={{ flex: 1, backgroundColor: "white" }}>
             <FlatList
                 showsVerticalScrollIndicator={false}
-                ListHeaderComponent={() => 
+                ListHeaderComponent={() => (
                     <View>
                         <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
                         <MainDishCarousel items={main} />
                     </View>
-                }
+                )}
                 data={extras}
                 renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                 keyExtractor={(_, index) => index.toString()}
