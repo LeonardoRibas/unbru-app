@@ -1,56 +1,36 @@
-import React, { useCallback, useState } from "react";
-import { Dimensions, View, FlatList } from "react-native";
-import styles from "./styles";
-
+import React from "react";
+import { Sizing } from "../../styles";
 import MainDish from "../MainDishItem";
+import { FlatList, View } from "react-native";
 
 type MainDishCarouselProps = {
     items: [string, string][];
 };
 
 export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.Element {
-    const width = Dimensions.get("window").width;
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const scrollHandler = useCallback((event) => {
-        const { contentOffset, layoutMeasurement } = event.nativeEvent;
-        const pageNum = Math.floor(contentOffset.x / layoutMeasurement.width);
-        setActiveIndex(pageNum);
-    }, []);
-
     return (
-        <>
+        <View>
             <FlatList
+                contentContainerStyle={{
+                    paddingHorizontal: 12,
+                    alignItems: "flex-start",
+                }}
+                scrollEnabled
                 data={items}
-                renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} />}
                 keyExtractor={(item) => item[0]}
-                horizontal
-                showsHorizontalScrollIndicator={false}
+                horizontal={Sizing.screen.width >= 768 ? false : true}
                 snapToAlignment="start"
-                snapToInterval={width}
-                pagingEnabled
-                CellRendererComponent={({ index, children, style, ...props }) => (
-                    <View style={[style, { flex: 1 }]} index={index} {...props}>
-                        {children}
-                    </View>
+                scrollEventThrottle={16}
+                decelerationRate="fast"
+                bounces={false}
+                snapToOffsets={[...Array(items.length)].map(
+                    (x, i) =>
+                        i * (Sizing.screen.width * 0.8 - Sizing.layout.x20) +
+                        (i - 1) * Sizing.layout.x20
                 )}
-                // prevent from triggering Tab View's swipe gesture
-                onTouchStart={(event) => event.stopPropagation()}
-                onScroll={scrollHandler}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} key={item[0]} />}
             />
-            <View style={styles.pagination}>
-                {items.map((_, index) => (
-                    <View
-                        key={index}
-                        style={[
-                            styles.circle,
-                            {
-                                backgroundColor: index === activeIndex ? "#000" : "#0004",
-                            },
-                        ]}
-                    />
-                ))}
-            </View>
-        </>
+        </View>
     );
 }
