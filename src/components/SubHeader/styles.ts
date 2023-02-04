@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
-import { Typography } from "../../styles";
+import { Sizing, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingHorizontal: 20,
+        paddingHorizontal: Sizing.screen.width >= 768 ? 0 : Sizing.margin.base,
         backgroundColor: "white",
     },
     title: {

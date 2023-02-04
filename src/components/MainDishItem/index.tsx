@@ -3,18 +3,21 @@ import styles from "./styles";
 import { View, Text, Image } from "react-native";
 import { getMetadata } from "../../utils/metadata";
 
-type DishItemProps = {
+type MainDishItemProps = {
     label: string;
     dish: string;
 };
 
-export default function DishItem({ label, dish }: DishItemProps): React.ReactElement {
-    const { displayName, emoji } = getMetadata(label);
+export default function MainDishItem({ label, dish }: MainDishItemProps): JSX.Element {
+    const { color, emoji } = getMetadata(label);
+
     return (
         <View style={styles.container}>
-            <Image style={styles.emoji} source={emoji} />
+            <View style={[styles.emojiContainer, { backgroundColor: color }]}>
+                <Image style={styles.emoji} source={emoji} />
+            </View>
             <View style={styles.content}>
-                <Text style={styles.label}>{displayName}</Text>
+                <Text style={styles.label}>{label}</Text>
                 <Text style={styles.dish}>{dish}</Text>
             </View>
         </View>

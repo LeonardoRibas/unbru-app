@@ -4,22 +4,30 @@ import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Sizing.layout.x20,
-        paddingBottom: Sizing.layout.x20 + 1,
-        paddingLeft: Sizing.margin.base,
-        paddingRight: Sizing.layout.x60,
+        flex: 1,
+        alignItems: "center",
+        padding: Sizing.margin.base,
         backgroundColor: "white",
+        flexDirection: "row",
+    },
+    emoji: {
+        marginRight: Sizing.layout.x20,
+        height: 42,
+        width: 42,
+    },
+    content: {
+        flex: 1,
     },
     label: {
         fontFamily: Typography.fontWeight.medium,
-        fontSize: Typography.fontSize.x15,
+        fontSize: Typography.fontSize.x10,
         color: Colors.neutral.s500,
         marginBottom: Sizing.layout.x10,
     },
     dish: {
-        fontFamily: Typography.fontWeight.medium,
+        fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x20,
-        color: Colors.neutral.black,
+        color: Colors.neutral.s800,
     },
 });
 

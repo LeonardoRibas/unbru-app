@@ -49,7 +49,6 @@ export const getApropriateDate = (date = new Date()) => {
 
     // If the dinner ended returns tomorrow date
     if (currentHour >= endDinner) {
-        console.log("entrou");
         today.setDate(today.getDate() + 1);
     }
     return today.toISOString().slice(0, 10);
