@@ -11,7 +11,7 @@ Este documento é um conjunto de boas práticas para sua contribuição. Não en
   >
   > **Dica:** Utilize a flag -p no commit para interativamente selecionar porções específicas das mudanças
 - Prefira escrever os commits utilizando um editor ao invés do terminal
-  > **Por que?** Commitar pelo terminal encoraja commits que se limitam à apenas 50 characteres (apenas título), podendo ocasionar commits ambiguos/não-informativos
+  > **Por quê?** Commitar pelo terminal encoraja commits que se limitam a apenas 50 characteres (apenas título), podendo ocasionar commits ambiguos/não-informativos
 - Usar modo imperativo nas mensagens de commit ("Adiciona feature" não "Adicionando feature" ou "Adicionada feature")
 - Primeira linha deve ter no máximo 50 caracteres
 - Considere descrever as mudanças com detalhes no corpo do commit
