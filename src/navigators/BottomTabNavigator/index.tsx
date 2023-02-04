@@ -19,11 +19,14 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
     const insets = useSafeAreaInsets();
 
     return (
-        <View style={{flex: 1, paddingBottom: insets.bottom, backgroundColor: Colors.neutral.white}}>
+        <View
+            style={{ flex: 1, paddingBottom: insets.bottom, backgroundColor: Colors.neutral.white }}
+        >
             <Tab.Navigator
                 initialRouteName={mealTime}
                 tabBarPosition="bottom"
                 screenOptions={{
+                    swipeEnabled: false,
                     tabBarActiveTintColor: Colors.primary.base,
                     tabBarInactiveTintColor: Colors.neutral.s400,
                     tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android
@@ -63,18 +66,26 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Almoço"
                     options={{
-                        tabBarIcon: ({ color }) => <CustomIcon name="lunch" size={26} color={color} />,
+                        tabBarIcon: ({ color }) => (
+                            <CustomIcon name="lunch" size={26} color={color} />
+                        ),
                     }}
                 >
-                    {(props) => <DishList {...props} mealType="Almoço" mealMenu={dayMenu["almoco"]} />}
+                    {(props) => (
+                        <DishList {...props} mealType="Almoço" mealMenu={dayMenu["almoco"]} />
+                    )}
                 </Tab.Screen>
                 <Tab.Screen
                     name="Jantar"
                     options={{
-                        tabBarIcon: ({ color }) => <CustomIcon name="dinner" size={26} color={color} />,
+                        tabBarIcon: ({ color }) => (
+                            <CustomIcon name="dinner" size={26} color={color} />
+                        ),
                     }}
                 >
-                    {(props) => <DishList {...props} mealType="Jantar" mealMenu={dayMenu["jantar"]} />}
+                    {(props) => (
+                        <DishList {...props} mealType="Jantar" mealMenu={dayMenu["jantar"]} />
+                    )}
                 </Tab.Screen>
             </Tab.Navigator>
         </View>
@@ -90,6 +101,9 @@ function BottomTabNavigatorWeb() {
             style={{
                 flex: 1,
                 flexDirection: "row",
+                gap: Sizing.layout.x10,
+                backgroundColor: Colors.neutral.white,
+                paddingHorizontal: Sizing.margin.base,
             }}
         >
             <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} />
