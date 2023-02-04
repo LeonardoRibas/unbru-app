@@ -1,15 +1,14 @@
-import { Dimensions, StyleSheet } from "react-native";
-
+import { StyleSheet } from "react-native";
 import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        width: Dimensions.get("window").width * 0.8,
-        marginHorizontal: Sizing.layout.x10,
+        width: Sizing.screen.width >= 768 ? "100%" : Sizing.screen.width * 0.8 - Sizing.layout.x10,
+        marginHorizontal: Sizing.screen.width >= 768 ? 0 : Sizing.layout.x10,
         flexDirection: "row",
         alignItems: "center",
         padding: Sizing.margin.base,
-        marginVertical: Sizing.layout.x20,
+        marginVertical: Sizing.screen.width >= 768 ? Sizing.layout.x10 : Sizing.layout.x20,
         borderRadius: Sizing.layout.x20,
         backgroundColor: Colors.neutral.white,
         shadowColor: "#000000",
