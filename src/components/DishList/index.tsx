@@ -1,6 +1,6 @@
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { Colors } from "../../styles";
+import { Colors, Sizing } from "../../styles";
 import { partition } from "../../utils/partition";
 import MainDishCarousel from "../MainDishCarousel";
 import useFetchMenu from "../../hooks/useFetchMenu";
@@ -45,7 +45,11 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
-                    <View>
+                    <View
+                        style={{
+                            paddingHorizontal: Sizing.screen.width >= 768 ? Sizing.layout.x10 : 0,
+                        }}
+                    >
                         <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
                         <MainDishCarousel items={main} />
                     </View>
