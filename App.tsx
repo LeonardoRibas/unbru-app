@@ -56,24 +56,24 @@ export default function App(): React.ReactElement | null {
 
     return (
         <SafeAreaProvider onLayout={onLayoutRootView}>
-                <NativeBaseProvider>
-                    <NavigationContainer>
-                        <GeneralContextProvider
-                            value={{
-                                menu,
-                                setMenu,
-                                dayIndex,
-                                meal,
-                                setDayIndex,
-                                isCalendarModalOpen,
-                                setIsCalendarModalOpen,
-                                isFirstLaunch,
-                            }}
-                        >
-                            <RootStackNavigator />
-                        </GeneralContextProvider>
-                    </NavigationContainer>
-                </NativeBaseProvider>
+            <NativeBaseProvider>
+                <NavigationContainer>
+                    <GeneralContextProvider
+                        value={{
+                            menu,
+                            setMenu,
+                            dayIndex,
+                            meal,
+                            setDayIndex,
+                            isCalendarModalOpen,
+                            setIsCalendarModalOpen,
+                            isFirstLaunch,
+                        }}
+                    >
+                        <RootStackNavigator />
+                    </GeneralContextProvider>
+                </NavigationContainer>
+            </NativeBaseProvider>
         </SafeAreaProvider>
     );
 }
