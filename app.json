@@ -10,7 +10,7 @@
         ],
         "name": "UnBRU",
         "slug": "unbru",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
         "description": "Cardápio do Restaurante Univesitário de Brasília",
@@ -32,7 +32,7 @@
                 "backgroundColor": "#48B755"
             },
             "package": "com.leonardoribas.unbrufront",
-            "versionCode": 4,
+            "versionCode": 6,
             "config": {
                 "googleMobileAdsAppId": "ca-app-pub-7231147932250814~5244744085"
             }
