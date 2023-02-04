@@ -9,12 +9,12 @@ type Meta = {
 
 const metadata = {
     salada1: {
-        displayName: "Salada",
+        displayName: "Salada 1",
         emoji: require("../../assets/emojis/salada1.png"),
         color: "#4CAF5030",
     },
     salada2: {
-        displayName: "Salada",
+        displayName: "Salada 2",
         emoji: require("../../assets/emojis/salada2.png"),
         color: "#4CAF5030",
     },
@@ -24,12 +24,12 @@ const metadata = {
         color: "#FF210030",
     },
     padrao: {
-        displayName: "Padrão",
+        displayName: "Prato Padrão",
         emoji: require("../../assets/emojis/pprincipal.png"),
         color: "#FDDDE0",
     },
     vegetariano: {
-        displayName: "Vegetariano",
+        displayName: "Prato Vegetariano",
         emoji: require("../../assets/emojis/vegetariano.png"),
         color: "#E3F5D9",
     },
@@ -39,12 +39,12 @@ const metadata = {
         color: "#4CAF5030",
     },
     ovolactovegetariano: {
-        displayName: "Ovolactovegetariano",
+        displayName: "Prato Ovolactovegetariano",
         emoji: require("../../assets/emojis/ovolacto.png"),
         color: "#FFEBCF",
     },
     "vegetariano estrito": {
-        displayName: "Vegetariano estrito",
+        displayName: "Prato Vegetariano",
         emoji: require("../../assets/emojis/vegetariano.png"),
         color: "#8BC34A30",
     },
@@ -54,7 +54,7 @@ const metadata = {
         color: "#FF980030",
     },
     acompanhamento: {
-        displayName: "Acompanhamento",
+        displayName: "Acompanhamentos",
         emoji: require("../../assets/emojis/acompanhamentos.png"),
         color: "#FF980030",
     },
