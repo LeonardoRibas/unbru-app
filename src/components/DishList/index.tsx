@@ -14,9 +14,9 @@ type MealMenuProps = {
 };
 
 const mealTypeTime = {
-    Desjejum: "6h - 9h",
-    Almoço: "12h - 14:30h",
-    Jantar: "17h - 19h",
+    Desjejum: "7h - 9h30",
+    Almoço: "11h - 14h30",
+    Jantar: "17h - 19h30",
 };
 
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
