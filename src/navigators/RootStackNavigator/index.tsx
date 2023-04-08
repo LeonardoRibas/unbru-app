@@ -1,15 +1,44 @@
-import React, { useContext } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "../../components/Header";
 import OnBoarding from "../../pages/OnBoarding";
+import { getMealByTime } from "../../utils/date";
+import useFetchMenu from "../../hooks/useFetchMenu";
+import { getApropriateDate } from "../../utils/date";
+import { useDispatch, useSelector } from "react-redux";
 import BottomTabNavigator from "../BottomTabNavigator";
-import SettingsStackNavigator from "../SettingsStackNavigator";
+import { setMenu } from "../../redux/features/menuSlice";
+import { setMeal } from "../../redux/features/mealSlice";
 import { GeneralContext } from "../../context/GeneralContext";
+import React, { useContext, useEffect, useState } from "react";
+import SettingsStackNavigator from "../SettingsStackNavigator";
+import { setDayIndex } from "../../redux/features/dayIndexSlice";
+import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
-export default function RootStackNavigator(): React.ReactElement {
-    const { isFirstLaunch, meal } = useContext(GeneralContext);
+export default function RootStackNavigator(): React.ReactElement | null {
+    const { isFirstLaunch } = useContext(GeneralContext);
+    const fetchMenu = useFetchMenu();
+    const meal = useSelector((state) => state.meal.value);
+    const dispatch = useDispatch();
+    const [menuReady, setMenuReady] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            fetchMenu()
+                .then((res) => {
+                    dispatch(setMeal(getMealByTime()));
+                    dispatch(setDayIndex(getApropriateDate()));
+                    dispatch(setMenu(res));
+                })
+                .finally(() => setMenuReady(true));
+        };
+        fetchData();
+    }, []);
+
+    if (!menuReady) {
+        return <ActivityIndicatorBox />;
+    }
 
     return (
         <Stack.Navigator>

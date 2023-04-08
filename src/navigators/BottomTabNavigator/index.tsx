@@ -1,10 +1,11 @@
 import { View } from "react-native";
-import React, { memo, useContext } from "react";
+import React, { memo } from "react";
+import { useSelector } from "react-redux";
 import DishList from "../../components/DishList";
 import CustomIcon from "../../components/CustomIcon";
 import { Colors, Typography, Sizing } from "../../styles";
-import { GeneralContext } from "../../context/GeneralContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { selectDayIndex } from "../../redux/features/dayIndexSlice";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 const Tab = createMaterialTopTabNavigator();
@@ -14,7 +15,8 @@ type BottomTabNavigatorMobileProps = {
 };
 
 function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
-    const { menu, dayIndex } = useContext(GeneralContext);
+    const menu = useSelector((state) => state.menu.value);
+    const dayIndex = useSelector(selectDayIndex);
     const dayMenu = menu[dayIndex];
     const insets = useSafeAreaInsets();
 
@@ -26,7 +28,6 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 initialRouteName={mealTime}
                 tabBarPosition="bottom"
                 screenOptions={{
-                    swipeEnabled: false,
                     tabBarActiveTintColor: Colors.primary.base,
                     tabBarInactiveTintColor: Colors.neutral.s400,
                     tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android
@@ -93,7 +94,8 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
 }
 
 function BottomTabNavigatorWeb() {
-    const { menu, dayIndex } = useContext(GeneralContext);
+    const menu = useSelector((state) => state.menu.value);
+    const dayIndex = useSelector(selectDayIndex);
     const dayMenu = menu[dayIndex];
 
     return (

@@ -1,12 +1,13 @@
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
+import { useDispatch } from "react-redux";
 import { Colors, Sizing } from "../../styles";
 import { partition } from "../../utils/partition";
 import MainDishCarousel from "../MainDishCarousel";
 import useFetchMenu from "../../hooks/useFetchMenu";
-import { GeneralContext } from "../../context/GeneralContext";
+import React, { memo, useMemo, useState } from "react";
+import { setMenu } from "../../redux/features/menuSlice";
 import { View, FlatList, RefreshControl } from "react-native";
-import React, { memo, useContext, useMemo, useState } from "react";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -22,7 +23,7 @@ const mealTypeTime = {
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const fetchMenu = useFetchMenu();
-    const { setMenu } = useContext(GeneralContext);
+    const dispatch = useDispatch();
 
     const [main, extras] = useMemo(
         () =>
@@ -36,7 +37,7 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
     const onRefresh = async () => {
         setRefreshing(true);
         const data = await fetchMenu();
-        setMenu(data);
+        dispatch(setMenu(data));
         setRefreshing(false);
     };
 
