@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMealByTime } from "../../utils/date";
 
 export const mealSlice = createSlice({
     name: "meal",
     initialState: {
-        value: getMealByTime(),
+        value: "",
     },
     reducers: {
         setMeal: (state, action) => {

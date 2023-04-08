@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getApropriateDate } from "../../utils/date";
 
 export const dayIndexSlice = createSlice({
     name: "dayIndex",
     initialState: {
-        value: getApropriateDate(),
+        value: "",
     },
     reducers: {
         setDayIndex: (state, action) => {

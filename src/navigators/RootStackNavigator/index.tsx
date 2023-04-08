@@ -1,10 +1,12 @@
 import Header from "../../components/Header";
 import OnBoarding from "../../pages/OnBoarding";
+import { getMealByTime } from "../../utils/date";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import { getApropriateDate } from "../../utils/date";
 import { useDispatch, useSelector } from "react-redux";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { setMenu } from "../../redux/features/menuSlice";
+import { setMeal } from "../../redux/features/mealSlice";
 import { GeneralContext } from "../../context/GeneralContext";
 import React, { useContext, useEffect, useState } from "react";
 import SettingsStackNavigator from "../SettingsStackNavigator";
@@ -25,6 +27,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
         const fetchData = async () => {
             fetchMenu()
                 .then((res) => {
+                    dispatch(setMeal(getMealByTime()));
                     dispatch(setDayIndex(getApropriateDate()));
                     dispatch(setMenu(res));
                 })
