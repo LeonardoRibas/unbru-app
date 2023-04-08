@@ -103,7 +103,6 @@ function BottomTabNavigatorWeb() {
             style={{
                 flex: 1,
                 flexDirection: "row",
-                gap: Sizing.layout.x10,
                 backgroundColor: Colors.neutral.white,
                 paddingHorizontal: Sizing.margin.base,
             }}
