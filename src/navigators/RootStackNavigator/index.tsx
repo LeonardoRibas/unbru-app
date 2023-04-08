@@ -1,14 +1,16 @@
 import Header from "../../components/Header";
 import OnBoarding from "../../pages/OnBoarding";
 import useFetchMenu from "../../hooks/useFetchMenu";
+import { getApropriateDate } from "../../utils/date";
 import { useDispatch, useSelector } from "react-redux";
 import BottomTabNavigator from "../BottomTabNavigator";
 import { setMenu } from "../../redux/features/menuSlice";
 import { GeneralContext } from "../../context/GeneralContext";
 import React, { useContext, useEffect, useState } from "react";
 import SettingsStackNavigator from "../SettingsStackNavigator";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { setDayIndex } from "../../redux/features/dayIndexSlice";
 import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
         const fetchData = async () => {
             fetchMenu()
                 .then((res) => {
+                    dispatch(setDayIndex(getApropriateDate()));
                     dispatch(setMenu(res));
                 })
                 .finally(() => setMenuReady(true));
