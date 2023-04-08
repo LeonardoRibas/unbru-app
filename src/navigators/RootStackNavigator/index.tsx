@@ -8,6 +8,7 @@ import { GeneralContext } from "../../context/GeneralContext";
 import React, { useContext, useEffect, useState } from "react";
 import SettingsStackNavigator from "../SettingsStackNavigator";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
     }, []);
 
     if (!menuReady) {
-        return null;
+        return <ActivityIndicatorBox />;
     }
 
     return (
