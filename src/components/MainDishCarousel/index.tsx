@@ -30,6 +30,7 @@ export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.
                 )}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} key={item[0]} />}
+                onTouchStart={(event) => event.stopPropagation()}
             />
         </View>
     );
