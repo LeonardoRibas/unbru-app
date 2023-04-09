@@ -1,13 +1,5 @@
 {
     "expo": {
-        "plugins": [
-            [
-                "expo-ads-admob",
-                {
-                    "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
-                }
-            ]
-        ],
         "name": "UnBRU",
         "slug": "unbru",
         "version": "2.0.0",
