@@ -13,7 +13,12 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import GeneralContextProvider from "./src/context/GeneralContext";
 import RootStackNavigator from "./src/navigators/RootStackNavigator";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
-import { Lexend_500Medium, Lexend_600SemiBold, Lexend_700Bold } from "@expo-google-fonts/lexend";
+import {
+    Lexend_400Regular,
+    Lexend_500Medium,
+    Lexend_600SemiBold,
+    Lexend_700Bold,
+} from "@expo-google-fonts/lexend";
 
 SplashScreen.preventAutoHideAsync();
 const persistor = persistStore(store);
@@ -27,6 +32,7 @@ export default function App(): React.ReactElement | null {
         Promise.all([
             Font.loadAsync({
                 IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
+                Lexend_400Regular,
                 Lexend_500Medium,
                 Lexend_700Bold,
                 Lexend_600SemiBold,

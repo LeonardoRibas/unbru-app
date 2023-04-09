@@ -9,6 +9,7 @@ export const fontSize = {
 };
 
 export const fontWeight = {
+    regular: "Lexend_400Regular",
     medium: "Lexend_500Medium",
     semiBold: "Lexend_600SemiBold",
     bold: "Lexend_700Bold",

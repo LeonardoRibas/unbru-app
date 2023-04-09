@@ -13,13 +13,13 @@ export default function MainDishItem({ label, dish }: MainDishItemProps): JSX.El
 
     return (
         <View style={styles.container}>
-            <View style={[styles.emojiContainer, { backgroundColor: color }]}>
-                <Image style={styles.emoji} source={emoji} />
-            </View>
-            <View style={styles.content}>
+            <View style={styles.labelContainer}>
+                <View style={[styles.emojiContainer, { backgroundColor: color }]}>
+                    <Image style={styles.emoji} source={emoji} />
+                </View>
                 <Text style={styles.label}>{label}</Text>
-                <Text style={styles.dish}>{dish}</Text>
             </View>
+            <Text style={styles.dish}>{dish}</Text>
         </View>
     );
 }
