@@ -23,8 +23,7 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#48B755"
             },
-            "package": "com.leonardoribas.unbrufront",
-            "versionCode": 7
+            "package": "com.leonardoribas.unbrufront"
         },
         "web": {
             "lang": "pt-BR",
