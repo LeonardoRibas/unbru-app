@@ -61,7 +61,7 @@
         "@redux-devtools/core": "^3.13.1",
         "@testing-library/jest-native": "^4.0.4",
         "@testing-library/react-native": "^9.1.0",
-        "@types/jest": "^27.5.1",
+        "@types/jest": "^29.5.2",
         "@types/react": "~18.0.27",
         "@types/react-dom": "~18.0.10",
         "@types/react-native": "~0.70.6",
@@ -101,7 +101,6 @@
         "*.{js,ts,jsx,tsx,css,md,json}": "prettier --write"
     },
     "jest": {
-        "testEnvironment": "jsdom",
         "preset": "jest-expo",
         "setupFiles": [
             "./node_modules/react-native-gesture-handler/jestSetup.js"
