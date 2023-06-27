@@ -2,8 +2,11 @@ import { StyleSheet } from "react-native";
 import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
-    container: {
-        width: Sizing.screen.width >= 768 ? "100%" : Sizing.screen.width * 0.8 - Sizing.layout.x10,
+    container: (oneOption: boolean) => ({
+        width:
+            Sizing.screen.width >= 768 || oneOption
+                ? "100%"
+                : Sizing.screen.width * 0.8 - Sizing.layout.x10,
         marginHorizontal: Sizing.screen.width >= 768 ? 0 : Sizing.layout.x10,
         padding: Sizing.margin.base,
         marginVertical: Sizing.screen.width >= 768 ? Sizing.layout.x10 : Sizing.layout.x20,
@@ -14,7 +17,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.15,
         shadowRadius: 8,
         elevation: 10,
-    },
+    }),
     labelContainer: {
         flex: 1,
         flexDirection: "row",

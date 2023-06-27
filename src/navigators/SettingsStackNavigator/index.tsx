@@ -23,13 +23,9 @@ const SettingsMenu = ({ navigation }: SettingsMenuProps) => {
     const ovolacto = useSelector(isOvolacto);
     const handleVeganPress = () => {
         dispatch(setIsVegan(!vegan));
-        dispatch(setIsOvolacto(false));
-        console.log("vegan: ", vegan, "ovolacto: ", ovolacto);
     };
     const handleOvolactoPress = () => {
         dispatch(setIsOvolacto(!ovolacto));
-        dispatch(setIsVegan(false));
-        console.log("vegan: ", vegan, "ovolacto: ", ovolacto);
     };
 
     return (

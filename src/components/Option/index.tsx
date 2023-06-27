@@ -45,7 +45,6 @@ export default function Option({
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={onPress}
                     value={switchValue}
-                    style={{ flex: 1, justifyContent: "flex-end" }}
                 />
             )}
         </Pressable>

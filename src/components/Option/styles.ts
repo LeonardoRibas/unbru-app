@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     infoWrapper: {
         flexDirection: "row",
         alignItems: "center",
+        maxWidth: "78%",
     },
     titleWrapper: {
         marginLeft: Sizing.layout.x30,

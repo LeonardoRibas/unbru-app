@@ -13,15 +13,21 @@ type MainDishCarouselProps = {
 export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.Element {
     const vegan = useSelector(isVegan);
     const ovolacto = useSelector(isOvolacto);
+
     const parsedItems = useMemo(() => {
+        let selectedItems = [];
         if (vegan) {
-            return items[2];
+            selectedItems.push(items[2]);
         }
         if (ovolacto) {
-            return items[1];
+            selectedItems.push(items[1]);
         }
-        return items;
-    }, [vegan, ovolacto]);
+        if (!vegan && !ovolacto) {
+            selectedItems = items;
+        }
+
+        return selectedItems;
+    }, [vegan, ovolacto, items]);
 
     return (
         <View>
@@ -44,7 +50,14 @@ export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.
                         (i - 1) * Sizing.layout.x20
                 )}
                 showsHorizontalScrollIndicator={false}
-                renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} key={item[0]} />}
+                renderItem={({ item }) => (
+                    <MainDish
+                        label={item[0]}
+                        dish={item[1]}
+                        key={item[0]}
+                        oneOption={(vegan && !ovolacto) || (ovolacto && !vegan)}
+                    />
+                )}
                 onTouchStart={(event) => event.stopPropagation()}
             />
         </View>

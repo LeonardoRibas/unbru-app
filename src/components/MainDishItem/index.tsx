@@ -6,13 +6,14 @@ import { getMetadata } from "../../utils/metadata";
 type MainDishItemProps = {
     label: string;
     dish: string;
+    oneOption: boolean;
 };
 
-export default function MainDishItem({ label, dish }: MainDishItemProps): JSX.Element {
+export default function MainDishItem({ label, dish, oneOption }: MainDishItemProps): JSX.Element {
     const { color, emoji } = getMetadata(label);
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container(oneOption)}>
             <View style={styles.labelContainer}>
                 <View style={[styles.emojiContainer, { backgroundColor: color }]}>
                     <Image style={styles.emoji} source={emoji} />
