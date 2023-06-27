@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Sizing } from "../../styles";
 import MainDish from "../MainDishItem";
 import { FlatList, View } from "react-native";
+import { useSelector } from "react-redux";
+import { isOvolacto } from "../../redux/features/isOvolactoSlice";
+import { isVegan } from "../../redux/features/isVeganSlice";
 
 type MainDishCarouselProps = {
     items: [string, string][];
 };
 
 export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.Element {
+    const vegan = useSelector(isVegan);
+    const ovolacto = useSelector(isOvolacto);
+    const parsedItems = useMemo(() => {
+        if (vegan) {
+            return items[2];
+        }
+        if (ovolacto) {
+            return items[1];
+        }
+        return items;
+    }, [vegan, ovolacto]);
+
     return (
         <View>
             <FlatList
@@ -16,7 +31,7 @@ export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.
                     alignItems: "flex-start",
                 }}
                 scrollEnabled
-                data={items}
+                data={parsedItems}
                 keyExtractor={(item) => item[0]}
                 horizontal={Sizing.screen.width >= 768 ? false : true}
                 snapToAlignment="start"

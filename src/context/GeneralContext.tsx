@@ -9,6 +9,8 @@ interface IGeneralContext {
     isCalendarModalOpen: boolean;
     setIsCalendarModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isFirstLaunch: boolean;
+    isVegan: boolean;
+    isOvolacto: boolean;
 }
 
 type GeneralContextProps = {
@@ -25,6 +27,8 @@ export const GeneralContext = createContext<IGeneralContext>({
     isCalendarModalOpen: false,
     setIsCalendarModalOpen: () => null,
     isFirstLaunch: false,
+    isVegan: false,
+    isOvolacto: false,
 });
 
 export default function GeneralContextProvider({
