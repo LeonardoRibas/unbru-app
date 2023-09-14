@@ -8,6 +8,8 @@ interface IGeneralContext {
     setDayIndex: React.Dispatch<React.SetStateAction<string>>;
     isCalendarModalOpen: boolean;
     setIsCalendarModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isCampusSelectModalOpen: boolean;
+    setIsCampusSelectModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isFirstLaunch: boolean;
 }
 
@@ -24,6 +26,8 @@ export const GeneralContext = createContext<IGeneralContext>({
     setDayIndex: () => null,
     isCalendarModalOpen: false,
     setIsCalendarModalOpen: () => null,
+    isCampusSelectModalOpen: false,
+    setIsCampusSelectModalOpen: () => null,
     isFirstLaunch: false,
 });
 

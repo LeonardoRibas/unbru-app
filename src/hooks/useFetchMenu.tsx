@@ -1,7 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
-import { REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY } from "react-native-dotenv";
 
-const supabase = createClient(REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY);
+const supabase = createClient(
+    `https://nmdqdamhxlilvwnqrexx.supabase.co`,
+    `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5tZHFkYW1oeGxpbHZ3bnFyZXh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTI3MzkxNDIsImV4cCI6MTk2ODMxNTE0Mn0.F-Acdprmm0rFqZY0A8_jaW1aGGA0xItzfL474hjQHI4`
+);
 
 const parseMenu = (jsonMenu: DayMenu[] | null) => {
     const result = {};

@@ -32,6 +32,7 @@ const persistor = persistStore(store);
 
 export default function App(): React.ReactElement | null {
     const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false);
+    const [isCampusSelectModalOpen, setIsCampusSelectModalOpen] = useState(false);
     const [appIsReady, setAppIsReady] = useState(false);
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
@@ -81,6 +82,8 @@ export default function App(): React.ReactElement | null {
                                 value={{
                                     isCalendarModalOpen,
                                     setIsCalendarModalOpen,
+                                    isCampusSelectModalOpen,
+                                    setIsCampusSelectModalOpen,
                                     isFirstLaunch,
                                 }}
                             >
