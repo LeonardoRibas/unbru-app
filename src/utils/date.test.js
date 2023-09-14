@@ -1,41 +1,69 @@
 import { getApropriateDate, getMealByTime } from "./date";
 
-test("get tomorrow date when dinner has past", () => {
-    date = new Date(2022, 9, 5, 19, 1, 0, 0);
-    expect(getApropriateDate(date)).toBe("2022-10-06");
+describe("getApropriateDate", () => {
+    test("should return tomorrow date if dinner time has past", () => {
+        const date = new Date();
+        date.setHours(19, 30, 1); //one second past end dinner time
+
+        const expectedDate = new Date();
+        expectedDate.setDate(date.getDate() + 1);
+
+        const returnedDate = getApropriateDate(date);
+
+        expect(returnedDate).toBe(expectedDate.toISOString().slice(0, 10));
+    });
+    test("should return today's date if the dinner time has not past", () => {
+        const date = new Date();
+        date.setHours(19, 29, 59); //one second before end dinner time
+
+        const expectedDate = new Date();
+
+        const returnedDate = getApropriateDate(date);
+
+        expect(returnedDate).toBe(expectedDate.toISOString().slice(0, 10));
+    });
 });
 
-test("get todays date if the dinner time has not ended", () => {
-    date = new Date(2022, 9, 5, 18, 59, 0, 0);
-    expect(getApropriateDate(date)).toBe("2022-10-05");
-});
+describe("getMealByTime", () => {
+    test('should return "Desjejum" before 9:30am', () => {
+        const date = new Date();
+        date.setHours(9, 29, 59);
 
-test('returns "Desjejum" before 9am', () => {
-    date = new Date(2022, 9, 5, 9, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Desjejum");
-});
+        expect(getMealByTime(date)).toBe("Desjejum");
+    });
 
-test('returns "Desjejum" after 19pm and after 19pm', () => {
-    date = new Date(2022, 9, 5, 20, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Desjejum");
-});
+    test('should return "Desjejum" after 19:30pm', () => {
+        const date = new Date();
+        date.setHours(19, 30, 1);
 
-test('returns "Almoço" after 9am', () => {
-    date = new Date(2022, 9, 5, 10, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Almoço");
-});
+        expect(getMealByTime(date)).toBe("Desjejum");
+    });
 
-test('returns "Almoço" before 14pm', () => {
-    date = new Date(2022, 9, 5, 14, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Almoço");
-});
+    test('should return "Almoço" after 9:30am', () => {
+        const date = new Date();
+        date.setHours(9, 30, 1);
 
-test('returns "Jantar" after 14am', () => {
-    date = new Date(2022, 9, 5, 15, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Jantar");
-});
+        expect(getMealByTime(date)).toBe("Almoço");
+    });
 
-test('returns "Jantar" before 19pm', () => {
-    date = new Date(2022, 9, 5, 19, 0, 0, 0);
-    expect(getMealByTime(date)).toBe("Jantar");
+    test('should return "Almoço" before 14:30pm', () => {
+        const date = new Date();
+        date.setHours(14, 29, 59);
+
+        expect(getMealByTime(date)).toBe("Almoço");
+    });
+
+    test('should return "Jantar" after 14:30am', () => {
+        const date = new Date();
+        date.setHours(14, 30, 1);
+
+        expect(getMealByTime(date)).toBe("Jantar");
+    });
+
+    test('should return "Jantar" before 19:30pm', () => {
+        const date = new Date();
+        date.setHours(19, 29, 59);
+
+        expect(getMealByTime(date)).toBe("Jantar");
+    });
 });
