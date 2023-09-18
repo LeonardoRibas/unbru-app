@@ -7,8 +7,11 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         backgroundColor: Colors.primary.base,
-        paddingHorizontal: Sizing.margin.base,
+        paddingHorizontal: Sizing.margin.base - 8,
         paddingVertical: Sizing.layout.x20,
+    },
+    buttonContainer: {
+        padding: 8,
     },
     title: {
         fontFamily: Typography.fontWeight.bold,

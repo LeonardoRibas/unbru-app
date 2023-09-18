@@ -2,13 +2,12 @@ import styles from "./styles";
 import { Colors } from "../../styles";
 import Modal from "react-native-modal";
 import React, { useContext } from "react";
-import { Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
-import { IconButton, Icon } from "native-base";
 import CalendarPicker from "../CalendarPicker";
 import { getFormatedDate } from "../../utils/date";
+import { Text, TouchableOpacity, View } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { selectDayIndex } from "../../redux/features/dayIndexSlice";
@@ -24,17 +23,19 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
         <View style={{ paddingTop: insets.top, backgroundColor: Colors.primary.base }}>
             <View style={styles.container}>
                 <StatusBar style="light" backgroundColor={Colors.primary.base} />
-                <IconButton
-                    borderRadius="full"
+                <TouchableOpacity
+                    style={styles.buttonContainer}
                     onPress={() => navigation.navigate("Settings")}
-                    icon={<Icon as={Feather} name="settings" size={6} color="white" />}
-                />
+                >
+                    <Feather name="settings" size={24} color="white" />
+                </TouchableOpacity>
                 {menu && <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>}
-                <IconButton
-                    borderRadius="full"
+                <TouchableOpacity
+                    style={styles.buttonContainer}
                     onPress={() => setIsCalendarModalOpen(true)}
-                    icon={<Icon as={Feather} name="calendar" size={6} color="white" />}
-                />
+                >
+                    <Feather name="calendar" size={24} color="white" />
+                </TouchableOpacity>
                 <Modal
                     isVisible={isCalendarModalOpen}
                     onBackdropPress={() => setIsCalendarModalOpen(false)}

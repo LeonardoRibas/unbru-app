@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View, ScrollView } from "native-base";
+import { Image, Text, View, ScrollView } from "react-native";
 import styles from "./styles";
 import { Sizing } from "../../styles";
 import { Platform } from "react-native";

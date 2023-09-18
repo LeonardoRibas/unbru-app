@@ -3,7 +3,6 @@ import store from "./src/redux/store";
 import { Provider } from "react-redux";
 import "react-native-url-polyfill/auto";
 import { persistStore } from "redux-persist";
-import { NativeBaseProvider } from "native-base";
 import * as SplashScreen from "expo-splash-screen";
 import { checkIfFirstLaunch } from "./src/utils/storage";
 import { PersistGate } from "redux-persist/integration/react";
@@ -19,13 +18,13 @@ import {
     Lexend_600SemiBold,
     Lexend_700Bold,
 } from "@expo-google-fonts/lexend";
-import { InterstitialAd, AdEventType, TestIds } from "react-native-google-mobile-ads";
+// import { InterstitialAd, AdEventType, TestIds } from "react-native-google-mobile-ads";
 
-const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : "ca-app-pub-7231147932250814/7383034831";
+// const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : "ca-app-pub-7231147932250814/7383034831";
 
-const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-    requestNonPersonalizedAdsOnly: true,
-});
+// const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+//     requestNonPersonalizedAdsOnly: true,
+// });
 
 SplashScreen.preventAutoHideAsync();
 const persistor = persistStore(store);
@@ -37,29 +36,29 @@ export default function App(): React.ReactElement | null {
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
     useEffect(() => {
-        const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
-            interstitial.show();
-        });
+        // const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+        //     interstitial.show();
+        // });
 
-        interstitial.load(),
-            Promise.all([
-                Font.loadAsync({
-                    IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
-                    Lexend_400Regular,
-                    Lexend_500Medium,
-                    Lexend_700Bold,
-                    Lexend_600SemiBold,
-                }),
-                checkIfFirstLaunch(),
-            ])
-                .then((values) => {
-                    setIsFirstLaunch(values[1]);
-                })
-                .finally(() => {
-                    setAppIsReady(true);
-                });
+        // interstitial.load(),
+        Promise.all([
+            Font.loadAsync({
+                IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
+                Lexend_400Regular,
+                Lexend_500Medium,
+                Lexend_700Bold,
+                Lexend_600SemiBold,
+            }),
+            checkIfFirstLaunch(),
+        ])
+            .then((values) => {
+                setIsFirstLaunch(values[1]);
+            })
+            .finally(() => {
+                setAppIsReady(true);
+            });
 
-        return unsubscribe;
+        // return unsubscribe;
     }, []);
 
     const onLayoutRootView = useCallback(async () => {
@@ -74,25 +73,23 @@ export default function App(): React.ReactElement | null {
 
     return (
         <SafeAreaProvider onLayout={onLayoutRootView}>
-            <NativeBaseProvider>
-                <NavigationContainer>
-                    <Provider store={store}>
-                        <PersistGate loading={null} persistor={persistor}>
-                            <GeneralContextProvider
-                                value={{
-                                    isCalendarModalOpen,
-                                    setIsCalendarModalOpen,
-                                    isCampusSelectModalOpen,
-                                    setIsCampusSelectModalOpen,
-                                    isFirstLaunch,
-                                }}
-                            >
-                                <RootStackNavigator />
-                            </GeneralContextProvider>
-                        </PersistGate>
-                    </Provider>
-                </NavigationContainer>
-            </NativeBaseProvider>
+            <NavigationContainer>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        <GeneralContextProvider
+                            value={{
+                                isCalendarModalOpen,
+                                setIsCalendarModalOpen,
+                                isCampusSelectModalOpen,
+                                setIsCampusSelectModalOpen,
+                                isFirstLaunch,
+                            }}
+                        >
+                            <RootStackNavigator />
+                        </GeneralContextProvider>
+                    </PersistGate>
+                </Provider>
+            </NavigationContainer>
         </SafeAreaProvider>
     );
 }

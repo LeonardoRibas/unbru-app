@@ -1,19 +1,19 @@
 import React from "react";
-import { Center, VStack, Text } from "native-base";
-import { BrandLogo } from "../../../assets/logo";
 import styles from "./styles";
+import { View, Text } from "react-native";
+import { BrandLogo } from "../../../assets/logo";
 
 const About = () => {
     return (
-        <Center size="full" bg="white">
-            <VStack space={8} alignItems="center">
+        <View style={styles.container}>
+            <View style={styles.contentContainer}>
                 <BrandLogo />
-                <VStack space={2} alignItems="center">
+                <View style={styles.textContainer}>
                     <Text style={styles.logoType}>UnBRU</Text>
                     <Text style={styles.version}>V 1.0.0</Text>
-                </VStack>
-            </VStack>
-        </Center>
+                </View>
+            </View>
+        </View>
     );
 };
 
