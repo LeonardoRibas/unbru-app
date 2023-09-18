@@ -49,8 +49,6 @@ export const getApropriateDate = (date = new Date()): string => {
 
     const endDinnerTime = new Date();
     endDinnerTime.setUTCHours(22, 30, 0);
-    console.log(currentTime);
-    console.log(endDinnerTime);
 
     // If the dinner ended returns tomorrow date
     if (currentTime > endDinnerTime) {
