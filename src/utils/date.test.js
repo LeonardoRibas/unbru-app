@@ -3,10 +3,10 @@ import { getApropriateDate, getMealByTime } from "./date";
 describe("getApropriateDate", () => {
     test("should return tomorrow date if dinner time has past", () => {
         const date = new Date();
-        date.setHours(19, 30, 1); //one second past end dinner time
+        date.setUTCHours(22, 30, 1); //one second past end dinner time
 
         const expectedDate = new Date();
-        expectedDate.setDate(date.getDate() + 1);
+        expectedDate.setUTCDate(date.getDate() + 1);
 
         const returnedDate = getApropriateDate(date);
 
@@ -14,7 +14,7 @@ describe("getApropriateDate", () => {
     });
     test("should return today's date if the dinner time has not past", () => {
         const date = new Date();
-        date.setHours(19, 29, 59); //one second before end dinner time
+        date.setUTCHours(22, 29, 59); //one second before end dinner time
 
         const expectedDate = new Date();
 

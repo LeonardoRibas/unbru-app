@@ -1,3 +1,5 @@
+import { current } from "@reduxjs/toolkit";
+
 const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 const yearMonths = [
     "Janeiro",
@@ -46,12 +48,16 @@ export const getApropriateDate = (date = new Date()): string => {
     const currentTime = date;
 
     const endDinnerTime = new Date();
-    endDinnerTime.setHours(19, 30, 0);
+    endDinnerTime.setUTCHours(22, 30, 0);
+    console.log(currentTime);
+    console.log(endDinnerTime);
 
     // If the dinner ended returns tomorrow date
     if (currentTime > endDinnerTime) {
+        console.log("entrou");
         currentTime.setDate(currentTime.getDate() + 1);
     }
+
     return currentTime.toISOString().slice(0, 10);
 };
 
