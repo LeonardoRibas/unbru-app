@@ -1,11 +1,6 @@
 import React, { createContext } from "react";
 
 interface IGeneralContext {
-    menu: WeekMenu;
-    setMenu: React.Dispatch<React.SetStateAction<WeekMenu>>;
-    dayIndex: string;
-    meal: "Desjejum" | "Almoço" | "Jantar" | undefined;
-    setDayIndex: React.Dispatch<React.SetStateAction<string>>;
     isCalendarModalOpen: boolean;
     setIsCalendarModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isCampusSelectModalOpen: boolean;
@@ -19,11 +14,6 @@ type GeneralContextProps = {
 };
 
 export const GeneralContext = createContext<IGeneralContext>({
-    menu: [],
-    setMenu: () => null,
-    dayIndex: "",
-    meal: undefined,
-    setDayIndex: () => null,
     isCalendarModalOpen: false,
     setIsCalendarModalOpen: () => null,
     isCampusSelectModalOpen: false,
