@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     step: {
         marginBottom: Sizing.layout.x30,
         width: "100%",
+        justifyContent: "flex-start",
     },
     text: {
         fontSize: Typography.fontSize.x30,
