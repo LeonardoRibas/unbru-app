@@ -18,8 +18,9 @@ const Stack = createNativeStackNavigator();
 
 export default function RootStackNavigator(): React.ReactElement | null {
     const { isFirstLaunch } = useContext(GeneralContext);
-    const fetchMenu = useFetchMenu();
-    const meal = useSelector((state) => state.meal.value);
+    const selectedCampus = useSelector((state) => state.campus);
+    const fetchMenu = useFetchMenu(selectedCampus);
+    const meal = useSelector((state) => state.meal);
     const dispatch = useDispatch();
     const [menuReady, setMenuReady] = useState(false);
 
@@ -34,7 +35,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
                 .finally(() => setMenuReady(true));
         };
         fetchData();
-    }, []);
+    }, [selectedCampus]);
 
     if (!menuReady) {
         return <ActivityIndicatorBox />;

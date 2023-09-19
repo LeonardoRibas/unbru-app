@@ -12,6 +12,7 @@ import A2HSTutorial from "../../pages/A2HSTutorial";
 import Modal from "react-native-modal";
 import { GeneralContext } from "../../context/GeneralContext";
 import CampusPicker from "../../components/CampusPicker";
+import { useSelector } from "react-redux";
 
 type SettingsMenuProps = NativeStackScreenProps<SettingsStackParamList, "About">;
 
@@ -20,11 +21,13 @@ const Stack = createNativeStackNavigator();
 const SettingsMenu = ({ navigation }: SettingsMenuProps) => {
     const { isCampusSelectModalOpen, setIsCampusSelectModalOpen } = useContext(GeneralContext);
 
+    const campus = useSelector((state) => state.campus);
+
     return (
         <View style={styles.container}>
             <Option
                 titleIcon={<MaterialIcons name="school-outline" size={24} />}
-                title="Campus"
+                title={`Campus: ${campus}`}
                 subTitle="Troque o campus"
                 actionIcon={<Feather name="chevron-right" size={24} />}
                 onPress={() => setIsCampusSelectModalOpen(true)}
@@ -56,7 +59,7 @@ const SettingsMenu = ({ navigation }: SettingsMenuProps) => {
                 backdropOpacity={0.5}
                 style={{ justifyContent: "flex-end", margin: 0 }}
             >
-                <CampusPicker />
+                <CampusPicker onConfirm={() => setIsCampusSelectModalOpen(false)} />
             </Modal>
         </View>
     );

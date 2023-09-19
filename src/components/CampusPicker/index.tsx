@@ -1,16 +1,20 @@
 import styles from "./styles";
+import Button from "../Button";
 import { Colors } from "../../styles";
 import { Sizing } from "../../styles";
+import React, { useContext } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useRef, useContext, useEffect } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { setCampus } from "../../redux/features/campusSlice";
 import { GeneralContext } from "../../context/GeneralContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { View, Text, TouchableOpacity } from "react-native";
-import Button from "../Button";
 
-export default function CalendarPicker(): React.ReactElement {
+export default function CalendarPicker({ onConfirm }): React.ReactElement {
     const insets = useSafeAreaInsets();
     const { setIsCampusSelectModalOpen } = useContext(GeneralContext);
+
+    const campus = useSelector((state) => state.campus);
 
     const dispatch = useDispatch();
 
@@ -24,23 +28,135 @@ export default function CalendarPicker(): React.ReactElement {
         >
             <View style={styles.container}>
                 <View style={styles.handle} />
-                <View style={styles.campusOptionContainer}>
-                    <Text style={styles.campusText}>Darcy Ribeiro</Text>
-                </View>
-                <View style={styles.campusOptionContainer}>
-                    <Text style={styles.campusText}>Ceilândia</Text>
-                </View>
-                <View style={styles.campusOptionContainer}>
-                    <Text style={styles.campusText}>Gama</Text>
-                </View>
-                <View style={styles.campusOptionContainer}>
-                    <Text style={styles.campusText}>Planaltina</Text>
-                </View>
-                <View style={styles.campusOptionContainer}>
-                    <Text style={styles.campusText}>Fazenda</Text>
-                </View>
+                <TouchableOpacity
+                    style={styles.campusOptionContainer}
+                    onPress={() => dispatch(setCampus("Darcy Ribeiro"))}
+                >
+                    {campus === "Darcy Ribeiro" ? (
+                        <MaterialIcons
+                            name="radio-button-on"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    ) : (
+                        <MaterialIcons
+                            name="radio-button-off"
+                            size={24}
+                            color={Colors.neutral.s500}
+                        />
+                    )}
+                    <Text
+                        style={[
+                            styles.campusText,
+                            campus === "Darcy Ribeiro" && styles.campusSelectedText,
+                        ]}
+                    >
+                        Darcy Ribeiro
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.campusOptionContainer}
+                    onPress={() => dispatch(setCampus("Ceilândia"))}
+                >
+                    {campus === "Ceilândia" ? (
+                        <MaterialIcons
+                            name="radio-button-on"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    ) : (
+                        <MaterialIcons
+                            name="radio-button-off"
+                            size={24}
+                            color={Colors.neutral.s500}
+                        />
+                    )}
+                    <Text
+                        style={[
+                            styles.campusText,
+                            campus === "Ceilândia" && styles.campusSelectedText,
+                        ]}
+                    >
+                        Ceilândia
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.campusOptionContainer}
+                    onPress={() => dispatch(setCampus("Gama"))}
+                >
+                    {campus === "Gama" ? (
+                        <MaterialIcons
+                            name="radio-button-on"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    ) : (
+                        <MaterialIcons
+                            name="radio-button-off"
+                            size={24}
+                            color={Colors.neutral.s500}
+                        />
+                    )}
+                    <Text
+                        style={[styles.campusText, campus === "Gama" && styles.campusSelectedText]}
+                    >
+                        Gama
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.campusOptionContainer}
+                    onPress={() => dispatch(setCampus("Planaltina"))}
+                >
+                    {campus === "Planaltina" ? (
+                        <MaterialIcons
+                            name="radio-button-on"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    ) : (
+                        <MaterialIcons
+                            name="radio-button-off"
+                            size={24}
+                            color={Colors.neutral.s500}
+                        />
+                    )}
+                    <Text
+                        style={[
+                            styles.campusText,
+                            campus === "Planaltina" && styles.campusSelectedText,
+                        ]}
+                    >
+                        Planaltina
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.campusOptionContainer}
+                    onPress={() => dispatch(setCampus("Fazenda"))}
+                >
+                    {campus === "Fazenda" ? (
+                        <MaterialIcons
+                            name="radio-button-on"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    ) : (
+                        <MaterialIcons
+                            name="radio-button-off"
+                            size={24}
+                            color={Colors.neutral.s500}
+                        />
+                    )}
+                    <Text
+                        style={[
+                            styles.campusText,
+                            campus === "Fazenda" && styles.campusSelectedText,
+                        ]}
+                    >
+                        Fazenda
+                    </Text>
+                </TouchableOpacity>
                 <View style={styles.buttonContainer}>
-                    <Button text="Confirmar" />
+                    <Button text="Confirmar" onPress={onConfirm} />
                 </View>
             </View>
         </View>

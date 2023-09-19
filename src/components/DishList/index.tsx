@@ -1,6 +1,6 @@
 import DishItem from "../DishItem";
 import SubHeader from "../SubHeader";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Colors, Sizing } from "../../styles";
 import { partition } from "../../utils/partition";
 import MainDishCarousel from "../MainDishCarousel";
@@ -22,7 +22,8 @@ const mealTypeTime = {
 
 function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
-    const fetchMenu = useFetchMenu();
+    const selectedCampus = useSelector((state) => state.campus);
+    const fetchMenu = useFetchMenu(selectedCampus);
     const dispatch = useDispatch();
 
     const [main, extras] = useMemo(

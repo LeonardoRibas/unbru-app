@@ -27,6 +27,7 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 initialRouteName={mealTime}
                 tabBarPosition="bottom"
                 screenOptions={{
+                    swipeEnabled: false,
                     tabBarActiveTintColor: Colors.primary.base,
                     tabBarInactiveTintColor: Colors.neutral.s400,
                     tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android

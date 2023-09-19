@@ -19,9 +19,9 @@ const parseMenu = (jsonMenu: DayMenu[] | null) => {
     return result;
 };
 
-const useFetchMenu = () => {
+const useFetchMenu = (campus: string) => {
     async function fetchMenu() {
-        const { data } = await supabase.from<DayMenu>("menu").select("*").order("date");
+        const { data } = await supabase.from<DayMenu>(campus).select("*").order("date");
         return parseMenu(data);
     }
     return fetchMenu;

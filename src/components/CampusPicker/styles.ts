@@ -18,12 +18,17 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         marginBottom: Sizing.layout.x20,
     },
-
     campusOptionContainer: {
-        marginVertical: Sizing.layout.x20,
+        paddingVertical: Sizing.layout.x20,
+        flexDirection: "row",
+        gap: Sizing.layout.x20,
     },
     campusText: {
         fontFamily: Typography.fontWeight.regular,
+        fontSize: Typography.fontSize.x20,
+    },
+    campusSelectedText: {
+        fontFamily: Typography.fontWeight.bold,
         fontSize: Typography.fontSize.x20,
     },
     buttonContainer: {
