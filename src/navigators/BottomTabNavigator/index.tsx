@@ -5,7 +5,6 @@ import DishList from "../../components/DishList";
 import CustomIcon from "../../components/CustomIcon";
 import { Colors, Typography, Sizing } from "../../styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { selectDayIndex } from "../../redux/features/dayIndexSlice";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 const Tab = createMaterialTopTabNavigator();
@@ -15,8 +14,8 @@ type BottomTabNavigatorMobileProps = {
 };
 
 function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
-    const menu = useSelector((state) => state.menu.value);
-    const dayIndex = useSelector(selectDayIndex);
+    const menu = useSelector((state) => state.menu);
+    const dayIndex = useSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
     const insets = useSafeAreaInsets();
 
@@ -94,8 +93,8 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
 }
 
 function BottomTabNavigatorWeb() {
-    const menu = useSelector((state) => state.menu.value);
-    const dayIndex = useSelector(selectDayIndex);
+    const menu = useSelector((state) => state.menu);
+    const dayIndex = useSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
 
     return (

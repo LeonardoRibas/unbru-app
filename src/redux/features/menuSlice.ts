@@ -2,12 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const menuSlice = createSlice({
     name: "menu",
-    initialState: {
-        value: [],
-    },
+    initialState: [],
     reducers: {
         setMenu: (state, action) => {
-            state.value = action.payload;
+            return (state = action.payload);
         },
     },
 });

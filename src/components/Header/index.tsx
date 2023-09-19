@@ -10,14 +10,13 @@ import { getFormatedDate } from "../../utils/date";
 import { Text, TouchableOpacity, View } from "react-native";
 import { GeneralContext } from "../../context/GeneralContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { selectDayIndex } from "../../redux/features/dayIndexSlice";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
 export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const insets = useSafeAreaInsets();
-    const dayIndex = useSelector(selectDayIndex);
+    const dayIndex = useSelector((state) => state.dayIndex);
     const { isCalendarModalOpen, setIsCalendarModalOpen } = useContext(GeneralContext);
-    const menu = useSelector((state) => state.menu.value);
+    const menu = useSelector((state) => state.menu);
 
     return (
         <View style={{ paddingTop: insets.top, backgroundColor: Colors.primary.base }}>

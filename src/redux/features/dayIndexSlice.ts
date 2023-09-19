@@ -2,18 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const dayIndexSlice = createSlice({
     name: "dayIndex",
-    initialState: {
-        value: "",
-    },
+    initialState: "",
     reducers: {
         setDayIndex: (state, action) => {
-            state.value = action.payload;
+            return (state = action.payload);
         },
     },
 });
 
 export const { setDayIndex } = dayIndexSlice.actions;
-
-export const selectDayIndex = (state) => state.dayIndex.value;
 
 export default dayIndexSlice.reducer;

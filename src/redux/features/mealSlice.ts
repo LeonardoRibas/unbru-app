@@ -2,12 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const mealSlice = createSlice({
     name: "meal",
-    initialState: {
-        value: "",
-    },
+    initialState: "",
     reducers: {
         setMeal: (state, action) => {
-            state.value = action.payload;
+            return (state = action.payload);
         },
     },
 });

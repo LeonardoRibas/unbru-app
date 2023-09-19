@@ -7,15 +7,15 @@ import { GeneralContext } from "../../context/GeneralContext";
 import { getWeekDay, getMonthsFromWeek } from "../../utils/date";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import { selectDayIndex, setDayIndex } from "../../redux/features/dayIndexSlice";
+import { setDayIndex } from "../../redux/features/dayIndexSlice";
 
 export default function CalendarPicker(): React.ReactElement {
     const insets = useSafeAreaInsets();
     const { setIsCalendarModalOpen } = useContext(GeneralContext);
-    const menu = useSelector((state) => state.menu.value);
+    const menu = useSelector((state) => state.menu);
     const scrollRef = useRef<ScrollView>();
 
-    const dayIndex = useSelector(selectDayIndex);
+    const dayIndex = useSelector((state) => state.dayIndex);
     const dispatch = useDispatch();
 
     useEffect(() => {
