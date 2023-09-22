@@ -63,7 +63,7 @@ const metadata = {
         emoji: require("../../assets/emojis/sobremesa.png"),
         color: "#2196F330",
     },
-    bebida: {
+    refresco: {
         displayName: "Suco",
         emoji: require("../../assets/emojis/refresco.png"),
         color: "#8BC34A30",
