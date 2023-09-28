@@ -6,14 +6,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        padding: Sizing.margin.base,
+        paddingHorizontal: Sizing.margin.base,
+        paddingVertical: Sizing.layout.x15,
         backgroundColor: "white",
         flexDirection: "row",
     },
     emoji: {
         marginRight: Sizing.layout.x20,
-        height: 42,
-        width: 42,
+        height: 40,
+        width: 40,
     },
     content: {
         flex: 1,
@@ -25,8 +26,8 @@ const styles = StyleSheet.create({
         marginBottom: Sizing.layout.x10,
     },
     dish: {
-        fontFamily: Typography.fontWeight.semiBold,
-        fontSize: Typography.fontSize.x20,
+        fontFamily: Typography.fontWeight.medium,
+        fontSize: Typography.fontSize.x15,
         color: Colors.neutral.s800,
     },
 });

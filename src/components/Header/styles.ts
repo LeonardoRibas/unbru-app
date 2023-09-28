@@ -8,14 +8,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: Colors.primary.base,
         paddingHorizontal: Sizing.margin.base - 8,
-        paddingVertical: Sizing.layout.x20,
+        paddingVertical: Sizing.layout.x15 - 8,
     },
     buttonContainer: {
         padding: 8,
     },
     title: {
         fontFamily: Typography.fontWeight.bold,
-        fontSize: Typography.fontSize.x30,
+        fontSize: Typography.fontSize.x20,
         color: Colors.neutral.white,
     },
     icon: {

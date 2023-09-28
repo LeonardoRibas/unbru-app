@@ -36,12 +36,13 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                         paddingHorizontal: 0,
                     },
                     tabBarIconStyle: {
-                        margin: 2,
+                        justifyContent: "center",
+                        alignItems: "center",
                     },
                     tabBarLabelStyle: {
                         margin: 0,
-                        fontFamily: Typography.fontWeight.semiBold,
-                        fontSize: Typography.fontSize.x15,
+                        fontFamily: Typography.fontWeight.regular,
+                        fontSize: Typography.fontSize.x05,
                         textTransform: "none", // Disables default uppercase letters
                     },
                     tabBarIndicatorStyle: {
