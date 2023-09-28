@@ -55,8 +55,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Desjejum"
                     options={{
-                        tabBarIcon: ({ color }) => (
-                            <CustomIcon name="breakfast" size={26} color={color} />
+                        tabBarIcon: ({ focused, color }) => (
+                            <CustomIcon
+                                name={focused ? "breakfast-fill" : "breakfast-outline"}
+                                size={20}
+                                color={color}
+                            />
                         ),
                     }}
                 >
@@ -67,8 +71,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Almoço"
                     options={{
-                        tabBarIcon: ({ color }) => (
-                            <CustomIcon name="lunch" size={26} color={color} />
+                        tabBarIcon: ({ focused, color }) => (
+                            <CustomIcon
+                                name={focused ? "lunch-fill" : "lunch-outline"}
+                                size={20}
+                                color={color}
+                            />
                         ),
                     }}
                 >
@@ -79,8 +87,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Jantar"
                     options={{
-                        tabBarIcon: ({ color }) => (
-                            <CustomIcon name="dinner" size={26} color={color} />
+                        tabBarIcon: ({ focused, color }) => (
+                            <CustomIcon
+                                name={focused ? "dinner-fill" : "dinner-outline"}
+                                size={20}
+                                color={color}
+                            />
                         ),
                     }}
                 >
