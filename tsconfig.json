@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "src",
+        "baseUrl": ".",
         "allowSyntheticDefaultImports": true,
         "jsx": "react-native",
         "lib": ["dom", "esnext"],
