@@ -5,6 +5,8 @@ interface IGeneralContext {
     setIsCalendarModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isCampusSelectModalOpen: boolean;
     setIsCampusSelectModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isShareModalOpen: boolean;
+    setIsShareModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isFirstLaunch: boolean;
 }
 
@@ -18,6 +20,8 @@ export const GeneralContext = createContext<IGeneralContext>({
     setIsCalendarModalOpen: () => null,
     isCampusSelectModalOpen: false,
     setIsCampusSelectModalOpen: () => null,
+    isShareModalOpen: false,
+    setIsShareModalOpen: () => null,
     isFirstLaunch: false,
 });
 
