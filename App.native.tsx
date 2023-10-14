@@ -18,6 +18,13 @@ import {
     Lexend_600SemiBold,
     Lexend_700Bold,
 } from "@expo-google-fonts/lexend";
+import { InterstitialAd, AdEventType, TestIds } from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : "ca-app-pub-7231147932250814/7383034831";
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+    requestNonPersonalizedAdsOnly: true,
+});
 
 SplashScreen.preventAutoHideAsync();
 const persistor = persistStore(store);
@@ -30,6 +37,11 @@ export default function App(): React.ReactElement | null {
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
     useEffect(() => {
+        const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+            interstitial.show();
+        });
+
+        // interstitial.load(), //UNCOMMENT THIS
         Promise.all([
             Font.loadAsync({
                 IcoMoon: require("./assets/icomoon/fonts/icomoon.ttf"),
@@ -46,6 +58,8 @@ export default function App(): React.ReactElement | null {
             .finally(() => {
                 setAppIsReady(true);
             });
+
+        // return unsubscribe;
     }, []);
 
     const onLayoutRootView = useCallback(async () => {
