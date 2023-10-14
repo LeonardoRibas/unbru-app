@@ -21,7 +21,7 @@ const A2HSTutorialAndroid = () => {
                     <Text> - Pressione o ícone indicado na figura:</Text>
                 </View>
                 <Image
-                    source={require("../../../assets/A2HSTutorial/android/A2HS1.png")}
+                    source={require("../../../assets/A2HSTutorial/android/a2hs1.png")}
                     alt="Imagem mostrando o icone"
                     style={{
                         marginTop: 16,
@@ -41,7 +41,7 @@ const A2HSTutorialAndroid = () => {
                 </View>
                 <View style={{ borderRadius: 16 }}>
                     <Image
-                        source={require("../../../assets/A2HSTutorial/android/A2HS2.png")}
+                        source={require("../../../assets/A2HSTutorial/android/a2hs2.png")}
                         alt="asdf"
                         style={{
                             marginTop: 16,
@@ -62,7 +62,7 @@ const A2HSTutorialAndroid = () => {
                 </View>
 
                 <Image
-                    source={require("../../../assets/A2HSTutorial/android/A2HS3.png")}
+                    source={require("../../../assets/A2HSTutorial/android/a2hs3.png")}
                     alt="asdf"
                     style={{
                         marginTop: 16,
