@@ -4,11 +4,13 @@ import { Sizing, Outlines, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
+        width: "100%",
+        maxWidth: 500,
         alignItems: "center",
         justifyContent: "center",
         paddingVertical: Sizing.layout.x20,
         paddingHorizontal: Sizing.layout.x80,
-        borderRadius: Outlines.borderRadius.base,
+        borderRadius: Outlines.borderRadius.small,
         backgroundColor: Colors.primary.base,
     },
     text: {

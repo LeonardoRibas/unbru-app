@@ -1,21 +1,23 @@
 import { View } from "react-native";
 import React, { memo } from "react";
-import { useSelector } from "react-redux";
-import DishList from "../../components/DishList";
-import CustomIcon from "../../components/CustomIcon";
-import { Colors, Typography, Sizing } from "../../styles";
+import useAppSelector from "src/hooks/useAppSelector";
+import DishList from "src/components/DishList";
+import CustomIcon from "src/components/CustomIcon";
+import { Colors, Typography, Sizing } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import SubHeader from "src/components/SubHeader";
+import ShareMealModal from "src/components/ShareMealModal";
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createBottomTabNavigator();
 
 type BottomTabNavigatorMobileProps = {
     mealTime: "" | "Desjejum" | "Almoço" | "Jantar" | undefined;
 };
 
 function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
-    const menu = useSelector((state) => state.menu);
-    const dayIndex = useSelector((state) => state.dayIndex);
+    const menu = useAppSelector((state) => state.menu);
+    const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
     const insets = useSafeAreaInsets();
 
@@ -25,12 +27,9 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
         >
             <Tab.Navigator
                 initialRouteName={mealTime}
-                tabBarPosition="bottom"
                 screenOptions={{
-                    swipeEnabled: false,
                     tabBarActiveTintColor: Colors.primary.base,
-                    tabBarInactiveTintColor: Colors.neutral.s400,
-                    tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android
+                    tabBarInactiveTintColor: Colors.neutral.s600,
                     tabBarItemStyle: {
                         paddingVertical: 4,
                         paddingHorizontal: 0,
@@ -45,17 +44,14 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                         fontSize: Typography.fontSize.x05,
                         textTransform: "none", // Disables default uppercase letters
                     },
-                    tabBarIndicatorStyle: {
-                        top: 0,
-                        left: Sizing.margin.base, // Compensates and centrilizes the indicator, because of the double margin taken away below
-                        width: Sizing.screen.width / 3 - Sizing.margin.base * 2,
-                        backgroundColor: Colors.primary.base,
-                    },
                 }}
             >
                 <Tab.Screen
                     name="Desjejum"
                     options={{
+                        header: (props) => (
+                            <SubHeader {...props} mealType="Desjejum" time="7h - 9h30" />
+                        ),
                         tabBarIcon: ({ focused, color }) => (
                             <CustomIcon
                                 name={focused ? "breakfast-fill" : "breakfast-outline"}
@@ -72,6 +68,9 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Almoço"
                     options={{
+                        header: (props) => (
+                            <SubHeader {...props} mealType="Almoço" time="11h - 14h30" />
+                        ),
                         tabBarIcon: ({ focused, color }) => (
                             <CustomIcon
                                 name={focused ? "lunch-fill" : "lunch-outline"}
@@ -88,6 +87,9 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                 <Tab.Screen
                     name="Jantar"
                     options={{
+                        header: (props) => (
+                            <SubHeader {...props} mealType="Jantar" time="17h - 19h30" />
+                        ),
                         tabBarIcon: ({ focused, color }) => (
                             <CustomIcon
                                 name={focused ? "dinner-fill" : "dinner-outline"}
@@ -107,8 +109,8 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
 }
 
 function BottomTabNavigatorWeb() {
-    const menu = useSelector((state) => state.menu);
-    const dayIndex = useSelector((state) => state.dayIndex);
+    const menu = useAppSelector((state) => state.menu);
+    const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
 
     return (
@@ -118,11 +120,21 @@ function BottomTabNavigatorWeb() {
                 flexDirection: "row",
                 backgroundColor: Colors.neutral.white,
                 paddingHorizontal: Sizing.margin.base,
+                justifyContent: "center",
             }}
         >
-            <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} />
-            <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} />
-            <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} />
+            <View style={{ flex: 1 }}>
+                <SubHeader mealType="Desjejum" time="7h - 9h30" />
+                <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} />
+            </View>
+            <View style={{ flex: 1 }}>
+                <SubHeader mealType="Almoço" time="11h - 14h30" />
+                <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} />
+            </View>
+            <View style={{ flex: 1 }}>
+                <SubHeader mealType="Jantar" time="17h - 19h30" />
+                <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} />
+            </View>
         </View>
     );
 }

@@ -10,10 +10,11 @@ type DishItemProps = {
 
 export default function DishItem({ label, dish }: DishItemProps): React.ReactElement {
     const { displayName, emoji } = getMetadata(label);
+
     return (
         <View style={styles.container}>
             <Image style={styles.emoji} source={emoji} />
-            <View style={styles.content}>
+            <View>
                 <Text style={styles.label}>{displayName}</Text>
                 <Text style={styles.dish}>{dish}</Text>
             </View>

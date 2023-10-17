@@ -3,8 +3,15 @@ import { Colors, Sizing, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: Colors.neutral.white,
+        borderTopStartRadius: Sizing.layout.x20,
+        borderTopEndRadius: Sizing.layout.x20,
+    },
+    wrapper: {
+        gap: 20,
+        alignItems: "center",
         paddingHorizontal: Sizing.margin.base,
-        paddingBottom: Sizing.layout.x20,
+        paddingBottom: 20,
         paddingTop: Sizing.layout.x10,
         backgroundColor: Colors.neutral.white,
         borderTopStartRadius: Sizing.layout.x20,
@@ -16,23 +23,10 @@ const styles = StyleSheet.create({
         borderRadius: 2,
         backgroundColor: Colors.neutral.s500,
         alignSelf: "center",
-        marginBottom: Sizing.layout.x20,
     },
-    campusOptionContainer: {
-        paddingVertical: Sizing.layout.x20,
-        flexDirection: "row",
-        gap: Sizing.layout.x20,
-    },
-    campusText: {
-        fontFamily: Typography.fontWeight.regular,
+    title: {
+        fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x20,
-    },
-    campusSelectedText: {
-        fontFamily: Typography.fontWeight.bold,
-        fontSize: Typography.fontSize.x20,
-    },
-    buttonContainer: {
-        marginVertical: Sizing.layout.x20,
     },
 });
 

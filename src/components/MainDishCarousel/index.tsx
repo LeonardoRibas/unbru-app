@@ -7,7 +7,7 @@ type MainDishCarouselProps = {
     items: [string, string][];
 };
 
-export default function MainDishCarousel({ items }: MainDishCarouselProps): JSX.Element {
+export default function MainDishCarousel({ items }: MainDishCarouselProps): React.ReactElement {
     return (
         <View>
             <FlatList

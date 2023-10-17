@@ -9,7 +9,7 @@ type MainDishItemProps = {
 };
 
 export default function MainDishItem({ label, dish }: MainDishItemProps): JSX.Element {
-    const { color, emoji } = getMetadata(label);
+    const { emoji } = getMetadata(label);
 
     return (
         <View style={styles.container}>

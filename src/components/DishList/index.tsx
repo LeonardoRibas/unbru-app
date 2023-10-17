@@ -1,6 +1,6 @@
 import DishItem from "../DishItem";
-import SubHeader from "../SubHeader";
-import { useDispatch, useSelector } from "react-redux";
+import useAppDispatch from "src/hooks/useAppDispatch";
+import useAppSelector from "src/hooks/useAppSelector";
 import { Colors, Sizing } from "../../styles";
 import { partition } from "../../utils/partition";
 import MainDishCarousel from "../MainDishCarousel";
@@ -14,17 +14,11 @@ type MealMenuProps = {
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
 };
 
-const mealTypeTime = {
-    Desjejum: "7h - 9h30",
-    Almoço: "11h - 14h30",
-    Jantar: "17h - 19h30",
-};
-
-function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
+function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
-    const selectedCampus = useSelector((state) => state.campus);
+    const selectedCampus = useAppSelector((state) => state.campus);
+    const dispatch = useAppDispatch();
     const fetchMenu = useFetchMenu(selectedCampus);
-    const dispatch = useDispatch();
 
     const [main, extras] = useMemo(
         () =>
@@ -52,7 +46,6 @@ function DishList({ mealType, mealMenu }: MealMenuProps): React.ReactElement {
                             paddingHorizontal: Sizing.screen.width >= 768 ? Sizing.layout.x10 : 0,
                         }}
                     >
-                        <SubHeader mealType={mealType} time={mealTypeTime[mealType]} />
                         <MainDishCarousel items={main} />
                     </View>
                 )}

@@ -1,56 +1,53 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./styles";
-import Modal from "react-native-modal";
 import { Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Button from "../../components/Button";
-import CampusPicker from "../../components/CampusPicker";
-import { GeneralContext } from "../../context/GeneralContext";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { OnboardingIllustration } from "../../../assets/illustrations";
+import OnboardingIllustration from "../../../assets/illustrations/OnBoardingIllustration";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import useAppSelector from "src/hooks/useAppSelector";
+import ButtonSelect from "src/components/ButtonSelect ";
+import MaterialIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
+import Feather from "@expo/vector-icons/build/Feather";
+import { Colors } from "src/styles";
 
 type OnBoardingProps = NativeStackScreenProps<RootStackParamList, "OnBoarding">;
 
 export default function OnBoarding({ navigation }: OnBoardingProps): React.ReactElement {
-    const { isCampusSelectModalOpen, setIsCampusSelectModalOpen } = useContext(GeneralContext);
+    const campus = useAppSelector((state) => state.campus);
 
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="dark" />
-            <View style={styles.content}>
-                <OnboardingIllustration />
+            <OnboardingIllustration />
+            <View style={styles.textContent}>
                 <Text style={styles.title}>
-                    Saiba tudo sobre as{"\n"}
-                    refeições na <Text style={styles.highlight}>UnB</Text>
+                    Saiba tudo sobre as refeições na <Text style={styles.highlight}>UnB</Text>
                 </Text>
                 <Text style={styles.subTitle}>
-                    O cardápio do Restaurante{"\n"}
-                    Universitário da Universidade de{"\n"}
-                    Brasília na palma de sua mão!
+                    O cardápio do Restaurante Universitário da Universidade de Brasília na palma de
+                    sua mão!
                 </Text>
             </View>
-            <Button text="Selecione seu campus" onPress={() => setIsCampusSelectModalOpen(true)} />
-            <Modal
-                isVisible={isCampusSelectModalOpen}
-                onBackdropPress={() => setIsCampusSelectModalOpen(false)}
-                onSwipeComplete={() => setIsCampusSelectModalOpen(false)}
-                swipeDirection="down"
-                hideModalContentWhileAnimating
-                useNativeDriverForBackdrop
-                statusBarTranslucent
-                scrollHorizontal
-                propagateSwipe
-                backdropOpacity={0.5}
-                style={{ justifyContent: "flex-end", margin: 0 }}
-            >
-                <CampusPicker
-                    onConfirm={() => {
-                        setIsCampusSelectModalOpen(false);
-                        navigation.navigate("Menu");
-                    }}
+            <View style={styles.actionContent}>
+                <Text style={styles.actionLabel}>Para começar, escolha seu campus</Text>
+                <ButtonSelect
+                    leftIcon={
+                        <MaterialIcons
+                            name="school-outline"
+                            size={24}
+                            color={Colors.primary.base}
+                        />
+                    }
+                    label="Campus selecionado"
+                    title={campus}
+                    rightIcon={
+                        <Feather name="chevron-down" size={24} color={Colors.primary.base} />
+                    }
                 />
-            </Modal>
+                <Button text="Ver Cardápio" onPress={() => navigation.navigate("Menu")} />
+            </View>
         </SafeAreaView>
     );
 }

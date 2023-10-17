@@ -1,5 +1,7 @@
 type WeekMenu = DayMenu[];
 
+type Campus = "Darcy Ribeiro" | "Ceilândia" | "Gama" | "Planaltina" | "Fazenda";
+
 type DayMenu = {
     date: string;
     desjejum: BreakfastMeal;

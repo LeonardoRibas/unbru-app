@@ -4,7 +4,7 @@ import { Sizing, Colors, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: "100%",
         alignItems: "center",
         paddingHorizontal: Sizing.margin.base,
         paddingVertical: Sizing.layout.x15,
@@ -15,9 +15,6 @@ const styles = StyleSheet.create({
         marginRight: Sizing.layout.x20,
         height: 40,
         width: 40,
-    },
-    content: {
-        flex: 1,
     },
     label: {
         fontFamily: Typography.fontWeight.medium,
