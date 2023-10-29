@@ -7,7 +7,6 @@ import { Colors, Typography, Sizing } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SubHeader from "src/components/SubHeader";
-import ShareMealModal from "src/components/ShareMealModal";
 
 const Tab = createBottomTabNavigator();
 
@@ -121,6 +120,7 @@ function BottomTabNavigatorWeb() {
                 backgroundColor: Colors.neutral.white,
                 paddingHorizontal: Sizing.margin.base,
                 justifyContent: "center",
+                gap: 16,
             }}
         >
             <View style={{ flex: 1 }}>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { View, Text, Pressable } from "react-native";
 import { Sizing } from "src/styles";
 import styles from "./style";
@@ -27,10 +27,10 @@ export default function ShareMealModal({
     const insets = useSafeAreaInsets();
 
     const onCapture = useCallback(async (uri: string) => {
-        // const isSharingAvailable = await Sharing.isAvailableAsync();
-        // if (isSharingAvailable) {
-        Sharing.shareAsync(uri, { dialogTitle: `Compartilhar ${mealType}` });
-        // }
+        const isSharingAvailable = await Sharing.isAvailableAsync();
+        if (isSharingAvailable) {
+            Sharing.shareAsync(uri, { dialogTitle: `Compartilhar ${mealType}` });
+        }
     }, []);
 
     const [items, extras] = useMemo(

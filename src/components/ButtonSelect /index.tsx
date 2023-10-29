@@ -1,7 +1,8 @@
-import { View, Text, Pressable } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, Pressable } from "react-native";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "@react-navigation/native";
 
 type ButtonSelectProps = {
     leftIcon: JSX.Element;
@@ -10,13 +11,15 @@ type ButtonSelectProps = {
     rightIcon: JSX.Element;
 };
 
+type ButtonSelectNavigationProp = NavigationProp<RootStackParamList>;
+
 const ButtonSelect = ({
     leftIcon,
     label,
     title,
     rightIcon,
 }: ButtonSelectProps): React.ReactElement => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<ButtonSelectNavigationProp>();
 
     return (
         <Pressable
