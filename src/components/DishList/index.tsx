@@ -8,6 +8,7 @@ import useFetchMenu from "../../hooks/useFetchMenu";
 import React, { memo, useMemo, useState } from "react";
 import { setMenu } from "../../redux/features/menuSlice";
 import { View, FlatList, RefreshControl } from "react-native";
+import EmptyState from "src/components/EmptyState";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -36,30 +37,43 @@ function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
         setRefreshing(false);
     };
 
+    const isMenuAvailable = () => {
+        if (main.length === 0) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
-            <FlatList
-                showsVerticalScrollIndicator={false}
-                ListHeaderComponent={() => (
-                    <View
-                        style={{
-                            paddingHorizontal: Sizing.screen.width >= 768 ? Sizing.layout.x10 : 0,
-                        }}
-                    >
-                        <MainDishCarousel items={main} />
-                    </View>
-                )}
-                data={extras}
-                renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
-                keyExtractor={(_, index) => index.toString()}
-                refreshControl={
-                    <RefreshControl
-                        refreshing={refreshing}
-                        onRefresh={onRefresh}
-                        colors={[Colors.primary.base]}
-                    />
-                }
-            />
+            {isMenuAvailable() ? (
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={() => (
+                        <View
+                            style={{
+                                paddingHorizontal:
+                                    Sizing.screen.width >= 768 ? Sizing.layout.x10 : 0,
+                            }}
+                        >
+                            <MainDishCarousel items={main} />
+                        </View>
+                    )}
+                    data={extras}
+                    renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
+                    keyExtractor={(_, index) => index.toString()}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                            colors={[Colors.primary.base]}
+                        />
+                    }
+                />
+            ) : (
+                <EmptyState />
+            )}
         </View>
     );
 }

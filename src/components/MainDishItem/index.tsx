@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import { getIconByLabel } from "../../utils/metadata";
 
 type MainDishItemProps = {

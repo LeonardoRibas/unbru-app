@@ -1,5 +1,5 @@
 import React, { memo, useMemo, useState } from "react";
-import { View, FlatList, RefreshControl } from "react-native";
+import { View, FlatList, RefreshControl, Text } from "react-native";
 import { Colors } from "src/styles";
 
 import DishItem from "../DishItem";
@@ -10,6 +10,7 @@ import MainDishCarousel from "src/components/MainDishCarousel";
 import useFetchMenu from "src/hooks/useFetchMenu";
 import { setMenu } from "src/redux/features/menuSlice";
 import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
+import EmptyState from "src/components/EmptyState";
 
 type MealMenuProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -39,22 +40,34 @@ function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
         setRefreshing(false);
     };
 
+    const isMenuAvailable = () => {
+        if (main.length === 0) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
-            <FlatList
-                showsVerticalScrollIndicator={false}
-                ListHeaderComponent={() => <MainDishCarousel items={main} />}
-                data={extras}
-                renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
-                keyExtractor={(_, index) => index.toString()}
-                refreshControl={
-                    <RefreshControl
-                        refreshing={refreshing}
-                        onRefresh={onRefresh}
-                        colors={[Colors.primary.base]}
-                    />
-                }
-            />
+            {isMenuAvailable() ? (
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={() => <MainDishCarousel items={main} />}
+                    data={extras}
+                    renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
+                    keyExtractor={(_, index) => index.toString()}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                            colors={[Colors.primary.base]}
+                        />
+                    }
+                />
+            ) : (
+                <EmptyState />
+            )}
             <BannerAd
                 unitId={adUnitId}
                 size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
