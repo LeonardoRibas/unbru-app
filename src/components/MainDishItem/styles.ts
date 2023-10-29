@@ -22,10 +22,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         gap: 8,
     },
-    emoji: {
-        height: 24,
-        width: 24,
-    },
     label: {
         flex: 1,
         flexWrap: "wrap",

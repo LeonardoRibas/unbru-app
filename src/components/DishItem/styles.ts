@@ -11,10 +11,8 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         flexDirection: "row",
     },
-    emoji: {
-        marginRight: Sizing.layout.x20,
-        height: 40,
-        width: 40,
+    infoContainer: {
+        marginLeft: Sizing.layout.x20,
     },
     label: {
         fontFamily: Typography.fontWeight.medium,
