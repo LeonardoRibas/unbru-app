@@ -7,7 +7,7 @@ import styles from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import useAppSelector from "src/hooks/useAppSelector";
 
-type SettingsMenuProps = NativeStackScreenProps<SettingsStackParamList, "Settings">;
+type SettingsMenuProps = NativeStackScreenProps<SettingsStackParamList, "SettingsMenu">;
 
 const SettingsMenu = ({ navigation }: SettingsMenuProps): React.ReactElement => {
     const campus = useAppSelector((state) => state.campus);

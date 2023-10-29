@@ -8,7 +8,7 @@ type RootStackParamList = {
 };
 
 type SettingsStackParamList = {
-    Settings: undefined;
+    SettingsMenu: undefined;
     About: undefined;
     A2HSTutorial: undefined;
 };
