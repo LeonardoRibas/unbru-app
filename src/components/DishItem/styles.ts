@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     infoContainer: {
+        flex: 1,
         marginLeft: Sizing.layout.x20,
     },
     label: {
