@@ -11,7 +11,6 @@ import { View, FlatList, RefreshControl } from "react-native";
 import EmptyState from "src/components/EmptyState";
 
 type MealMenuProps = {
-    mealType: "Desjejum" | "Almoço" | "Jantar";
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
 };
 
