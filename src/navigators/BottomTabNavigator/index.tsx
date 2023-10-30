@@ -68,10 +68,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                     }}
                 >
                     {(props) => (
-                        <View style={{ flex: 1 }}>
-                            <SubHeader {...props} mealType="Desjejum" time="7h - 9h30" />
-                            <DishList {...props} mealMenu={dayMenu["desjejum"]} />
-                        </View>
+                        <DishList
+                            {...props}
+                            mealMenu={dayMenu["desjejum"]}
+                            mealType="Desjejum"
+                            time="7h - 9h30"
+                        />
                     )}
                 </Tab.Screen>
                 <Tab.Screen
@@ -87,10 +89,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                     }}
                 >
                     {(props) => (
-                        <View style={{ flex: 1 }}>
-                            <SubHeader {...props} mealType="Almoço" time="11h - 14h30" />
-                            <DishList {...props} mealMenu={dayMenu["almoco"]} />
-                        </View>
+                        <DishList
+                            {...props}
+                            mealMenu={dayMenu["almoco"]}
+                            mealType="Almoço"
+                            time="11h - 14h30"
+                        />
                     )}
                 </Tab.Screen>
                 <Tab.Screen
@@ -106,10 +110,12 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
                     }}
                 >
                     {(props) => (
-                        <View style={{ flex: 1 }}>
-                            <SubHeader {...props} mealType="Jantar" time="17h - 19h30" />
-                            <DishList {...props} mealMenu={dayMenu["jantar"]} />
-                        </View>
+                        <DishList
+                            {...props}
+                            mealMenu={dayMenu["jantar"]}
+                            mealType="Jantar"
+                            time="17h - 19h30"
+                        />
                     )}
                 </Tab.Screen>
             </Tab.Navigator>
@@ -134,16 +140,13 @@ function BottomTabNavigatorWeb() {
             }}
         >
             <View style={{ flex: 1 }}>
-                <SubHeader mealType="Desjejum" time="7h - 9h30" />
-                <DishList mealMenu={dayMenu["desjejum"]} />
+                <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} time="7h - 9h30" />
             </View>
             <View style={{ flex: 1 }}>
-                <SubHeader mealType="Almoço" time="11h - 14h30" />
-                <DishList mealMenu={dayMenu["almoco"]} />
+                <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} time="11h - 14h30" />
             </View>
             <View style={{ flex: 1 }}>
-                <SubHeader mealType="Jantar" time="17h - 19h30" />
-                <DishList mealMenu={dayMenu["jantar"]} />
+                <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} time="17h - 19h30" />
             </View>
         </View>
     );

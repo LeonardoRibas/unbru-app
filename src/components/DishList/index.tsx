@@ -9,12 +9,15 @@ import React, { memo, useMemo, useState } from "react";
 import { setMenu } from "../../redux/features/menuSlice";
 import { View, FlatList, RefreshControl } from "react-native";
 import EmptyState from "src/components/EmptyState";
+import SubHeader from "../SubHeader";
 
 type MealMenuProps = {
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
+    mealType: "Desjejum" | "Almoço" | "Jantar";
+    time: string;
 };
 
-function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
+function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const selectedCampus = useAppSelector((state) => state.campus);
     const dispatch = useAppDispatch();
@@ -56,6 +59,7 @@ function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
                                     Sizing.screen.width >= 768 ? Sizing.layout.x10 : 0,
                             }}
                         >
+                            <SubHeader mealType={mealType} time={time} />
                             <MainDishCarousel items={main} />
                         </View>
                     )}

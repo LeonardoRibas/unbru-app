@@ -11,12 +11,15 @@ import useFetchMenu from "src/hooks/useFetchMenu";
 import { setMenu } from "src/redux/features/menuSlice";
 import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
 import EmptyState from "src/components/EmptyState";
+import SubHeader from "../SubHeader";
 
 type MealMenuProps = {
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
+    mealType: "Desjejum" | "Almoço" | "Jantar";
+    time: string;
 };
 
-function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
+function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const selectedCampus = useAppSelector((state) => state.campus);
     const fetchMenu = useFetchMenu(selectedCampus);
@@ -52,7 +55,12 @@ function DishList({ mealMenu }: MealMenuProps): React.ReactElement {
             {isMenuAvailable() ? (
                 <FlatList
                     showsVerticalScrollIndicator={false}
-                    ListHeaderComponent={() => <MainDishCarousel items={main} />}
+                    ListHeaderComponent={() => (
+                        <View>
+                            <SubHeader mealType={mealType} time={time} />
+                            <MainDishCarousel items={main} />
+                        </View>
+                    )}
                     data={extras}
                     renderItem={({ item }) => <DishItem label={item[0]} dish={item[1]} />}
                     keyExtractor={(_, index) => index.toString()}
