@@ -36,7 +36,6 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
                 >
                     <Feather name="calendar" size={24} color="white" />
                 </TouchableOpacity>
-                {/* <CalendarPickerModal /> */}
             </View>
         </View>
     );

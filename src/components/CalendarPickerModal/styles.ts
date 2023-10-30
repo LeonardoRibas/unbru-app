@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         gap: 20,
-        alignItems: "center",
         paddingHorizontal: Sizing.margin.base,
         paddingBottom: 20,
         paddingTop: Sizing.layout.x10,
@@ -18,13 +17,14 @@ const styles = StyleSheet.create({
         borderTopEndRadius: Sizing.layout.x20,
     },
     handle: {
+        alignSelf: "center",
         width: Sizing.layout.x80,
         height: Sizing.layout.x05,
         borderRadius: 2,
         backgroundColor: Colors.neutral.s500,
-        alignSelf: "center",
     },
     title: {
+        alignSelf: "center",
         fontFamily: Typography.fontWeight.semiBold,
         fontSize: Typography.fontSize.x20,
     },
