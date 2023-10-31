@@ -3,6 +3,7 @@ import { Colors, Sizing, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: Colors.neutral.white,
         borderTopStartRadius: Sizing.layout.x20,
         borderTopEndRadius: Sizing.layout.x20,
     },
