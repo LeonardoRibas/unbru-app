@@ -1,23 +1,19 @@
 import styles from "./styles";
 import { Colors } from "../../styles";
-import React, { useContext } from "react";
+import React from "react";
 import useAppSelector from "src/hooks/useAppSelector";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
 import { getFormatedDate } from "../../utils/date";
 import { Text, TouchableOpacity, View } from "react-native";
-import { GeneralContext } from "../../context/GeneralContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
-import CalendarPickerModal from "../CalendarPickerModal";
 
 export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const insets = useSafeAreaInsets();
 
     const dayIndex = useAppSelector((state) => state.dayIndex);
     const menu = useAppSelector((state) => state.menu);
-
-    const { setIsCalendarModalOpen } = useContext(GeneralContext);
 
     return (
         <View style={{ paddingTop: insets.top, backgroundColor: Colors.primary.base }}>

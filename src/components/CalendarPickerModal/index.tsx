@@ -19,7 +19,7 @@ export default function CalendarPickerModal(): React.ReactElement {
 
     const navigation = useNavigation();
 
-    const scrollRef = useRef<ScrollView>();
+    const scrollRef = useRef<ScrollView>(null);
 
     useEffect(() => {
         const selectedDayIndex = Object.keys(menu).indexOf(dayIndex);

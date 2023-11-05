@@ -5,8 +5,16 @@ import Button from "../Button";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import CampusRadioItem from "../CampusRadioItem";
 import Modal from "react-native-modal";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-export default function CampusPickerModal({ navigation }): React.ReactElement {
+type CampusPickerModalNavigationProp = NativeStackScreenProps<
+    RootStackParamList,
+    "CampusPickerModal"
+>;
+
+export default function CampusPickerModal({
+    navigation,
+}: CampusPickerModalNavigationProp): React.ReactElement {
     const insets = useSafeAreaInsets();
 
     return (

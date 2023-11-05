@@ -6,15 +6,14 @@ import CustomIcon from "src/components/CustomIcon";
 import { Colors, Typography, Sizing } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import SubHeader from "src/components/SubHeader";
 
 const Tab = createMaterialTopTabNavigator();
 
 type BottomTabNavigatorMobileProps = {
-    mealTime: "" | "Desjejum" | "Almoço" | "Jantar" | undefined;
+    mealType: string;
 };
 
-function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
+function BottomTabNavigatorMobile({ mealType }: BottomTabNavigatorMobileProps) {
     const menu = useAppSelector((state) => state.menu);
     const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
@@ -25,7 +24,7 @@ function BottomTabNavigatorMobile({ mealTime }: BottomTabNavigatorMobileProps) {
             style={{ flex: 1, paddingBottom: insets.bottom, backgroundColor: Colors.neutral.white }}
         >
             <Tab.Navigator
-                initialRouteName={mealTime}
+                initialRouteName={mealType}
                 tabBarPosition="bottom"
                 screenOptions={{
                     swipeEnabled: false,

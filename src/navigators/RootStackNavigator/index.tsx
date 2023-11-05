@@ -1,6 +1,6 @@
 import Header from "../../components/Header";
 import OnBoarding from "../../pages/OnBoarding";
-import { getMealByTime } from "../../utils/date";
+import { getMealTypeByTime } from "../../utils/date";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import { getApropriateDate } from "../../utils/date";
 import useAppDispatch from "src/hooks/useAppDispatch";
@@ -23,13 +23,13 @@ export default function RootStackNavigator(): React.ReactElement | null {
     const { isFirstLaunch } = useContext(GeneralContext);
     const selectedCampus = useAppSelector((state) => state.campus);
     const fetchMenu = useFetchMenu(selectedCampus);
-    const meal = useAppSelector((state) => state.meal);
+    const mealType = useAppSelector((state) => state.meal);
     const dispatch = useAppDispatch();
     const [menuReady, setMenuReady] = useState(false);
 
     useEffect(() => {
         dispatch(setDayIndex(getApropriateDate()));
-        dispatch(setMeal(getMealByTime()));
+        dispatch(setMeal(getMealTypeByTime()));
         const fetchData = async () => {
             fetchMenu()
                 .then((res) => {
@@ -60,7 +60,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
                     header: (props) => <Header {...props} />,
                 }}
             >
-                {() => (meal ? <BottomTabNavigator mealTime={meal} /> : null)}
+                {() => (mealType ? <BottomTabNavigator mealType={mealType} /> : null)}
             </Stack.Screen>
             <Stack.Screen
                 name="Settings"

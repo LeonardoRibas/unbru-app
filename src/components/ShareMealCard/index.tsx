@@ -6,7 +6,7 @@ import ViewShot from "react-native-view-shot";
 import useAppSelector from "src/hooks/useAppSelector";
 import { getFormatedDate } from "src/utils/date";
 import DishItem from "src/components/DishItem";
-import { LogoType } from "../../../assets/logotype";
+import { LogoType } from "assets/logotype";
 
 type ShareMealCardProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";

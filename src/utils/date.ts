@@ -59,7 +59,7 @@ export const getApropriateDate = (date = new Date()): string => {
 };
 
 /**Returns the apropriate meal based on current time */
-export const getMealByTime = (date = new Date()): string => {
+export const getMealTypeByTime = (date = new Date()): "Desjejum" | "Almoço" | "Jantar" => {
     const currentTime = date;
 
     const endBreakfastTime = new Date();

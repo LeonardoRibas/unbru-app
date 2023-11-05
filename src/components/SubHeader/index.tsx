@@ -8,7 +8,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 type SubHeaderProps = {
     mealType: string;
     time: string;
-    onShareClick: () => void;
+    onShareClick?: () => void;
 };
 
 export default function SubHeader({
@@ -24,7 +24,10 @@ export default function SubHeader({
             </View>
             <Text style={styles.title}>{mealType}</Text>
             {Platform.OS !== "web" && (
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => onShareClick()}>
+                <TouchableOpacity
+                    style={styles.buttonContainer}
+                    onPress={onShareClick ? () => onShareClick() : undefined}
+                >
                     <Feather name="share" size={24} color={Colors.neutral.s900} />
                 </TouchableOpacity>
             )}
