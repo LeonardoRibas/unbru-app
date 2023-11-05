@@ -1,5 +1,5 @@
-import React, { memo, useMemo, useState } from "react";
-import { View, FlatList, RefreshControl, Text } from "react-native";
+import React, { memo, useMemo, useState, useCallback, useRef } from "react";
+import { View, FlatList, RefreshControl } from "react-native";
 import { Colors } from "src/styles";
 
 import DishItem from "../DishItem";
@@ -12,6 +12,9 @@ import { setMenu } from "src/redux/features/menuSlice";
 import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
 import EmptyState from "src/components/EmptyState";
 import SubHeader from "../SubHeader";
+import * as Sharing from "expo-sharing";
+import ViewShot from "react-native-view-shot";
+import ShareMealCard from "../ShareMealCard";
 
 type MealMenuProps = {
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
@@ -25,6 +28,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     const fetchMenu = useFetchMenu(selectedCampus);
     const dispatch = useAppDispatch();
     const adUnitId = __DEV__ ? TestIds.BANNER : "ca-app-pub-7231147932250814/7932106851";
+    const viewShotRef = useRef<ViewShot>(null);
 
     const [main, extras] = useMemo(
         () =>
@@ -50,6 +54,14 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
         }
     };
 
+    const captureViewShot = useCallback(() => {
+        if (viewShotRef.current && viewShotRef.current.capture) {
+            viewShotRef.current.capture().then((uri: string) => {
+                Sharing.shareAsync(uri, { dialogTitle: `Compartilhar ${mealType}` });
+            });
+        }
+    }, []);
+
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
             {isMenuAvailable() ? (
@@ -57,7 +69,11 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
                     showsVerticalScrollIndicator={false}
                     ListHeaderComponent={() => (
                         <View>
-                            <SubHeader mealType={mealType} time={time} />
+                            <SubHeader
+                                mealType={mealType}
+                                time={time}
+                                onShareClick={captureViewShot}
+                            />
                             <MainDishCarousel items={main} />
                         </View>
                     )}
@@ -75,6 +91,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
             ) : (
                 <EmptyState />
             )}
+            <ShareMealCard ref={viewShotRef} main={main} mealType={mealType} />
             <BannerAd
                 unitId={adUnitId}
                 size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}

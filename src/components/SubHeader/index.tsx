@@ -4,16 +4,18 @@ import { Platform } from "react-native";
 import React from "react";
 import Feather from "@expo/vector-icons/build/Feather";
 import { View, Text, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 type SubHeaderProps = {
     mealType: string;
     time: string;
+    onShareClick: () => void;
 };
 
-export default function SubHeader({ mealType, time }: SubHeaderProps): React.ReactElement {
-    const navigation = useNavigation();
-
+export default function SubHeader({
+    mealType,
+    time,
+    onShareClick,
+}: SubHeaderProps): React.ReactElement {
     return (
         <View style={styles.container}>
             <View style={styles.hourInfoWrapper}>
@@ -22,10 +24,7 @@ export default function SubHeader({ mealType, time }: SubHeaderProps): React.Rea
             </View>
             <Text style={styles.title}>{mealType}</Text>
             {Platform.OS !== "web" && (
-                <TouchableOpacity
-                    style={styles.buttonContainer}
-                    onPress={() => navigation.navigate("ShareMealModal", { mealType })}
-                >
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => onShareClick()}>
                     <Feather name="share" size={24} color={Colors.neutral.s900} />
                 </TouchableOpacity>
             )}

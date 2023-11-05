@@ -14,7 +14,6 @@ import SettingsStackNavigator from "../SettingsStackNavigator";
 import { setDayIndex } from "../../redux/features/dayIndexSlice";
 import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ShareMealModal from "src/components/ShareMealModal";
 import CalendarPickerModal from "src/components/CalendarPickerModal";
 import CampusPickerModal from "src/components/CampusPickerModal";
 
@@ -71,7 +70,6 @@ export default function RootStackNavigator(): React.ReactElement | null {
                 }}
             />
             <Stack.Group screenOptions={{ presentation: "transparentModal", headerShown: false }}>
-                <Stack.Screen name="ShareMealModal" component={ShareMealModal} />
                 <Stack.Screen name="CalendarPickerModal" component={CalendarPickerModal} />
                 <Stack.Screen name="CampusPickerModal" component={CampusPickerModal} />
             </Stack.Group>

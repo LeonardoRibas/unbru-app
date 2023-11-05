@@ -3,11 +3,12 @@ import { Sizing, Typography, Colors } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
+        position: "absolute",
+        width: "100%",
+        left: Sizing.screen.width, //comment this line if you want to visualize the card
         backgroundColor: Colors.neutral.white,
         marginHorizontal: Sizing.margin.base,
         paddingBottom: 12,
-        borderRadius: 20,
-        overflow: "hidden",
     },
     headerContainer: {
         alignItems: "center",
