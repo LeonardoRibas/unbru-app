@@ -8,10 +8,8 @@
 
 <div align="center">
     <img src="https://img.shields.io/github/license/LeonardoRibas/unb-ru-app" />
-    <img src="https://img.shields.io/static/v1?label=Typescript&message=~4.3.5&color=4179C6&logo=typescript"/>
-    <img src="https://img.shields.io/static/v1?label=Expo&message=~42.0.3&color=000020&logo=expo"/>
-    <img src="https://img.shields.io/static/v1?label=ESLint&message=^7.23.0&color=4B32C3&logo=eslint"/>
-    <img src="https://img.shields.io/static/v1?label=Prettier&message=2.2.3&color=F7B93E&logo=prettier"/>
+    <img src="https://img.shields.io/static/v1?label=Typescript&message=~4.6.3&color=4179C6&logo=typescript"/>
+    <img src="https://img.shields.io/static/v1?label=Expo&message=~48.0.0&color=000020&logo=expo"/> 
 </div>
 
 ## Objetivo
@@ -26,28 +24,26 @@ Projeto no Figma: https://www.figma.com/file/QkCUoGgvilRIOWC9C5ckyd/UnB-RU?node-
 
 ## Instalação
 
-- Pré-requisitos:
-<a href="https://nodejs.org/en/">Nodejs</a>, <a href="https://docs.expo.dev/get-started/installation/">Expo</a>, <a href="https://expo.dev/client">Expo Go</a>
+-   Pré-requisitos:
+    <a href="https://nodejs.org/en/">Nodejs</a>, <a href="https://docs.expo.dev/get-started/installation/">Expo</a>, <a href="https://developer.android.com/studio?hl=pt-br">Android Studio</a>(Android) ou <a href="https://developer.apple.com/xcode/">Xcode</a>(IOS)
 
 1. Instale as dependêcias do projeto
 
 ```bash
 npm install
 ```
-2. Inicie o mock da API
 
-```bash
-json-server --watch db.json
-```
+2. Crie uma <a href="https://docs.expo.dev/develop/development-builds/create-a-build/">development build </a>
 
 3. Incie o projeto
 
 ```bash
-expo start
+yarn start --dev-client
 ```
 
 ## Contribuição
 
 Interessado em contriubuir com o projeto? Leia nosso
-- [Código de Conduta do Contribuidor](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CODE_OF_CONDUCT.md)
-- [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CONTRIBUTING.md)
+
+-   [Código de Conduta do Contribuidor](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CODE_OF_CONDUCT.md)
+-   [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CONTRIBUTING.md)
