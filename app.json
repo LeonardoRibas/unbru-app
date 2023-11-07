@@ -6,10 +6,11 @@
         "orientation": "portrait",
         "icon": "./assets/icon.png",
         "description": "Cardápio do Restaurante Univesitário de Brasília",
+        "userInterfaceStyle": "automatic",
         "splash": {
             "image": "./assets/splash.png",
             "resizeMode": "contain",
-            "backgroundColor": "#48B755"
+            "backgroundColor": "#27D87B"
         },
         "updates": {
             "fallbackToCacheTimeout": 0
@@ -21,19 +22,19 @@
         "android": {
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#48B755"
+                "backgroundColor": "#27D87B"
             },
             "package": "com.leonardoribas.unbrufront"
         },
         "web": {
             "lang": "pt-BR",
-            "themeColor": "#48B755",
+            "themeColor": "#27D87B",
             "startUrl": "/",
             "favicon": "./assets/favicon.png"
         },
         "androidStatusBar": {
             "barStyle": "light-content",
-            "backgroundColor": "#48B755"
+            "backgroundColor": "#27D87B"
         },
         "extra": {
             "eas": {
