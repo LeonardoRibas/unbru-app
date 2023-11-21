@@ -49,6 +49,8 @@ type DinnerMeal = {
     Torrada: string;
 };
 
+type ThemeState = "light" | "dark";
+
 declare module "react-native-dotenv" {
     export const REACT_APP_SUPABASE_URL: string;
     export const REACT_APP_SUPABASE_ANON_KEY: string;

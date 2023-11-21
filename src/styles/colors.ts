@@ -13,14 +13,7 @@ export const neutral = {
 };
 
 export const primary = {
-    s050: "#E9FBF2",
-    s100: "#D3F7E4",
-    s200: "#A8F0CA",
-    s300: "#7DE8AF",
-    s400: "#52E095",
-    base: "#27D87B",
-    s600: "#20AC63",
-    s700: "#18814A",
-    s800: "#105632",
-    s900: "#082B19",
+    s005: "#EDF8EF",
+    base: "#49B660",
+    s995: "#07120A",
 };
