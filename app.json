@@ -10,7 +10,7 @@
         "splash": {
             "image": "./assets/splash.png",
             "resizeMode": "contain",
-            "backgroundColor": "#27D87B"
+            "backgroundColor": "#49B660"
         },
         "updates": {
             "fallbackToCacheTimeout": 0
@@ -22,19 +22,19 @@
         "android": {
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#27D87B"
+                "backgroundColor": "#49B660"
             },
             "package": "com.leonardoribas.unbrufront"
         },
         "web": {
             "lang": "pt-BR",
-            "themeColor": "#27D87B",
+            "themeColor": "#49B660",
             "startUrl": "/",
             "favicon": "./assets/favicon.png"
         },
         "androidStatusBar": {
             "barStyle": "light-content",
-            "backgroundColor": "#27D87B"
+            "backgroundColor": "#49B660"
         },
         "extra": {
             "eas": {
