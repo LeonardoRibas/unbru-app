@@ -21,7 +21,7 @@ export default function SettingsStackNavigator(): React.ReactElement {
             <Stack.Screen
                 name="About"
                 component={About}
-                options={{ title: "Sobre", header: () => <StackHeader title="Sobre" /> }}
+                options={{ title: "Sobre", header: () => <StackHeader title="Ajude o App" /> }}
             />
             <Stack.Screen
                 name="A2HSTutorial"

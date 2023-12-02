@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import useAppSelector from "src/hooks/useAppSelector";
 import DishList from "src/components/DishList";
 import CustomIcon from "src/components/CustomIcon";
-import { Colors, Typography, Sizing } from "src/styles";
+import { Typography, Sizing, Theme } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
@@ -18,22 +18,28 @@ function BottomTabNavigatorMobile({ mealType }: BottomTabNavigatorMobileProps) {
     const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
     const insets = useSafeAreaInsets();
+    const theme = useAppSelector((state) => state.theme);
 
     return (
         <View
-            style={{ flex: 1, paddingBottom: insets.bottom, backgroundColor: Colors.neutral.white }}
+            style={{
+                flex: 1,
+                paddingBottom: insets.bottom,
+                backgroundColor: Theme[theme].background_default,
+            }}
         >
             <Tab.Navigator
                 initialRouteName={mealType}
                 tabBarPosition="bottom"
                 screenOptions={{
                     swipeEnabled: false,
-                    tabBarActiveTintColor: Colors.primary.base,
-                    tabBarInactiveTintColor: Colors.neutral.s600,
-                    tabBarPressColor: Colors.neutral.white, // Disables ripple effect on Android
+                    tabBarActiveTintColor: Theme[theme].color_primary,
+                    tabBarInactiveTintColor: Theme[theme].text_secondary,
+                    tabBarPressColor: Theme[theme].background_card, // Disables ripple effect on Android
                     tabBarItemStyle: {
                         paddingVertical: 4,
                         paddingHorizontal: 0,
+                        backgroundColor: Theme[theme].background_default,
                     },
                     tabBarIconStyle: {
                         justifyContent: "center",
@@ -47,10 +53,10 @@ function BottomTabNavigatorMobile({ mealType }: BottomTabNavigatorMobileProps) {
                         textTransform: "none", // Disables default uppercase letters
                     },
                     tabBarIndicatorStyle: {
-                        top: 0,
+                        top: -2,
                         left: Sizing.margin.base, // Compensates and centrilizes the indicator, because of the double margin taken away below
                         width: Sizing.screen.width / 3 - Sizing.margin.base * 2,
-                        backgroundColor: Colors.primary.base,
+                        backgroundColor: Theme[theme].color_primary,
                     },
                 }}
             >
@@ -126,13 +132,14 @@ function BottomTabNavigatorWeb() {
     const menu = useAppSelector((state) => state.menu);
     const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
+    const theme = useAppSelector((state) => state.theme);
 
     return (
         <View
             style={{
                 flex: 1,
                 flexDirection: "row",
-                backgroundColor: Colors.neutral.white,
+                backgroundColor: Theme[theme].background_default,
                 paddingHorizontal: Sizing.margin.base,
                 justifyContent: "center",
                 gap: 16,

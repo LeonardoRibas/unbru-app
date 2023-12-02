@@ -45,7 +45,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
     }
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ freezeOnBlur: true }}>
             {isFirstLaunch && (
                 <Stack.Screen
                     name="OnBoarding"

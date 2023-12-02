@@ -1,6 +1,6 @@
 import React from "react";
 import { Sizing } from "../../styles";
-import MainDish from "../MainDishItem";
+import MainDishItem from "../MainDishItem";
 import { FlatList, View } from "react-native";
 
 type MainDishCarouselProps = {
@@ -29,7 +29,9 @@ export default function MainDishCarousel({ items }: MainDishCarouselProps): Reac
                         (i - 1) * Sizing.layout.x20
                 )}
                 showsHorizontalScrollIndicator={false}
-                renderItem={({ item }) => <MainDish label={item[0]} dish={item[1]} key={item[0]} />}
+                renderItem={({ item }) => (
+                    <MainDishItem label={item[0]} dish={item[1]} key={item[0]} />
+                )}
                 onTouchStart={(event) => event.stopPropagation()}
             />
         </View>

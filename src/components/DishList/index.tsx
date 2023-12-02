@@ -1,7 +1,7 @@
 import DishItem from "../DishItem";
 import useAppDispatch from "src/hooks/useAppDispatch";
 import useAppSelector from "src/hooks/useAppSelector";
-import { Colors, Sizing } from "../../styles";
+import { Theme, Sizing } from "../../styles";
 import { partition } from "../../utils/partition";
 import MainDishCarousel from "../MainDishCarousel";
 import useFetchMenu from "../../hooks/useFetchMenu";
@@ -22,6 +22,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     const selectedCampus = useAppSelector((state) => state.campus);
     const dispatch = useAppDispatch();
     const fetchMenu = useFetchMenu(selectedCampus);
+    const theme = useAppSelector((state) => state.theme);
 
     const [main, extras] = useMemo(
         () =>
@@ -48,7 +49,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     };
 
     return (
-        <View style={{ flex: 1, backgroundColor: "white" }}>
+        <View style={{ flex: 1, backgroundColor: Theme[theme].background_default }}>
             {isMenuAvailable() ? (
                 <FlatList
                     showsVerticalScrollIndicator={false}
@@ -70,7 +71,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
                         <RefreshControl
                             refreshing={refreshing}
                             onRefresh={onRefresh}
-                            colors={[Colors.primary.base]}
+                            colors={[Theme[theme].color_primary]}
                         />
                     }
                 />

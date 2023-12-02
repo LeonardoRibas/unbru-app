@@ -1,18 +1,17 @@
 import React from "react";
 import styles from "./styles";
 import { View, Text } from "react-native";
-import { BrandLogo } from "../../../assets/logo";
+import AboutIllustration from "assets/illustrations/AboutIllustration";
 
 const About = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.contentContainer}>
-                <BrandLogo />
-                <View style={styles.textContainer}>
-                    <Text style={styles.logoType}>UnBRU</Text>
-                    <Text style={styles.version}>V 1.0.0</Text>
-                </View>
-            </View>
+            <AboutIllustration />
+            <Text>Ajude o UnBRU!</Text>
+            <Text>
+                O aplicativo do UnBRU é mantido de forma independente e totalmente gratuita!
+                Contribua com o projeto para continuarmos melhorando o app cada vez mais!
+            </Text>
         </View>
     );
 };

@@ -3,8 +3,9 @@ import { Theme } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: Theme.light.background_default,
         flex: 1,
+        backgroundColor: Theme.light.background_default,
+        paddingTop: 16,
     },
 });
 

@@ -7,14 +7,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         paddingHorizontal: Sizing.screen.width >= 768 ? 0 : Sizing.margin.base - 8,
-        backgroundColor: "white",
         paddingVertical: Sizing.layout.x15 - 8,
     },
     title: {
         position: "absolute",
         fontFamily: "Lexend_500Medium",
         fontSize: Typography.fontSize.x20,
-        color: Colors.neutral.s900,
         marginLeft: "auto",
         marginRight: "auto",
         left: 0,
@@ -27,7 +25,6 @@ const styles = StyleSheet.create({
     hourInfoText: {
         fontFamily: "Lexend_500Medium",
         fontSize: Typography.fontSize.x10,
-        color: Colors.neutral.s600,
     },
     hourInfoWrapper: {
         gap: 8,

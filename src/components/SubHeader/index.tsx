@@ -1,9 +1,10 @@
 import styles from "./styles";
-import { Colors } from "src/styles";
+import { Theme } from "src/styles";
 import { Platform } from "react-native";
 import React from "react";
 import Feather from "@expo/vector-icons/build/Feather";
 import { View, Text, TouchableOpacity } from "react-native";
+import useAppSelector from "src/hooks/useAppSelector";
 
 type SubHeaderProps = {
     mealType: string;
@@ -16,19 +17,23 @@ export default function SubHeader({
     time,
     onShareClick,
 }: SubHeaderProps): React.ReactElement {
+    const theme = useAppSelector((state) => state.theme);
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: Theme[theme].background_default }]}>
             <View style={styles.hourInfoWrapper}>
-                <Feather name="clock" size={15} color={Colors.neutral.s600} />
-                <Text style={styles.hourInfoText}>{time}</Text>
+                <Feather name="clock" size={15} color={Theme[theme].text_secondary} />
+                <Text style={[styles.hourInfoText, { color: Theme[theme].text_secondary }]}>
+                    {time}
+                </Text>
             </View>
-            <Text style={styles.title}>{mealType}</Text>
+            <Text style={[styles.title, { color: Theme[theme].text_primary }]}>{mealType}</Text>
             {Platform.OS !== "web" && (
                 <TouchableOpacity
                     style={styles.buttonContainer}
                     onPress={onShareClick ? () => onShareClick() : undefined}
                 >
-                    <Feather name="share" size={24} color={Colors.neutral.s900} />
+                    <Feather name="share" size={24} color={Theme[theme].text_primary} />
                 </TouchableOpacity>
             )}
         </View>

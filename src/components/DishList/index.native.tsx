@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useState, useCallback, useRef } from "react";
 import { View, FlatList, RefreshControl } from "react-native";
-import { Colors } from "src/styles";
+import { Theme } from "src/styles";
 
 import DishItem from "../DishItem";
 import useAppDispatch from "src/hooks/useAppDispatch";
@@ -29,6 +29,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     const dispatch = useAppDispatch();
     const adUnitId = __DEV__ ? TestIds.BANNER : "ca-app-pub-7231147932250814/7932106851";
     const viewShotRef = useRef<ViewShot>(null);
+    const theme = useAppSelector((state) => state.theme);
 
     const [main, extras] = useMemo(
         () =>
@@ -63,7 +64,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     }, []);
 
     return (
-        <View style={{ flex: 1, backgroundColor: "white" }}>
+        <View style={{ flex: 1, backgroundColor: Theme[theme].background_default }}>
             {isMenuAvailable() ? (
                 <FlatList
                     showsVerticalScrollIndicator={false}
@@ -84,7 +85,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
                         <RefreshControl
                             refreshing={refreshing}
                             onRefresh={onRefresh}
-                            colors={[Colors.primary.base]}
+                            colors={[Theme[theme].color_primary]}
                         />
                     }
                 />

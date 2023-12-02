@@ -6,6 +6,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import CampusRadioItem from "../CampusRadioItem";
 import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import useAppSelector from "src/hooks/useAppSelector";
+import { Theme } from "src/styles";
 
 type CampusPickerModalNavigationProp = NativeStackScreenProps<
     RootStackParamList,
@@ -16,6 +18,7 @@ export default function CampusPickerModal({
     navigation,
 }: CampusPickerModalNavigationProp): React.ReactElement {
     const insets = useSafeAreaInsets();
+    const theme = useAppSelector((state) => state.theme);
 
     return (
         <Modal
@@ -37,8 +40,12 @@ export default function CampusPickerModal({
                     paddingBottom: insets.bottom,
                 }}
             >
-                <View style={styles.wrapper}>
-                    <View style={styles.handle} />
+                <View
+                    style={[styles.wrapper, { backgroundColor: Theme[theme].background_default }]}
+                >
+                    <View
+                        style={[styles.handle, { backgroundColor: Theme[theme].text_secondary }]}
+                    />
                     <CampusRadioItem title="Darcy Ribeiro" />
                     <CampusRadioItem title="Ceilândia" />
                     <CampusRadioItem title="Gama" />

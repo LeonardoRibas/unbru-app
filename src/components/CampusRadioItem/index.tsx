@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
-import { Colors } from "src/styles";
+import { Theme } from "src/styles";
 import styles from "./styles";
 
 import useAppDispatch from "src/hooks/useAppDispatch";
@@ -15,15 +15,29 @@ type CampusRadioItemProps = {
 const CampusRadioItem = ({ title }: CampusRadioItemProps): React.ReactElement => {
     const dispatch = useAppDispatch();
     const campus = useAppSelector((state) => state.campus);
+    const theme = useAppSelector((state) => state.theme);
 
     return (
         <TouchableOpacity style={styles.container} onPress={() => dispatch(setCampus(title))}>
             {campus === title ? (
-                <MaterialIcons name="radio-button-on" size={24} color={Colors.primary.base} />
+                <MaterialIcons
+                    name="radio-button-on"
+                    size={24}
+                    color={Theme[theme].color_primary}
+                />
             ) : (
-                <MaterialIcons name="radio-button-off" size={24} color={Colors.neutral.s500} />
+                <MaterialIcons
+                    name="radio-button-off"
+                    size={24}
+                    color={Theme[theme].text_primary}
+                />
             )}
-            <Text style={[styles.title, campus === title && styles.campusSelectedText]}>
+            <Text
+                style={[
+                    [styles.title, { color: Theme[theme].text_primary }],
+                    campus === title && styles.campusSelectedText,
+                ]}
+            >
                 {title}
             </Text>
         </TouchableOpacity>

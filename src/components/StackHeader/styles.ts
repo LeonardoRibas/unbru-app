@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     title: {
-        fontSize: Typography.fontSize.x30,
+        fontSize: Typography.fontSize.x20,
         fontFamily: Typography.fontWeight.semiBold,
         alignItems: "center",
     },

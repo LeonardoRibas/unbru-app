@@ -1,7 +1,8 @@
 import React from "react";
 import { Pressable, View, Text } from "react-native";
-import { Colors } from "../../styles";
+import { Theme } from "../../styles";
 import styles from "./styles";
+import useAppSelector from "src/hooks/useAppSelector";
 
 type OptionProps = {
     titleIcon: React.ReactElement;
@@ -18,17 +19,19 @@ export default function Option({
     actionIcon,
     onPress,
 }: OptionProps): React.ReactElement {
+    const theme = useAppSelector((state) => state.theme);
+
     return (
-        <Pressable
-            style={styles.container}
-            onPress={onPress}
-            android_ripple={{ color: Colors.neutral.s200, radius: 300 }}
-        >
+        <Pressable style={styles.container} onPress={onPress}>
             <View style={styles.infoWrapper}>
                 {titleIcon}
                 <View style={styles.titleWrapper}>
-                    <Text style={styles.titleText}>{title}</Text>
-                    <Text style={styles.subTitleText}>{subTitle}</Text>
+                    <Text style={[styles.titleText, { color: Theme[theme].text_primary }]}>
+                        {title}
+                    </Text>
+                    <Text style={[styles.subTitleText, { color: Theme[theme].text_secondary }]}>
+                        {subTitle}
+                    </Text>
                 </View>
             </View>
             {actionIcon}

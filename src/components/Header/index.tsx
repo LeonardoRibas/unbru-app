@@ -1,6 +1,6 @@
 import styles from "./styles";
 import { Colors } from "../../styles";
-import React from "react";
+import React, { memo } from "react";
 import useAppSelector from "src/hooks/useAppSelector";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
@@ -9,7 +9,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
 
-export default function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
+function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const insets = useSafeAreaInsets();
 
     const dayIndex = useAppSelector((state) => state.dayIndex);
@@ -36,3 +36,5 @@ export default function Header({ navigation }: NativeStackHeaderProps): React.Re
         </View>
     );
 }
+
+export default memo(Header);

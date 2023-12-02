@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Sizing, Colors, Typography } from "../../styles";
+import { Sizing, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
         padding: Sizing.layout.x20,
         marginVertical: Sizing.screen.width >= 768 ? Sizing.layout.x10 : Sizing.layout.x20,
         borderRadius: Sizing.layout.x20,
-        backgroundColor: Colors.neutral.white,
         shadowColor: "#000000",
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.15,
@@ -27,14 +26,12 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         fontFamily: Typography.fontWeight.regular,
         fontSize: Typography.fontSize.x10,
-        color: Colors.neutral.s600,
     },
     dish: {
         flexDirection: "row",
         flexWrap: "wrap",
         fontFamily: Typography.fontWeight.medium,
         fontSize: Typography.fontSize.x20,
-        color: Colors.neutral.black,
         opacity: 0.8,
     },
 });
