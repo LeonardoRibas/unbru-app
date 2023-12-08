@@ -5,7 +5,7 @@ export const fontSize = {
     x20: 16,
     x25: 18,
     x30: 20,
-    x40: 25,
+    x40: 24,
     x50: 30,
 };
 

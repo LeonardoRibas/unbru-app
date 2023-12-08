@@ -1,30 +1,44 @@
 import { StyleSheet } from "react-native";
-import { Typography, Colors } from "../../styles";
+import { Typography, Theme } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.neutral.white,
-        justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 40,
     },
-    contentContainer: {
-        alignItems: "center",
-        gap: 32,
+    illustrationContainer: {
+        margin: 24,
     },
-    textContainer: {
-        alignItems: "center",
-        gap: 8,
-    },
-    logoType: {
-        fontSize: Typography.fontSize.x30,
+    title: {
+        fontSize: Typography.fontSize.x40,
         fontFamily: Typography.fontWeight.bold,
-        color: Colors.primary.base,
+        marginBottom: 24,
     },
-    version: {
-        fontSize: Typography.fontSize.x10,
+    description: {
+        maxWidth: 500,
+        fontSize: Typography.fontSize.x20,
         fontFamily: Typography.fontWeight.medium,
+        textAlign: "center",
+        marginBottom: 32,
+        lineHeight: 25,
+    },
+    linkContainer: {
+        padding: 8,
+    },
+    link: {
+        fontSize: Typography.fontSize.x15,
+        fontFamily: Typography.fontWeight.medium,
+    },
+    footerText: {
+        fontSize: Typography.fontSize.x15,
+        fontFamily: Typography.fontWeight.medium,
+    },
+    textHighlight: {
+        color: Theme.light.color_primary,
+    },
+    textUnderscored: {
+        textDecorationLine: "underline",
     },
 });
 

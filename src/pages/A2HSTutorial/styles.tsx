@@ -3,7 +3,6 @@ import { Colors, Sizing, Typography } from "../../styles";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: Colors.neutral.white,
         flex: 1,
         padding: Sizing.margin.base,
         paddingTop: Sizing.layout.x30,
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
     },
     text: {
-        fontSize: Typography.fontSize.x30,
+        fontSize: Typography.fontSize.x20,
         fontFamily: Typography.fontWeight.medium,
     },
 });

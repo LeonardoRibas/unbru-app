@@ -1,18 +1,23 @@
 import React from "react";
 import { Image, Text, View, ScrollView } from "react-native";
 import styles from "./styles";
-import { Sizing } from "../../styles";
+import { Sizing, Theme } from "../../styles";
 import { Platform } from "react-native";
+import useAppSelector from "src/hooks/useAppSelector";
 
 const A2HSTutorialIOS = (): React.ReactElement => {
     const { width } = Sizing.screen;
+    const theme = useAppSelector((state) => state.theme);
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView
+            style={[styles.container, { backgroundColor: Theme[theme].background_default }]}
+        >
             <View style={styles.step}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ fontSize: 20 }}>1</Text>
-                    <Text> - Pressione o ícone indicado na figura:</Text>
+                    <Text style={[styles.text, { color: Theme[theme].text_primary }]}>
+                        Pressione o ícone indicado na figura:
+                    </Text>
                 </View>
                 <Image
                     source={require("../../../assets/A2HSTutorial/ios/A2HS1.png")}
@@ -30,8 +35,9 @@ const A2HSTutorialIOS = (): React.ReactElement => {
             </View>
             <View style={styles.step}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ fontSize: 20 }}>2</Text>
-                    <Text> - Selecione a opção “Adicionar à Tela de início”</Text>
+                    <Text style={[styles.text, { color: Theme[theme].text_primary }]}>
+                        Selecione a opção “Adicionar à Tela de início”
+                    </Text>
                 </View>
                 <View style={{ borderRadius: 16 }}>
                     <Image
@@ -51,8 +57,9 @@ const A2HSTutorialIOS = (): React.ReactElement => {
             </View>
             <View style={styles.step}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ fontSize: 20 }}>3</Text>
-                    <Text> - Em seguida em “Adicionar”</Text>
+                    <Text style={[styles.text, { color: Theme[theme].text_primary }]}>
+                        Em seguida em “Adicionar”
+                    </Text>
                 </View>
 
                 <Image
