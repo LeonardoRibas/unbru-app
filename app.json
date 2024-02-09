@@ -40,9 +40,11 @@
             "eas": {
                 "projectId": "24e7d046-40b1-42e3-af13-b735d037128b"
             }
-        }
+        },
+        "plugins": ["expo-font"]
     },
     "react-native-google-mobile-ads": {
-        "android_app_id": "ca-app-pub-7231147932250814~5244744085"
+        "android_app_id": "ca-app-pub-7231147932250814~5244744085",
+        "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
     }
 }
