@@ -3,7 +3,7 @@ import styles from "./styles";
 import { View, Text, TouchableOpacity, Linking, Platform } from "react-native";
 import AboutIllustration from "assets/illustrations/AboutIllustration";
 import ActionInput from "src/components/ActionInput";
-import Button from "src/components/Button";
+import Button from "@modules/common/components/Button";
 import useAppSelector from "src/hooks/useAppSelector";
 import { Theme } from "src/styles";
 import { Feather } from "@expo/vector-icons";

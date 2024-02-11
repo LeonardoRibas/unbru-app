@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import OnBoarding from "../../pages/OnBoarding";
+import OnBoarding from "@modules/onboarding";
 import { getMealTypeByTime } from "../../utils/date";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import { getApropriateDate } from "../../utils/date";
@@ -15,7 +15,7 @@ import { setDayIndex } from "../../redux/features/dayIndexSlice";
 import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CalendarPickerModal from "src/components/CalendarPickerModal";
-import CampusPickerModal from "src/components/CampusPickerModal";
+import CampusPickerModal from "@modules/common/components/CampusPickerModal";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,7 +46,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
 
     return (
         <Stack.Navigator screenOptions={{ freezeOnBlur: true }}>
-            {isFirstLaunch && (
+            {true && (
                 <Stack.Screen
                     name="OnBoarding"
                     component={OnBoarding}

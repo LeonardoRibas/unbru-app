@@ -1,9 +1,9 @@
 import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
-import Button from "../Button";
+import Button from "@modules/common/components/Button";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import CampusRadioItem from "../CampusRadioItem";
+import CampusRadioItem from "@modules/common/components/CampusRadioItem";
 import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import useAppSelector from "src/hooks/useAppSelector";
