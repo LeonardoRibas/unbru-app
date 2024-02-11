@@ -1,20 +1,20 @@
-import Header from "../../components/Header";
+import Header from "../../modules/common/components/Header";
 import OnBoarding from "@modules/onboarding";
-import { getMealTypeByTime } from "../../utils/date";
-import useFetchMenu from "../../hooks/useFetchMenu";
-import { getApropriateDate } from "../../utils/date";
-import useAppDispatch from "src/hooks/useAppDispatch";
-import useAppSelector from "src/hooks/useAppSelector";
-import BottomTabNavigator from "../BottomTabNavigator";
+import { getMealTypeByTime } from "../../modules/common/utils/date";
+import useFetchMenu from "../../modules/menu/hooks/useFetchMenu";
+import { getApropriateDate } from "../../modules/common/utils/date";
+import useAppDispatch from "@modules/common/hooks/useAppDispatch";
+import useAppSelector from "@modules/common/hooks/useAppSelector";
+import Menu from "@modules/menu";
 import { setMenu } from "../../redux/features/menuSlice";
 import { setMeal } from "../../redux/features/mealSlice";
 import { GeneralContext } from "../../context/GeneralContext";
 import React, { useContext, useEffect, useState } from "react";
 import SettingsStackNavigator from "../SettingsStackNavigator";
 import { setDayIndex } from "../../redux/features/dayIndexSlice";
-import ActivityIndicatorBox from "../../components/ActivityIndicatorBox";
+import ActivityIndicatorBox from "../../modules/common/components/ActivityIndicatorBox";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CalendarPickerModal from "src/components/CalendarPickerModal";
+import CalendarPickerModal from "@modules/menu/components/CalendarPickerModal";
 import CampusPickerModal from "@modules/common/components/CampusPickerModal";
 
 const Stack = createNativeStackNavigator();
@@ -46,7 +46,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
 
     return (
         <Stack.Navigator screenOptions={{ freezeOnBlur: true }}>
-            {true && (
+            {isFirstLaunch && (
                 <Stack.Screen
                     name="OnBoarding"
                     component={OnBoarding}
@@ -60,7 +60,7 @@ export default function RootStackNavigator(): React.ReactElement | null {
                     header: (props) => <Header {...props} />,
                 }}
             >
-                {() => (mealType ? <BottomTabNavigator mealType={mealType} /> : null)}
+                {() => (mealType ? <Menu mealType={mealType} /> : null)}
             </Stack.Screen>
             <Stack.Screen
                 name="Settings"

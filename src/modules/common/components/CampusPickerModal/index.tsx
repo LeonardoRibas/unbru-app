@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import CampusRadioItem from "@modules/common/components/CampusRadioItem";
 import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import useAppSelector from "src/hooks/useAppSelector";
+import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { Theme } from "src/styles";
 
 type CampusPickerModalNavigationProp = NativeStackScreenProps<

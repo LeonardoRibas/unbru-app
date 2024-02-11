@@ -3,8 +3,8 @@ import { TouchableOpacity, Text } from "react-native";
 import { Theme } from "src/styles";
 import styles from "./styles";
 
-import useAppDispatch from "src/hooks/useAppDispatch";
-import useAppSelector from "src/hooks/useAppSelector";
+import useAppDispatch from "@modules/common/hooks/useAppDispatch";
+import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { setCampus } from "src/redux/features/campusSlice";
 import { MaterialIcons } from "@expo/vector-icons";
 

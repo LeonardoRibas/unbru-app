@@ -6,7 +6,7 @@ import Button from "@modules/common/components/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
 import OnboardingIllustration from "assets/illustrations/OnBoardingIllustration";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import useAppSelector from "src/hooks/useAppSelector";
+import useAppSelector from "@modules/common/hooks/useAppSelector";
 import ButtonSelect from "@modules/onboarding/components/ButtonSelect ";
 import MaterialIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
 import Feather from "@expo/vector-icons/build/Feather";

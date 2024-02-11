@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import "react-native-url-polyfill/auto";
 import { persistStore } from "redux-persist";
 import * as SplashScreen from "expo-splash-screen";
-import { checkIfFirstLaunch } from "./src/utils/storage";
+import { checkIfFirstLaunch } from "./src/modules/common/utils/storage";
 import { PersistGate } from "redux-persist/integration/react";
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useState, useEffect, useCallback } from "react";
