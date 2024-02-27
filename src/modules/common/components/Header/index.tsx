@@ -11,9 +11,7 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/types
 
 function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const insets = useSafeAreaInsets();
-
     const dayIndex = useAppSelector((state) => state.dayIndex);
-    const menu = useAppSelector((state) => state.menu);
 
     return (
         <View style={{ paddingTop: insets.top, backgroundColor: Colors.primary.base }}>
@@ -25,7 +23,7 @@ function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
                 >
                     <Feather name="settings" size={24} color="white" />
                 </TouchableOpacity>
-                {menu && <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>}
+                {dayIndex && <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>}
                 <TouchableOpacity
                     style={styles.buttonContainer}
                     onPress={() => navigation.navigate("CalendarPickerModal")}
