@@ -6,6 +6,7 @@ import CustomIcon from "@modules/menu/components/CustomIcon";
 import { Typography, Sizing, Theme } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import EmptyState from "./components/EmptyState";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -72,14 +73,18 @@ function Menu({ mealType }: MenuProps) {
                         ),
                     }}
                 >
-                    {(props) => (
-                        <DishList
-                            {...props}
-                            mealMenu={dayMenu["desjejum"]}
-                            mealType="Desjejum"
-                            time="7h - 9h30"
-                        />
-                    )}
+                    {(props) =>
+                        dayMenu ? (
+                            <DishList
+                                {...props}
+                                mealMenu={dayMenu["desjejum"]}
+                                mealType="Desjejum"
+                                time="7h - 9h30"
+                            />
+                        ) : (
+                            <EmptyState />
+                        )
+                    }
                 </Tab.Screen>
                 <Tab.Screen
                     name="Almoço"
@@ -93,14 +98,18 @@ function Menu({ mealType }: MenuProps) {
                         ),
                     }}
                 >
-                    {(props) => (
-                        <DishList
-                            {...props}
-                            mealMenu={dayMenu["almoco"]}
-                            mealType="Almoço"
-                            time="11h - 14h30"
-                        />
-                    )}
+                    {(props) =>
+                        dayMenu ? (
+                            <DishList
+                                {...props}
+                                mealMenu={dayMenu["almoco"]}
+                                mealType="Almoço"
+                                time="11h - 14h30"
+                            />
+                        ) : (
+                            <EmptyState />
+                        )
+                    }
                 </Tab.Screen>
                 <Tab.Screen
                     name="Jantar"
@@ -114,14 +123,18 @@ function Menu({ mealType }: MenuProps) {
                         ),
                     }}
                 >
-                    {(props) => (
-                        <DishList
-                            {...props}
-                            mealMenu={dayMenu["jantar"]}
-                            mealType="Jantar"
-                            time="17h - 19h30"
-                        />
-                    )}
+                    {(props) =>
+                        dayMenu ? (
+                            <DishList
+                                {...props}
+                                mealMenu={dayMenu["jantar"]}
+                                mealType="Jantar"
+                                time="17h - 19h30"
+                            />
+                        ) : (
+                            <EmptyState />
+                        )
+                    }
                 </Tab.Screen>
             </Tab.Navigator>
         </View>
