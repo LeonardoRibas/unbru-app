@@ -24,8 +24,7 @@ type MealMenuProps = {
 
 function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
-    const selectedCampus = useAppSelector((state) => state.campus);
-    const fetchMenu = useFetchMenu(selectedCampus);
+    const fetchMenu = useFetchMenu();
     const dispatch = useAppDispatch();
     const adUnitId = __DEV__ ? TestIds.BANNER : "ca-app-pub-7231147932250814/7932106851";
     const viewShotRef = useRef<ViewShot>(null);

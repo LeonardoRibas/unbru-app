@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import useAppSelector from "@modules/common/hooks/useAppSelector";
 
 const supabase = createClient(
     `https://nmdqdamhxlilvwnqrexx.supabase.co`,
@@ -19,9 +20,11 @@ const parseMenu = (jsonMenu: DayMenu[] | null) => {
     return result;
 };
 
-const useFetchMenu = (campus: string) => {
+const useFetchMenu = () => {
+    const selectedCampus = useAppSelector((state) => state.campus);
+
     async function fetchMenu() {
-        const { data } = await supabase.from<DayMenu>(campus).select("*").order("date");
+        const { data } = await supabase.from<DayMenu>(selectedCampus).select("*").order("date");
         return parseMenu(data);
     }
     return fetchMenu;

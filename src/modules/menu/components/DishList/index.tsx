@@ -19,9 +19,8 @@ type MealMenuProps = {
 
 function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
-    const selectedCampus = useAppSelector((state) => state.campus);
     const dispatch = useAppDispatch();
-    const fetchMenu = useFetchMenu(selectedCampus);
+    const fetchMenu = useFetchMenu();
     const theme = useAppSelector((state) => state.theme);
 
     const [main, extras] = useMemo(

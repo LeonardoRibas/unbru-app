@@ -26,7 +26,7 @@ function Menu() {
     const [menuReady, setMenuReady] = useState(false);
     const dispatch = useAppDispatch();
     const selectedCampus = useAppSelector((state) => state.campus);
-    const fetchMenu = useFetchMenu(selectedCampus);
+    const fetchMenu = useFetchMenu();
     const mealType = useAppSelector((state) => state.meal);
 
     useEffect(() => {
@@ -175,7 +175,7 @@ function MenuWeb() {
     const [menuReady, setMenuReady] = useState(false);
     const dispatch = useAppDispatch();
     const selectedCampus = useAppSelector((state) => state.campus);
-    const fetchMenu = useFetchMenu(selectedCampus);
+    const fetchMenu = useFetchMenu();
 
     useEffect(() => {
         const fetchData = async () => {
