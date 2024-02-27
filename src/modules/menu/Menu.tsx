@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import React, { memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import DishList from "@modules/menu/components/DishList";
 import CustomIcon from "@modules/menu/components/CustomIcon";
@@ -7,19 +7,44 @@ import { Typography, Sizing, Theme } from "src/styles";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import EmptyState from "./components/EmptyState";
+import useFetchMenu from "@modules/menu/hooks/useFetchMenu";
+import useAppDispatch from "@modules/common/hooks/useAppDispatch";
+import { setMenu } from "../../redux/features/menuSlice";
+import { setMeal } from "../../redux/features/mealSlice";
+import ActivityIndicatorBox from "@modules/common/components/ActivityIndicatorBox";
+import { getMealTypeByTime, getApropriateDate } from "@modules/common/utils/date";
+import { setDayIndex } from "../../redux/features/dayIndexSlice";
 
 const Tab = createMaterialTopTabNavigator();
 
-type MenuProps = {
-    mealType: string;
-};
-
-function Menu({ mealType }: MenuProps) {
+function Menu() {
     const menu = useAppSelector((state) => state.menu);
     const dayIndex = useAppSelector((state) => state.dayIndex);
     const dayMenu = menu[dayIndex];
     const insets = useSafeAreaInsets();
     const theme = useAppSelector((state) => state.theme);
+    const [menuReady, setMenuReady] = useState(false);
+    const dispatch = useAppDispatch();
+    const selectedCampus = useAppSelector((state) => state.campus);
+    const fetchMenu = useFetchMenu(selectedCampus);
+    const mealType = useAppSelector((state) => state.meal);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            dispatch(setMeal(getMealTypeByTime()));
+            dispatch(setDayIndex(getApropriateDate()));
+            fetchMenu()
+                .then((res) => {
+                    dispatch(setMenu(res));
+                })
+                .finally(() => setMenuReady(true));
+        };
+        fetchData();
+    }, [selectedCampus]);
+
+    if (!menuReady) {
+        return <ActivityIndicatorBox />;
+    }
 
     return (
         <View
@@ -147,6 +172,26 @@ function MenuWeb() {
     const dayMenu = menu[dayIndex];
     const theme = useAppSelector((state) => state.theme);
 
+    const [menuReady, setMenuReady] = useState(false);
+    const dispatch = useAppDispatch();
+    const selectedCampus = useAppSelector((state) => state.campus);
+    const fetchMenu = useFetchMenu(selectedCampus);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            fetchMenu()
+                .then((res) => {
+                    dispatch(setMenu(res));
+                })
+                .finally(() => setMenuReady(true));
+        };
+        fetchData();
+    }, [selectedCampus]);
+
+    if (!menuReady) {
+        return <ActivityIndicatorBox />;
+    }
+
     return (
         <View
             style={{
@@ -159,13 +204,25 @@ function MenuWeb() {
             }}
         >
             <View style={{ flex: 1 }}>
-                <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} time="7h - 9h30" />
+                {dayMenu ? (
+                    <DishList mealType="Desjejum" mealMenu={dayMenu["desjejum"]} time="7h - 9h30" />
+                ) : (
+                    <EmptyState />
+                )}
             </View>
             <View style={{ flex: 1 }}>
-                <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} time="11h - 14h30" />
+                {dayMenu ? (
+                    <DishList mealType="Almoço" mealMenu={dayMenu["almoco"]} time="11h - 14h30" />
+                ) : (
+                    <EmptyState />
+                )}
             </View>
             <View style={{ flex: 1 }}>
-                <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} time="17h - 19h30" />
+                {dayMenu ? (
+                    <DishList mealType="Jantar" mealMenu={dayMenu["jantar"]} time="17h - 19h30" />
+                ) : (
+                    <EmptyState />
+                )}
             </View>
         </View>
     );
