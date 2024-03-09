@@ -7,6 +7,7 @@ import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { getFormatedDate } from "@modules/common/utils/date";
 import DishItem from "@modules/menu/components/DishItem";
 import { LogoType } from "assets/logotype";
+import { Theme } from "src/styles";
 
 type ShareMealCardProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";
@@ -14,15 +15,31 @@ type ShareMealCardProps = {
 };
 
 const ShareMealCard = forwardRef<ViewShot, ShareMealCardProps>((props, ref): React.ReactElement => {
+    const theme = useAppSelector((state) => state.theme);
     const dayIndex = useAppSelector((state) => state.dayIndex);
 
     return (
-        <ViewShot ref={ref} style={styles.container}>
-            <View style={styles.headerContainer}>
+        <ViewShot
+            ref={ref}
+            style={[styles.container, { backgroundColor: Theme[theme].background_default }]}
+        >
+            <View
+                style={[
+                    styles.headerContainer,
+                    { backgroundColor: Theme[theme].background_default },
+                ]}
+            >
                 <Text style={styles.title}>{getFormatedDate(dayIndex)}</Text>
             </View>
-            <View style={styles.subHeaderContainer}>
-                <Text style={styles.subtitle}>{props.mealType}</Text>
+            <View
+                style={[
+                    styles.subHeaderContainer,
+                    { backgroundColor: Theme[theme].background_default },
+                ]}
+            >
+                <Text style={[styles.subtitle, { color: Theme[theme].text_default }]}>
+                    {props.mealType}
+                </Text>
             </View>
             <View>
                 {props.main.map((item) => (
