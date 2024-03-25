@@ -1,5 +1,5 @@
 import styles from "./styles";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import { Platform } from "react-native";
 import React from "react";
 import Feather from "@expo/vector-icons/build/Feather";

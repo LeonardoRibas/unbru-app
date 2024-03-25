@@ -1,11 +1,11 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import styles from "./styles";
 
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { setCampus } from "src/redux/features/campusSlice";
+import { setCampus } from "@modules/common/redux/features/campusSlice";
 import { MaterialIcons } from "@expo/vector-icons";
 
 type CampusRadioItemProps = {

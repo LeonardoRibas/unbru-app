@@ -1,4 +1,4 @@
-import Header from "../../modules/common/components/Header";
+import Header from "@modules/common/components/Header";
 import OnBoarding from "@modules/onboarding";
 import Menu from "@modules/menu";
 import { GeneralContext } from "../../context/GeneralContext";

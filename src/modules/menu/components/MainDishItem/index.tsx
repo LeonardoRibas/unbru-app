@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import { View, Text, Platform } from "react-native";
 import { getIconByLabel } from "@modules/menu/utils/metadata";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 
 type MainDishItemProps = {

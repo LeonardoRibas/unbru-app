@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import Illustration from "./onboarding.svg";
-import { Sizing } from "src/styles";
+import { Sizing } from "@modules/common/styles";
 
 const OnboardingIllustrationWeb = () => <img src={Illustration}></img>;
 

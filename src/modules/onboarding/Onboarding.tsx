@@ -10,7 +10,7 @@ import useAppSelector from "@modules/common/hooks/useAppSelector";
 import ButtonSelect from "@modules/onboarding/components/ButtonSelect ";
 import MaterialIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
 import Feather from "@expo/vector-icons/build/Feather";
-import { Colors } from "src/styles";
+import { Colors } from "@modules/common/styles";
 
 type OnBoardingProps = NativeStackScreenProps<RootStackParamList, "OnBoarding">;
 

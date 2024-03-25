@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { View, ActivityIndicator } from "react-native";
-import { Theme } from "../../../../styles";
+import { Theme } from "@modules/common/styles";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { AppOpenAd, AdEventType, TestIds } from "react-native-google-mobile-ads";
 

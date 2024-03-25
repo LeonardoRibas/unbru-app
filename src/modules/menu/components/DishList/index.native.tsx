@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useState, useCallback, useRef } from "react";
 import { View, FlatList, RefreshControl } from "react-native";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 import DishItem from "../DishItem";
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
@@ -8,7 +8,7 @@ import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { partition } from "@modules/menu/utils/partition";
 import MainDishCarousel from "@modules/menu/components/MainDishCarousel";
 import useFetchMenu from "@modules/menu/hooks/useFetchMenu";
-import { setMenu } from "src/redux/features/menuSlice";
+import { setMenu } from "@modules/common/redux/features/menuSlice";
 import { BannerAd, BannerAdSize, TestIds } from "react-native-google-mobile-ads";
 import EmptyState from "@modules/menu/components/EmptyState";
 import SubHeader from "../SubHeader";

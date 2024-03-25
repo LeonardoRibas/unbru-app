@@ -6,8 +6,8 @@ import MaterialIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
-import { setTheme } from "src/redux/features/themeSlice";
-import { Theme } from "src/styles";
+import { setTheme } from "@modules/common/redux/features/themeSlice";
+import { Theme } from "@modules/common/styles";
 import styles from "./styles";
 
 type SettingsMenuProps = NativeStackScreenProps<SettingsStackParamList, "SettingsMenu">;

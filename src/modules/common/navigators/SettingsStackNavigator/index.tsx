@@ -1,6 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import About from "../../modules/settings/components/About";
+import About from "@modules/settings/components/About";
 import StackHeader from "@modules/settings/components/StackHeader";
 import A2HSTutorialIOS from "@modules/settings/components/A2HSTutorial";
 import SettingsMenu from "@modules/settings/components/SettingsMenu";

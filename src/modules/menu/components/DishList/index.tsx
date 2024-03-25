@@ -1,12 +1,12 @@
 import DishItem from "../DishItem";
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme, Sizing } from "src/styles";
+import { Theme, Sizing } from "@modules/common/styles";
 import { partition } from "@modules/menu/utils/partition";
 import MainDishCarousel from "@modules/menu/components/MainDishCarousel";
 import useFetchMenu from "../../hooks/useFetchMenu";
 import React, { memo, useMemo, useState } from "react";
-import { setMenu } from "../../../../redux/features/menuSlice";
+import { setMenu } from "../../../common/redux/features/menuSlice";
 import { View, FlatList, RefreshControl } from "react-native";
 import EmptyState from "@modules/menu/components/EmptyState";
 import SubHeader from "../SubHeader";

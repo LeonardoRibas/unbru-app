@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
-import { Sizing } from "src/styles";
+import { Theme, Sizing } from "@modules/common/styles";
 import styles from "./styles";
 
 import Modal from "react-native-modal";
@@ -10,7 +10,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import DayButton from "@modules/menu/components/DayButton";
 import { useNavigation } from "@react-navigation/native";
-import { Theme } from "src/styles";
 
 export default function CalendarPickerModal(): React.ReactElement {
     const insets = useSafeAreaInsets();

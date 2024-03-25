@@ -7,7 +7,7 @@ import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { getFormatedDate } from "@modules/common/utils/date";
 import DishItem from "@modules/menu/components/DishItem";
 import { LogoType } from "assets/logotype";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 type ShareMealCardProps = {
     mealType: "Desjejum" | "Almoço" | "Jantar";

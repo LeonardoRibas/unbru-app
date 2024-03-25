@@ -3,7 +3,7 @@ import styles from "./styles";
 import { View, Text } from "react-native";
 import { getIconByLabel } from "../../utils/metadata";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 type DishItemProps = {
     label: string;

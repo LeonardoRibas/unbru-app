@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, View, Text } from "react-native";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import styles from "./styles";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 

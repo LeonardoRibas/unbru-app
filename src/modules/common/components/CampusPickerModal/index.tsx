@@ -7,7 +7,7 @@ import CampusRadioItem from "@modules/common/components/CampusRadioItem";
 import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 type CampusPickerModalNavigationProp = NativeStackScreenProps<
     RootStackParamList,

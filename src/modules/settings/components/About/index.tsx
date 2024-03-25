@@ -5,7 +5,7 @@ import AboutIllustration from "assets/illustrations/AboutIllustration";
 import ActionInput from "@modules/settings/components/ActionInput";
 import Button from "@modules/common/components/Button";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import { Feather } from "@expo/vector-icons";
 import HeartEmoji from "assets/icons/fluent-emoji_heart-suit.svg";
 import * as Clipboard from "expo-clipboard";

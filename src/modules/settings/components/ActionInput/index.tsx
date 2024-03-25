@@ -2,7 +2,7 @@ import { View, Text, Platform, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./styles";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 type ActionInputProps = {
     label: string;

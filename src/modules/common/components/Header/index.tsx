@@ -1,5 +1,5 @@
 import styles from "./styles";
-import { Colors } from "../../../../styles";
+import { Colors } from "@modules/common/styles";
 import React, { memo } from "react";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { StatusBar } from "expo-status-bar";

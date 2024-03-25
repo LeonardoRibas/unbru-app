@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles";
-import { Colors, Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 import { Entypo } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/core";

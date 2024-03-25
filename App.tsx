@@ -1,5 +1,5 @@
 import * as Font from "expo-font";
-import store from "./src/redux/store";
+import store from "./src/modules/common/redux/store";
 import { Provider } from "react-redux";
 import "react-native-url-polyfill/auto";
 import { persistStore } from "redux-persist";
@@ -9,8 +9,8 @@ import { PersistGate } from "redux-persist/integration/react";
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useState, useEffect, useCallback } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import GeneralContextProvider from "./src/context/GeneralContext";
-import RootStackNavigator from "./src/navigators/RootStackNavigator";
+import GeneralContextProvider from "./src/modules/common/context/GeneralContext";
+import RootStackNavigator from "@modules/common/navigators/RootStackNavigator";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
 import {
     Lexend_400Regular,

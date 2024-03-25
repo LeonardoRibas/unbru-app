@@ -4,10 +4,10 @@ import styles from "./styles";
 
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { setDayIndex } from "src/redux/features/dayIndexSlice";
+import { setDayIndex } from "@modules/common/redux/features/dayIndexSlice";
 import { getWeekDay } from "@modules/common/utils/date";
 import { useNavigation } from "@react-navigation/native";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 type DayButtonProps = {
     date: string;

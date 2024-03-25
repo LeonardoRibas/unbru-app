@@ -1,8 +1,8 @@
 import React from "react";
-import { Image, Text, View, ScrollView } from "react-native";
 import styles from "./styles";
-import { Sizing, Theme } from "src/styles";
 import { Platform } from "react-native";
+import { Sizing, Theme } from "@modules/common/styles";
+import { Image, Text, View, ScrollView } from "react-native";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 
 const A2HSTutorialIOS = (): React.ReactElement => {

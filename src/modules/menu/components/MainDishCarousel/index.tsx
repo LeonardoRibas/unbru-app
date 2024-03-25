@@ -1,5 +1,5 @@
 import React from "react";
-import { Sizing } from "src/styles";
+import { Sizing } from "@modules/common/styles";
 import MainDishItem from "../MainDishItem";
 import { FlatList, View } from "react-native";
 

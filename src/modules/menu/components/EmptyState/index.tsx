@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./styles";
 import Test from "assets/icons/fluent-emoji-flat_fork-and-knife-with-plate.svg";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { Theme } from "src/styles";
+import { Theme } from "@modules/common/styles";
 
 const EmptyState = (): React.ReactElement => {
     const theme = useAppSelector((state) => state.theme);
