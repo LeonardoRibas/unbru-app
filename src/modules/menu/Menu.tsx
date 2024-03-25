@@ -11,9 +11,9 @@ import useFetchMenu from "@modules/menu/hooks/useFetchMenu";
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
 import { setMenu } from "../../redux/features/menuSlice";
 import { setMeal } from "../../redux/features/mealSlice";
+import { setDayIndex } from "../../redux/features/dayIndexSlice";
 import ActivityIndicatorBox from "@modules/common/components/ActivityIndicatorBox";
 import { getMealTypeByTime, getApropriateDate } from "@modules/common/utils/date";
-import { setDayIndex } from "../../redux/features/dayIndexSlice";
 
 const Tab = createMaterialTopTabNavigator();
 
