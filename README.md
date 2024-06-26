@@ -30,7 +30,7 @@ Projeto no Figma: https://www.figma.com/file/QkCUoGgvilRIOWC9C5ckyd/UnB-RU?node-
 1. Instale as dependêcias do projeto
 
 ```bash
-npm install
+yarn install
 ```
 
 2. Crie sua primeira <a href="https://docs.expo.dev/build/setup/">build do app com EAS build</a>
