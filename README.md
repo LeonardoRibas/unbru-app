@@ -43,7 +43,7 @@ yarn install
         "foregroundImage": "./assets/adaptive-icon.png",
             "backgroundColor": "#49B660"
     },
-        "package": "com.leonardoribas.unbrufront"
+        "package": "com.yourexpousername.unbrufront"
 },
 
 ```
