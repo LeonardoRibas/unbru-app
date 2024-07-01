@@ -48,7 +48,7 @@ yarn install
 
 ```
 
-4. Além de substituir o "package", apague o "projectId" atual, e só após faça a build de desenvolvimento do projeto que o id do projeto será gerado automaticamente.
+4. Além de substituir o "package", remova o "projectId" atual. Em seguida, faça a build de desenvolvimento do projeto. O novo "projectId" será gerado automaticamente durante esse processo.
 
 ```json
 "extra": {
