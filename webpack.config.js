@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require("path");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const createExpoWebpackConfigAsync = require("@expo/webpack-config");
@@ -9,6 +10,15 @@ module.exports = async function (env, argv) {
 
     // Create the default config
     const config = await createExpoWebpackConfigAsync(env, argv);
+
+    // Add polyfill for Node.js modules
+    config.resolve = {
+        ...config.resolve,
+        fallback: {
+            ...config.resolve?.fallback,
+            crypto: require.resolve("crypto-browserify"),
+        },
+    };
 
     if (isEnvProduction) {
         config.plugins.push(

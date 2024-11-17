@@ -22,6 +22,21 @@ type MealMenuProps = {
     time: string;
 };
 
+const unbruKeywords = [
+    "food",
+    "cooking",
+    "recipe",
+    "meal",
+    "lunch",
+    "dinner",
+    "breakfast",
+    "snack",
+    "cuisine",
+    "restaurant",
+    "fast food",
+    "meal plan",
+];
+
 function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
     const fetchMenu = useFetchMenu();
@@ -96,6 +111,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
                 unitId={adUnitId}
                 size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
                 requestOptions={{
+                    keywords: unbruKeywords,
                     requestNonPersonalizedAdsOnly: true,
                 }}
             />

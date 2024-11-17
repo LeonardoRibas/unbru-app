@@ -7,6 +7,7 @@
         "icon": "./assets/icon.png",
         "description": "Cardápio do Restaurante Univesitário de Brasília",
         "userInterfaceStyle": "automatic",
+        "platforms": ["android", "web"],
         "splash": {
             "image": "./assets/splash.png",
             "resizeMode": "contain",
