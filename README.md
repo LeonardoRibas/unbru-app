@@ -30,12 +30,37 @@ Projeto no Figma: https://www.figma.com/file/QkCUoGgvilRIOWC9C5ckyd/UnB-RU?node-
 1. Instale as dependêcias do projeto
 
 ```bash
-npm install
+yarn install
 ```
 
-2. Crie uma <a href="https://docs.expo.dev/develop/development-builds/create-a-build/">development build </a>
+2. Crie sua primeira <a href="https://docs.expo.dev/build/setup/">build do app com EAS build</a>
 
-3. Incie o projeto
+3. Antes de criar sua build de desenvolvimento, vá no arquivo app.json e substitua o "package:" com o usuário da sua conta criada na <a href="https://expo.dev/">EXPO</a>
+
+```json
+"android": {
+    "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+            "backgroundColor": "#49B660"
+    },
+        "package": "com.yourexpousername.unbrufront"
+},
+
+```
+
+4. Além de substituir o "package", remova o "projectId" atual. Em seguida, faça a build de desenvolvimento do projeto. O novo "projectId" será gerado automaticamente durante esse processo.
+
+```json
+"extra": {
+    "eas": {
+        "projectId": "seu-projeto-id",
+    }
+},
+```
+
+5. Crie uma <a href="https://docs.expo.dev/develop/development-builds/create-a-build/">development build </a>
+
+6. Incie o projeto
 
 ```bash
 yarn start --dev-client
@@ -43,7 +68,7 @@ yarn start --dev-client
 
 ## Contribuição
 
-Interessado em contriubuir com o projeto? Leia nosso
+Interessado em contribuir com o projeto? Leia nosso
 
 -   [Código de Conduta do Contribuidor](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CODE_OF_CONDUCT.md)
 -   [Guia de Contribuição ao UnBRU](https://github.com/LeonardoRibas/unb-ru-app/blob/main/.github/CONTRIBUTING.md)
