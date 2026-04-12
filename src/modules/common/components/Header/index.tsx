@@ -7,7 +7,7 @@ import { Feather } from "@expo/vector-icons";
 import { getFormatedDate } from "../../utils/date";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { NativeStackHeaderProps } from "@react-navigation/native-stack/lib/typescript/src/types";
+import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 
 function Header({ navigation }: NativeStackHeaderProps): React.ReactElement {
     const insets = useSafeAreaInsets();

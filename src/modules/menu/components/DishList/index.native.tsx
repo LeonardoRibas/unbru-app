@@ -15,27 +15,14 @@ import SubHeader from "../SubHeader";
 import * as Sharing from "expo-sharing";
 import ViewShot from "react-native-view-shot";
 import ShareMealCard from "@modules/menu/components/ShareMealCard";
+import { useIsFocused } from "@react-navigation/native";
+import { getAdRequestOptions } from "@modules/common/utils/ads";
 
 type MealMenuProps = {
     mealMenu: BreakfastMeal | LunchMeal | DinnerMeal;
     mealType: "Desjejum" | "Almoço" | "Jantar";
     time: string;
 };
-
-const unbruKeywords = [
-    "food",
-    "cooking",
-    "recipe",
-    "meal",
-    "lunch",
-    "dinner",
-    "breakfast",
-    "snack",
-    "cuisine",
-    "restaurant",
-    "fast food",
-    "meal plan",
-];
 
 function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactElement {
     const [refreshing, setRefreshing] = useState(false);
@@ -44,6 +31,7 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
     const adUnitId = __DEV__ ? TestIds.BANNER : "ca-app-pub-7231147932250814/7932106851";
     const viewShotRef = useRef<ViewShot>(null);
     const theme = useAppSelector((state) => state.theme);
+    const isFocused = useIsFocused();
 
     const [main, extras] = useMemo(
         () =>
@@ -107,14 +95,13 @@ function DishList({ mealMenu, mealType, time }: MealMenuProps): React.ReactEleme
                 <EmptyState />
             )}
             <ShareMealCard ref={viewShotRef} main={main} mealType={mealType} />
-            <BannerAd
-                unitId={adUnitId}
-                size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-                requestOptions={{
-                    keywords: unbruKeywords,
-                    requestNonPersonalizedAdsOnly: true,
-                }}
-            />
+            {isFocused && (
+                <BannerAd
+                    unitId={adUnitId}
+                    size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                    requestOptions={getAdRequestOptions()}
+                />
+            )}
         </View>
     );
 }

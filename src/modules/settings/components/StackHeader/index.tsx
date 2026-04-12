@@ -3,7 +3,7 @@ import styles from "./styles";
 import { Theme } from "@modules/common/styles";
 import { Entypo } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import useAppSelector from "@modules/common/hooks/useAppSelector";

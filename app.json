@@ -1,51 +1,63 @@
 {
-    "expo": {
-        "name": "UnBRU",
-        "slug": "unbru",
-        "version": "2.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/icon.png",
-        "description": "Cardápio do Restaurante Univesitário de Brasília",
-        "userInterfaceStyle": "automatic",
-        "platforms": ["android", "web"],
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#49B660"
-        },
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": ["**/*"],
-        "ios": {
-            "supportsTablet": true
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#49B660"
-            },
-            "package": "com.leonardoribas.unbrufront"
-        },
-        "web": {
-            "lang": "pt-BR",
-            "themeColor": "#49B660",
-            "startUrl": "/",
-            "favicon": "./assets/favicon.png"
-        },
-        "androidStatusBar": {
-            "barStyle": "light-content",
-            "backgroundColor": "#49B660"
-        },
-        "extra": {
-            "eas": {
-                "projectId": "24e7d046-40b1-42e3-af13-b735d037128b"
-            }
-        },
-        "plugins": ["expo-font"]
+  "expo": {
+    "name": "UnBRU",
+    "slug": "unbru",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "description": "Cardápio do Restaurante Univesitário de Brasília",
+    "userInterfaceStyle": "automatic",
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#49B660"
     },
-    "react-native-google-mobile-ads": {
-        "android_app_id": "ca-app-pub-7231147932250814~5244744085",
-        "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
-    }
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.leonardoribas.unbrufront",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#49B660"
+      },
+      "package": "com.leonardoribas.unbrufront"
+    },
+    "web": {
+      "lang": "pt-BR",
+      "themeColor": "#49B660",
+      "startUrl": "/",
+      "favicon": "./assets/favicon.png"
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#49B660"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "24e7d046-40b1-42e3-af13-b735d037128b"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-7231147932250814~5244744085",
+    "ios_app_id": "ca-app-pub-7231147932250814~5244744085"
+  }
 }
