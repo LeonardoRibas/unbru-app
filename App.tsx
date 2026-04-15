@@ -11,7 +11,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import GeneralContextProvider from "./src/modules/common/context/GeneralContext";
 import RootStackNavigator from "@modules/common/navigators/RootStackNavigator";
-import { initializeAds, preloadInterstitialAd } from "@modules/common/utils/ads";
+import { initializeAds, preloadInterstitialAd, setupAppOpenAdListener } from "@modules/common/utils/ads";
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
 import {
     Lexend_400Regular,
@@ -33,6 +33,7 @@ export default function App(): React.ReactElement | null {
     useEffect(() => {
         initializeAds().finally(() => {
             preloadInterstitialAd();
+            setupAppOpenAdListener();
         });
 
         Promise.all([

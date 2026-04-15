@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import DishList from "@modules/menu/components/DishList";
 import CustomIcon from "@modules/menu/components/CustomIcon";
@@ -14,6 +14,7 @@ import { setMeal } from "../common/redux/features/mealSlice";
 import { setDayIndex } from "../common/redux/features/dayIndexSlice";
 import ActivityIndicatorBox from "@modules/common/components/ActivityIndicatorBox";
 import { getMealTypeByTime, getApropriateDate } from "@modules/common/utils/date";
+import { maybeShowInterstitialAd, preloadInterstitialAd } from "@modules/common/utils/ads";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -28,6 +29,12 @@ function Menu() {
     const selectedCampus = useAppSelector((state) => state.campus);
     const fetchMenu = useFetchMenu();
     const mealType = useAppSelector((state) => state.meal);
+
+    const handleTabSwitch = useCallback(() => {
+        maybeShowInterstitialAd()
+            .catch(() => {})
+            .finally(() => preloadInterstitialAd());
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,6 +64,9 @@ function Menu() {
             <Tab.Navigator
                 initialRouteName={mealType}
                 tabBarPosition="bottom"
+                screenListeners={{
+                    tabPress: handleTabSwitch,
+                }}
                 screenOptions={{
                     swipeEnabled: false,
                     tabBarActiveTintColor: Theme[theme].color_primary,
