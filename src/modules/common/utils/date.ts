@@ -1,5 +1,3 @@
-import { current } from "@reduxjs/toolkit";
-
 const weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 const yearMonths = [
     "Janeiro",

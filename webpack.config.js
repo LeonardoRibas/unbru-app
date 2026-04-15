@@ -11,19 +11,12 @@ module.exports = async function (env, argv) {
     // Create the default config
     const config = await createExpoWebpackConfigAsync(env, argv);
 
-    // Add polyfill for Node.js modules
-    config.resolve = {
-        ...config.resolve,
-        fallback: {
-            ...config.resolve?.fallback,
-            crypto: require.resolve("crypto-browserify"),
-        },
-    };
-
     if (isEnvProduction) {
         config.plugins.push(
             new BundleAnalyzerPlugin({
-                path: "web-report",
+                analyzerMode: "static",
+                reportFilename: "web-report/report.html",
+                openAnalyzer: false,
             })
         );
         config.plugins.push(

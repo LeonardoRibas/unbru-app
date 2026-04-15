@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 import { Theme } from "@modules/common/styles";
-import { Entypo } from "@expo/vector-icons";
+import Entypo from "@expo/vector-icons/build/Entypo";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity } from "react-native";

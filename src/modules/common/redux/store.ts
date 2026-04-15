@@ -12,6 +12,7 @@ const persistConfig = {
     key: "root",
     version: 1,
     storage: AsyncStorage,
+    blacklist: ["menu", "dayIndex", "meal"],
 };
 
 const reducers = combineReducers({

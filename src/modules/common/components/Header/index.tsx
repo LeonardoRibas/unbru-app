@@ -3,7 +3,7 @@ import { Colors } from "@modules/common/styles";
 import React, { memo } from "react";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { StatusBar } from "expo-status-bar";
-import { Feather } from "@expo/vector-icons";
+import Feather from "@expo/vector-icons/build/Feather";
 import { getFormatedDate } from "../../utils/date";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";

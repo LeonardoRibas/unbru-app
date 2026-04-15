@@ -24,8 +24,8 @@ const useFetchMenu = () => {
     const selectedCampus = useAppSelector((state) => state.campus);
 
     async function fetchMenu() {
-        const { data } = await supabase.from<DayMenu>(selectedCampus).select("*").order("date");
-        return parseMenu(data);
+        const { data } = await supabase.from(selectedCampus).select("*").order("date");
+        return parseMenu(data as DayMenu[] | null);
     }
     return fetchMenu;
 };

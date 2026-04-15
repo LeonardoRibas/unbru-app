@@ -1,10 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Pressable, StyleSheet } from "react-native";
 import styles from "./styles";
 import Button from "@modules/common/components/Button";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import CampusRadioItem from "@modules/common/components/CampusRadioItem";
-import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { Theme } from "@modules/common/styles";
@@ -21,19 +20,11 @@ export default function CampusPickerModal({
     const theme = useAppSelector((state) => state.theme);
 
     return (
-        <Modal
-            isVisible={true}
-            onBackdropPress={() => navigation.goBack()}
-            onSwipeComplete={() => navigation.goBack()}
-            swipeDirection="down"
-            hideModalContentWhileAnimating
-            useNativeDriverForBackdrop
-            statusBarTranslucent
-            scrollHorizontal
-            propagateSwipe
-            backdropOpacity={0.5}
-            style={{ justifyContent: "flex-end", margin: 0 }}
-        >
+        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+            <Pressable
+                style={[StyleSheet.absoluteFill, { backgroundColor: "rgba(0,0,0,0.5)" }]}
+                onPress={() => navigation.goBack()}
+            />
             <View
                 style={{
                     ...styles.container,
@@ -56,6 +47,6 @@ export default function CampusPickerModal({
                     </View>
                 </View>
             </View>
-        </Modal>
+        </View>
     );
 }

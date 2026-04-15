@@ -1,9 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
 import { Theme, Sizing } from "@modules/common/styles";
 import styles from "./styles";
 
-import Modal from "react-native-modal";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { getMonthsFromWeek } from "@modules/common/utils/date";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -29,19 +28,11 @@ export default function CalendarPickerModal(): React.ReactElement {
     }, [dayIndex]);
 
     return (
-        <Modal
-            isVisible={true}
-            onBackdropPress={() => navigation.goBack()}
-            onSwipeComplete={() => navigation.goBack()}
-            swipeDirection="down"
-            hideModalContentWhileAnimating
-            useNativeDriverForBackdrop
-            statusBarTranslucent
-            scrollHorizontal
-            propagateSwipe
-            backdropOpacity={0.5}
-            style={{ justifyContent: "flex-end", margin: 0 }}
-        >
+        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+            <Pressable
+                style={[StyleSheet.absoluteFill, { backgroundColor: "rgba(0,0,0,0.5)" }]}
+                onPress={() => navigation.goBack()}
+            />
             <View
                 style={[
                     styles.container,
@@ -73,6 +64,6 @@ export default function CalendarPickerModal(): React.ReactElement {
                     </ScrollView>
                 </View>
             </View>
-        </Modal>
+        </View>
     );
 }

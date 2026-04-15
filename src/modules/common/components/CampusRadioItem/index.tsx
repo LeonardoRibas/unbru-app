@@ -6,7 +6,7 @@ import styles from "./styles";
 import useAppDispatch from "@modules/common/hooks/useAppDispatch";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
 import { setCampus } from "@modules/common/redux/features/campusSlice";
-import { MaterialIcons } from "@expo/vector-icons";
+import MaterialIcons from "@expo/vector-icons/build/MaterialIcons";
 
 type CampusRadioItemProps = {
     title: Campus;

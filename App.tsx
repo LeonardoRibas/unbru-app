@@ -1,7 +1,6 @@
 import * as Font from "expo-font";
 import store from "./src/modules/common/redux/store";
 import { Provider } from "react-redux";
-import "react-native-url-polyfill/auto";
 import { persistStore } from "redux-persist";
 import * as SplashScreen from "expo-splash-screen";
 import { checkIfFirstLaunch } from "./src/modules/common/utils/storage";
