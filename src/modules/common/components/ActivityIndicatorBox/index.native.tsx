@@ -1,21 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, ActivityIndicator } from "react-native";
 import { Theme } from "@modules/common/styles";
 import useAppSelector from "@modules/common/hooks/useAppSelector";
-import { maybeShowInterstitialAd, preloadInterstitialAd } from "@modules/common/utils/ads";
 
 export default function ActivityIndicatorBox(): React.ReactElement {
     const theme = useAppSelector((state) => state.theme);
-
-    useEffect(() => {
-        maybeShowInterstitialAd()
-            .catch((error) => {
-                console.error("[ads] interstitial display failed", error);
-            })
-            .finally(() => {
-                preloadInterstitialAd();
-            });
-    }, []);
 
     return (
         <View

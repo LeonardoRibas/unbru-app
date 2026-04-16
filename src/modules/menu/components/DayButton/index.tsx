@@ -25,7 +25,7 @@ const DayButton = ({ date }: DayButtonProps): React.ReactElement => {
             style={styles.container}
             onPress={() => {
                 dispatch(setDayIndex(date));
-                setTimeout(() => navigation.goBack(), 400);
+                navigation.goBack();
             }}
         >
             <Text style={[styles.title, { color: Theme[theme].text_secondary }]}>

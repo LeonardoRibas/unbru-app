@@ -9,7 +9,7 @@ import mobileAds, {
 } from "react-native-google-mobile-ads";
 
 const INTERSTITIAL_LAST_SHOWN_AT_KEY = "ad:interstitial:lastShownAt";
-const INTERSTITIAL_MIN_INTERVAL_MS = 1000 * 60 * 2;
+const INTERSTITIAL_MIN_INTERVAL_MS = 0; // TODO: restore to 1000 * 60 * 2
 
 const APP_OPEN_LAST_SHOWN_AT_KEY = "ad:appOpen:lastShownAt";
 const APP_OPEN_MIN_INTERVAL_MS = 1000 * 60 * 5;
